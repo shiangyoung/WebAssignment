@@ -95,12 +95,9 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="AboutUs.aspx" />
-    <Content Include="App_Data\Gallery.mdf">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </Content>
+    <Content Include="App_Data\Gallery.mdf" />
     <Content Include="App_Data\Gallery_log.ldf">
       <DependentUpon>Gallery.mdf</DependentUpon>
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
     <Content Include="Default.aspx" />
     <Content Include="displayProducts.aspx" />
