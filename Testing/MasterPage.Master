@@ -18,7 +18,7 @@
                 </div>
                 <div id="navigation">
                     <ul id="nav">
-                        <li><asp:HyperLink ID="HyperLink1" runat="server">Webshop</asp:HyperLink></li>
+                        <li><asp:HyperLink ID="HyperLink1" runat="server" NavigateUrl="~/ViewGallery.aspx">Webshop</asp:HyperLink></li>
                         <li><asp:HyperLink ID="HyperLink2" runat="server" NavigateUrl="~/AboutUs.aspx">About Us</asp:HyperLink></li>
                         <li><asp:HyperLink ID="HyperLink3" runat="server">Report</asp:HyperLink></li>
                         <li><asp:HyperLink ID="HyperLink4" runat="server">Management</asp:HyperLink></li>
