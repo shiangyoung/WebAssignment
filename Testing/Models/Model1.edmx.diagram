@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+ <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+      <Diagram DiagramId="a497087d86954db1b6cfaf2dcb0cea3f" Name="Diagram1">
+        <EntityTypeShape EntityType="GalleryModel.ARTIST" Width="1.5" PointX="0.75" PointY="3.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="GalleryModel.CART" Width="1.5" PointX="3" PointY="12.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="GalleryModel.CARTITEM" Width="1.5" PointX="5.25" PointY="3.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="GalleryModel.CATEGORY" Width="1.5" PointX="0.75" PointY="1" IsExpanded="true" />
+        <EntityTypeShape EntityType="GalleryModel.CUSTOMER" Width="1.5" PointX="0.75" PointY="7.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="GalleryModel.ORDER" Width="1.5" PointX="3" PointY="8.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="GalleryModel.ORDERDETAIL" Width="1.5" PointX="5.25" PointY="0.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="GalleryModel.PAYMENT" Width="1.5" PointX="0.75" PointY="10.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="GalleryModel.PRODUCT" Width="1.5" PointX="3" PointY="3.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="GalleryModel.Table" Width="1.5" PointX="5.75" PointY="7" IsExpanded="true" />
+        <EntityTypeShape EntityType="GalleryModel.USER" Width="1.5" PointX="3" PointY="16.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="GalleryModel.WISHLIST" Width="1.5" PointX="7.75" PointY="2" IsExpanded="true" />
+        <AssociationConnector Association="GalleryModel.FK_PRODUCT_ToTable" ManuallyRouted="false" />
+        <AssociationConnector Association="GalleryModel.FK_CART_CUSTOMER" ManuallyRouted="false" />
+        <AssociationConnector Association="GalleryModel.FK_CARTITEM_CART" ManuallyRouted="false" />
+        <AssociationConnector Association="GalleryModel.FK_CARTITEM_PRODUCT" ManuallyRouted="false" />
+        <AssociationConnector Association="GalleryModel.FK_PRODUCT_ToTable_1" ManuallyRouted="false" />
+        <AssociationConnector Association="GalleryModel.FK_ORDER_CUSTOMER" ManuallyRouted="false" />
+        <AssociationConnector Association="GalleryModel.FK_USER_CUSTOMER" ManuallyRouted="false" />
+        <AssociationConnector Association="GalleryModel.FK_ORDER_PAYMENT" ManuallyRouted="false" />
+        <AssociationConnector Association="GalleryModel.FK_ORDERDETAIL_ORDER" ManuallyRouted="false" />
+        <AssociationConnector Association="GalleryModel.FK_ORDERDETAIL_PRODUCT" ManuallyRouted="false" />
+      </Diagram>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>
