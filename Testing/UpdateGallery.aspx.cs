@@ -1,21 +1,20 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.IO;
+using System.Configuration;
+using System.Data.SqlClient;
 using System.Linq;
 using System.Web;
+using System.Web.Script.Services;
+using System.Web.Services;
 using System.Web.UI;
 using System.Web.UI.WebControls;
-using System.Data;
-using System.Data.SqlClient;
-using System.Configuration;
-using System.Web.Services;
-using System.Web.Script.Services;
 using Testing.Models;
 
 namespace Testing
 {
-    public partial class ViewGallery : System.Web.UI.Page
+    public partial class UpdateGallery : System.Web.UI.Page
     {
+
         SqlConnection con = new SqlConnection(ConfigurationManager.ConnectionStrings["ConnectionString"].ConnectionString);
 
         protected void Page_Load(object sender, EventArgs e)
@@ -42,7 +41,7 @@ namespace Testing
             //Get the repeater item index
             //int index = item.ItemIndex;
 
-            Response.Redirect("~/ProductInfo.aspx?ProductId=" + commandArgument);
+            Response.Redirect("~/UpdateItem.aspx?ProductId=" + commandArgument);
             //System.Diagnostics.Debug.WriteLine(button.ToString() + commandArgument + item.ToString() + index.ToString());
         }
 

@@ -10,7 +10,7 @@
 namespace Testing {
     
     
-    public partial class ViewGallery {
+    public partial class UpdateGallery {
         
         /// <summary>
         /// SqlDataSource1 control.
