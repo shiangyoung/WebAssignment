@@ -8,6 +8,9 @@ using System.Web.UI.WebControls;
 using System.Data;
 using System.Data.SqlClient;
 using System.Configuration;
+using System.Web.Services;
+using System.Web.Script.Services;
+using Testing.Models;
 
 namespace Testing
 {
@@ -22,6 +25,7 @@ namespace Testing
 
         protected void btnSearch_Click(object sender, EventArgs e)
         {
+
         }
 
         protected void imgbtnGallery_Click(object sender, ImageClickEventArgs e)
@@ -33,13 +37,13 @@ namespace Testing
             string commandArgument = button.CommandArgument;
 
             //Get the Repeater Item reference
-            RepeaterItem item = button.NamingContainer as RepeaterItem;
+            //RepeaterItem item = button.NamingContainer as RepeaterItem;
 
             //Get the repeater item index
-            int index = item.ItemIndex;
+            //int index = item.ItemIndex;
 
             Response.Redirect("~/ProductInfo.aspx?ProductId=" + commandArgument);
-            System.Diagnostics.Debug.WriteLine(button.ToString() + commandArgument + item.ToString() + index.ToString());
+            //System.Diagnostics.Debug.WriteLine(button.ToString() + commandArgument + item.ToString() + index.ToString());
         }
 
         protected void rptProduct_ItemCommand(object source, RepeaterCommandEventArgs e)
@@ -48,6 +52,20 @@ namespace Testing
             {
 
             }
+        }
+
+        [WebMethod]
+        [ScriptMethod(ResponseFormat = ResponseFormat.Json)]
+        public static List<String> GetProductName(string pre)
+        {
+            List<string> allProductName = new List<string>();
+            using (GalleryEntities1 db = new GalleryEntities1())
+            {
+                allProductName = (from a in db.PRODUCTs
+                                  where a.Name.Contains(pre)
+                                  select a.Name).ToList();
+            }
+            return allProductName;
         }
     }
 }
