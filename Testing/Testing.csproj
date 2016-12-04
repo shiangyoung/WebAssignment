@@ -148,7 +148,6 @@
   <ItemGroup>
     <Content Include="ProductInfo.aspx" />
     <Content Include="Style\StyleSheet.css" />
-    <Content Include="test.aspx" />
     <Content Include="ViewGallery.aspx" />
     <Content Include="Web.config">
       <SubType>Designer</SubType>
@@ -256,13 +255,6 @@
       <DependentUpon>ProductInfo.aspx</DependentUpon>
     </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="test.aspx.cs">
-      <DependentUpon>test.aspx</DependentUpon>
-      <SubType>ASPXCodeBehind</SubType>
-    </Compile>
-    <Compile Include="test.aspx.designer.cs">
-      <DependentUpon>test.aspx</DependentUpon>
-    </Compile>
     <Compile Include="ViewGallery.aspx.cs">
       <DependentUpon>ViewGallery.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
