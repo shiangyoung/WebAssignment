@@ -21,7 +21,7 @@ namespace Testing
             var item = new PRODUCT();
             TryUpdateModel(item);
             item.ArtistId = 1001;
-
+            item.CategoryId = 3001;
             //To convert the image to binary
             FileUpload imageUpload = (FileUpload)fvAddItem.FindControl("imageUpload");
             HttpPostedFile postedFile = imageUpload.PostedFile;
@@ -37,7 +37,7 @@ namespace Testing
                 byte[] bytes = binaryReader.ReadBytes((int)stream.Length);
                 item.Image = bytes;
             }
-
+            
             if (ModelState.IsValid)
             {
                 // Save changes here
