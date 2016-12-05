@@ -1,11 +1,9 @@
-﻿<%@ Page Title="Registration" MasterPageFile="~/MasterPage.Master" Language="C#" AutoEventWireup="true" CodeBehind="RegistrationPage.aspx.cs" Inherits="Testing.Registration" %>
+﻿<%@ Page Title="Registration" MasterPageFile="~/MasterPage.Master" Language="C#" AutoEventWireup="true" CodeBehind="Register.aspx.cs" Inherits="Testing.Register" %>
 
-<!DOCTYPE html>
 
-<html xmlns="http://www.w3.org/1999/xhtml">
-<head runat="server">
-    <title></title>
-    <style type="text/css">
+   
+    <asp:Content ID="AddProductContent" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
+        <style type="text/css">
         .auto-style1 {
             width: 100%;
         }
@@ -17,15 +15,15 @@
             text-align: right;
         }
         .auto-style4 {
-            width: 218px;
-        }
+                width: 316px;
+            }
         .auto-style5 {
             width: 203px;
             text-align: right;
             height: 29px;
         }
         .auto-style6 {
-            width: 218px;
+            width: 316px;
             height: 29px;
         }
         .auto-style7 {
@@ -37,16 +35,16 @@
             height: 194px;
         }
         .auto-style9 {
-            width: 218px;
+            width: 316px;
             height: 194px;
         }
         .auto-style10 {
             height: 194px;
         }
     </style>
-</head>
-<body>
-    <form id="form1" runat="server">
+
+
+  
     <div>
             <div>
 
@@ -123,16 +121,23 @@
                         <td class="auto-style8">Date Of Birth:</td>
                         <td class="auto-style9">
                             
-                            <asp:Calendar ID="calendarBirth" runat="server" BackColor="White" BorderColor="Black" DayNameFormat="Shortest" Font-Names="Times New Roman" Font-Size="10pt" ForeColor="Black" Height="30px" NextPrevFormat="FullMonth" TitleFormat="Month" Width="205px">
-                                <DayHeaderStyle BackColor="#CCCCCC" Font-Bold="True" Font-Size="7pt" ForeColor="#333333" Height="10pt" />
-                                <DayStyle Width="14%" />
-                                <NextPrevStyle Font-Size="8pt" ForeColor="White" />
-                                <OtherMonthDayStyle ForeColor="#999999" />
-                                <SelectedDayStyle BackColor="#CC3333" ForeColor="White" />
-                                <SelectorStyle BackColor="#CCCCCC" Font-Bold="True" Font-Names="Verdana" Font-Size="8pt" ForeColor="#333333" Width="1%" />
-                                <TitleStyle BackColor="Black" Font-Bold="True" Font-Size="13pt" ForeColor="White" Height="14pt" />
-                                <TodayDayStyle BackColor="#CCCC99" />
-                            </asp:Calendar>
+                            <table class="auto-style1">
+                                <tr>
+                                    <td>
+                                        <asp:DropDownList ID="DropDownList1" runat="server" Width="85px" DataSourceID="XmlDataSource1" DataTextField="id" DataValueField="id" OnSelectedIndexChanged="DropDownList1_SelectedIndexChanged" >
+                                        </asp:DropDownList>
+                                        
+                                    </td>
+                                    <td><asp:DropDownList ID="DropDownList2" runat="server" Width="90px" DataSourceID="XmlDataSource2" DataTextField="month" DataValueField="month">
+                                        </asp:DropDownList></td>
+                                    <td>
+                                        <asp:DropDownList ID="DropDownList3" runat="server" Width="90px">
+                                        </asp:DropDownList>
+                                    </td>
+                                </tr>
+                            </table>
+                            <asp:XmlDataSource ID="XmlDataSource1" runat="server" DataFile="~/XMLFile1.xml" XPath="/id"></asp:XmlDataSource>
+                            <asp:XmlDataSource ID="XmlDataSource2" runat="server" DataFile="~/XMLFile1.xml" XPath="/month"></asp:XmlDataSource>
                         </td>
                         <td class="auto-style10">
                             </td>
@@ -149,8 +154,6 @@
 
             </div>
     </div>
-    </form>
-    <p>
-        &nbsp;</p>
-</body>
-</html>
+    
+    </asp:Content>
+
