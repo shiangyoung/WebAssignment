@@ -116,6 +116,7 @@
     <Content Include="Images\AboutUs.jpg" />
     <Content Include="Images\banner.jpg" />
     <Content Include="Images\gal1.jpg" />
+    <Content Include="Login.aspx" />
     <Content Include="Models\Model1.Context.tt">
       <Generator>TextTemplatingFileGenerator</Generator>
       <DependentUpon>Model1.edmx</DependentUpon>
@@ -195,6 +196,13 @@
     </Compile>
     <Compile Include="displayProducts.aspx.designer.cs">
       <DependentUpon>displayProducts.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Login.aspx.cs">
+      <DependentUpon>Login.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Login.aspx.designer.cs">
+      <DependentUpon>Login.aspx</DependentUpon>
     </Compile>
     <Compile Include="MasterPage.Master.cs">
       <DependentUpon>MasterPage.Master</DependentUpon>
