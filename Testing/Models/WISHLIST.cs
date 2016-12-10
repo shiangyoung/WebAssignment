@@ -16,5 +16,9 @@ namespace Testing.Models
     {
         public int WishlistId { get; set; }
         public Nullable<int> ProductId { get; set; }
+        public Nullable<int> CustomerId { get; set; }
+    
+        public virtual CUSTOMER CUSTOMER { get; set; }
+        public virtual PRODUCT PRODUCT { get; set; }
     }
 }

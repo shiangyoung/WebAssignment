@@ -88,12 +88,12 @@
             <PropertyRef Name="ProductId" />
           </Key>
           <Property Name="ProductId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
-          <Property Name="Name" Type="nvarchar" MaxLength="50" />
-          <Property Name="Model" Type="nvarchar" MaxLength="50" />
+          <Property Name="Name" Type="nchar" MaxLength="10" />
+          <Property Name="Model" Type="nchar" MaxLength="10" />
           <Property Name="Stock" Type="int" />
           <Property Name="Price" Type="money" />
-          <Property Name="ArtistId" Type="int" Nullable="false" />
-          <Property Name="CategoryId" Type="int" Nullable="false" />
+          <Property Name="ArtistId" Type="int" />
+          <Property Name="CategoryId" Type="int" />
           <Property Name="Image" Type="varbinary(max)" />
         </EntityType>
         <EntityType Name="Table">
@@ -128,6 +128,7 @@
           </Key>
           <Property Name="WishlistId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
           <Property Name="ProductId" Type="int" />
+          <Property Name="CustomerId" Type="int" />
         </EntityType>
         <Association Name="FK_CART_CUSTOMER">
           <End Role="CUSTOMER" Type="Self.CUSTOMER" Multiplicity="0..1" />
@@ -214,7 +215,7 @@
           </ReferentialConstraint>
         </Association>
         <Association Name="FK_PRODUCT_ToTable">
-          <End Role="ARTIST" Type="Self.ARTIST" Multiplicity="1" />
+          <End Role="ARTIST" Type="Self.ARTIST" Multiplicity="0..1" />
           <End Role="PRODUCT" Type="Self.PRODUCT" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="ARTIST">
@@ -226,7 +227,7 @@
           </ReferentialConstraint>
         </Association>
         <Association Name="FK_PRODUCT_ToTable_1">
-          <End Role="CATEGORY" Type="Self.CATEGORY" Multiplicity="1" />
+          <End Role="CATEGORY" Type="Self.CATEGORY" Multiplicity="0..1" />
           <End Role="PRODUCT" Type="Self.PRODUCT" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="CATEGORY">
@@ -246,6 +247,30 @@
             </Principal>
             <Dependent Role="USER">
               <PropertyRef Name="CustomerId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_WISHLIST_CUSTOMER">
+          <End Role="CUSTOMER" Type="Self.CUSTOMER" Multiplicity="0..1" />
+          <End Role="WISHLIST" Type="Self.WISHLIST" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="CUSTOMER">
+              <PropertyRef Name="CustomerId" />
+            </Principal>
+            <Dependent Role="WISHLIST">
+              <PropertyRef Name="CustomerId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_WISHLIST_PRODUCT">
+          <End Role="PRODUCT" Type="Self.PRODUCT" Multiplicity="0..1" />
+          <End Role="WISHLIST" Type="Self.WISHLIST" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="PRODUCT">
+              <PropertyRef Name="ProductId" />
+            </Principal>
+            <Dependent Role="WISHLIST">
+              <PropertyRef Name="ProductId" />
             </Dependent>
           </ReferentialConstraint>
         </Association>
@@ -301,6 +326,14 @@
           <AssociationSet Name="FK_USER_CUSTOMER" Association="Self.FK_USER_CUSTOMER">
             <End Role="CUSTOMER" EntitySet="CUSTOMER" />
             <End Role="USER" EntitySet="USER" />
+          </AssociationSet>
+          <AssociationSet Name="FK_WISHLIST_CUSTOMER" Association="Self.FK_WISHLIST_CUSTOMER">
+            <End Role="CUSTOMER" EntitySet="CUSTOMER" />
+            <End Role="WISHLIST" EntitySet="WISHLIST" />
+          </AssociationSet>
+          <AssociationSet Name="FK_WISHLIST_PRODUCT" Association="Self.FK_WISHLIST_PRODUCT">
+            <End Role="PRODUCT" EntitySet="PRODUCT" />
+            <End Role="WISHLIST" EntitySet="WISHLIST" />
           </AssociationSet>
         </EntityContainer>
       </Schema>
@@ -364,6 +397,7 @@
           <NavigationProperty Name="CARTs" Relationship="Self.FK_CART_CUSTOMER" FromRole="CUSTOMER" ToRole="CART" />
           <NavigationProperty Name="ORDERs" Relationship="Self.FK_ORDER_CUSTOMER" FromRole="CUSTOMER" ToRole="ORDER" />
           <NavigationProperty Name="USER" Relationship="Self.FK_USER_CUSTOMER" FromRole="CUSTOMER" ToRole="USER" />
+          <NavigationProperty Name="WISHLISTs" Relationship="Self.FK_WISHLIST_CUSTOMER" FromRole="CUSTOMER" ToRole="WISHLIST" />
         </EntityType>
         <EntityType Name="ORDER">
           <Key>
@@ -406,17 +440,18 @@
             <PropertyRef Name="ProductId" />
           </Key>
           <Property Name="ProductId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-          <Property Name="Name" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
-          <Property Name="Model" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Name" Type="String" MaxLength="10" FixedLength="true" Unicode="true" />
+          <Property Name="Model" Type="String" MaxLength="10" FixedLength="true" Unicode="true" />
           <Property Name="Stock" Type="Int32" />
           <Property Name="Price" Type="Decimal" Precision="19" Scale="4" />
-          <Property Name="ArtistId" Type="Int32" Nullable="false" />
-          <Property Name="CategoryId" Type="Int32" Nullable="false" />
+          <Property Name="ArtistId" Type="Int32" />
+          <Property Name="CategoryId" Type="Int32" />
           <Property Name="Image" Type="Binary" MaxLength="Max" FixedLength="false" />
           <NavigationProperty Name="ARTIST" Relationship="Self.FK_PRODUCT_ToTable" FromRole="PRODUCT" ToRole="ARTIST" />
           <NavigationProperty Name="CARTITEMs" Relationship="Self.FK_CARTITEM_PRODUCT" FromRole="PRODUCT" ToRole="CARTITEM" />
           <NavigationProperty Name="CATEGORY" Relationship="Self.FK_PRODUCT_ToTable_1" FromRole="PRODUCT" ToRole="CATEGORY" />
           <NavigationProperty Name="ORDERDETAILs" Relationship="Self.FK_ORDERDETAIL_PRODUCT" FromRole="PRODUCT" ToRole="ORDERDETAIL" />
+          <NavigationProperty Name="WISHLISTs" Relationship="Self.FK_WISHLIST_PRODUCT" FromRole="PRODUCT" ToRole="WISHLIST" />
         </EntityType>
         <EntityType Name="Table">
           <Key>
@@ -451,9 +486,12 @@
           </Key>
           <Property Name="WishlistId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
           <Property Name="ProductId" Type="Int32" />
+          <Property Name="CustomerId" Type="Int32" />
+          <NavigationProperty Name="CUSTOMER" Relationship="Self.FK_WISHLIST_CUSTOMER" FromRole="WISHLIST" ToRole="CUSTOMER" />
+          <NavigationProperty Name="PRODUCT" Relationship="Self.FK_WISHLIST_PRODUCT" FromRole="WISHLIST" ToRole="PRODUCT" />
         </EntityType>
         <Association Name="FK_PRODUCT_ToTable">
-          <End Role="ARTIST" Type="Self.ARTIST" Multiplicity="1" />
+          <End Role="ARTIST" Type="Self.ARTIST" Multiplicity="0..1" />
           <End Role="PRODUCT" Type="Self.PRODUCT" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="ARTIST">
@@ -501,7 +539,7 @@
           </ReferentialConstraint>
         </Association>
         <Association Name="FK_PRODUCT_ToTable_1">
-          <End Role="CATEGORY" Type="Self.CATEGORY" Multiplicity="1" />
+          <End Role="CATEGORY" Type="Self.CATEGORY" Multiplicity="0..1" />
           <End Role="PRODUCT" Type="Self.PRODUCT" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="CATEGORY">
@@ -532,6 +570,18 @@
               <PropertyRef Name="CustomerId" />
             </Principal>
             <Dependent Role="USER">
+              <PropertyRef Name="CustomerId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_WISHLIST_CUSTOMER">
+          <End Role="CUSTOMER" Type="Self.CUSTOMER" Multiplicity="0..1" />
+          <End Role="WISHLIST" Type="Self.WISHLIST" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="CUSTOMER">
+              <PropertyRef Name="CustomerId" />
+            </Principal>
+            <Dependent Role="WISHLIST">
               <PropertyRef Name="CustomerId" />
             </Dependent>
           </ReferentialConstraint>
@@ -568,6 +618,18 @@
               <PropertyRef Name="ProductId" />
             </Principal>
             <Dependent Role="ORDERDETAIL">
+              <PropertyRef Name="ProductId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_WISHLIST_PRODUCT">
+          <End Role="PRODUCT" Type="Self.PRODUCT" Multiplicity="0..1" />
+          <End Role="WISHLIST" Type="Self.WISHLIST" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="PRODUCT">
+              <PropertyRef Name="ProductId" />
+            </Principal>
+            <Dependent Role="WISHLIST">
               <PropertyRef Name="ProductId" />
             </Dependent>
           </ReferentialConstraint>
@@ -613,6 +675,10 @@
             <End Role="CUSTOMER" EntitySet="CUSTOMERs" />
             <End Role="USER" EntitySet="USERs" />
           </AssociationSet>
+          <AssociationSet Name="FK_WISHLIST_CUSTOMER" Association="Self.FK_WISHLIST_CUSTOMER">
+            <End Role="CUSTOMER" EntitySet="CUSTOMERs" />
+            <End Role="WISHLIST" EntitySet="WISHLISTs" />
+          </AssociationSet>
           <AssociationSet Name="FK_ORDER_PAYMENT" Association="Self.FK_ORDER_PAYMENT">
             <End Role="PAYMENT" EntitySet="PAYMENTs" />
             <End Role="ORDER" EntitySet="ORDERs" />
@@ -624,6 +690,10 @@
           <AssociationSet Name="FK_ORDERDETAIL_PRODUCT" Association="Self.FK_ORDERDETAIL_PRODUCT">
             <End Role="PRODUCT" EntitySet="PRODUCTs" />
             <End Role="ORDERDETAIL" EntitySet="ORDERDETAILs" />
+          </AssociationSet>
+          <AssociationSet Name="FK_WISHLIST_PRODUCT" Association="Self.FK_WISHLIST_PRODUCT">
+            <End Role="PRODUCT" EntitySet="PRODUCTs" />
+            <End Role="WISHLIST" EntitySet="WISHLISTs" />
           </AssociationSet>
         </EntityContainer>
       </Schema>
@@ -763,6 +833,7 @@
               <MappingFragment StoreEntitySet="WISHLIST">
                 <ScalarProperty Name="WishlistId" ColumnName="WishlistId" />
                 <ScalarProperty Name="ProductId" ColumnName="ProductId" />
+                <ScalarProperty Name="CustomerId" ColumnName="CustomerId" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>

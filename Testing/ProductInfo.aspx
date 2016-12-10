@@ -24,6 +24,8 @@
                 <br />
                 Artist Contact Number :
                 <asp:Label ID="lblContactNo" runat="server" Text='<%# Eval("ContactNo")%>'></asp:Label>
+
+                
         </ItemTemplate>
 
     </asp:FormView>
