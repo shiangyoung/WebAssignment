@@ -1,13 +1,6 @@
-﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="AddItemaspx.aspx.cs" Inherits="Testing.AddItemaspx" %>
+﻿<%@ Page Language="C#" MasterPageFile="~/MasterPage.Master" AutoEventWireup="true" CodeBehind="AddItemaspx.aspx.cs" Inherits="Testing.AddItemaspx" %>
 
-<!DOCTYPE html>
-
-<html xmlns="http://www.w3.org/1999/xhtml">
-<head runat="server">
-    <title></title>
-</head>
-<body>
-    <form id="form1" runat="server">
+<asp:content id="Content1" contentplaceholderid="ContentPlaceHolder1" runat="server">
     <div>
         <asp:FormView ID="fvAddItem" runat="server" DefaultMode="Insert" ItemType="Testing.Models.PRODUCT" InsertMethod="fvAddItem_InsertItem">
             <InsertItemTemplate>
@@ -33,9 +26,6 @@
                 <br />
                 <asp:Button ID="btnInsert" runat="server" Text="Insert" CommandName="Insert" />
             </InsertItemTemplate>
-        </asp:FormView>
-       
-    </div>
-    </form>
-</body>
-</html>
+            </asp:FormView>
+            </div>
+            </asp:content>

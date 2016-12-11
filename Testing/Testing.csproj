@@ -116,6 +116,7 @@
     <Content Include="Images\AboutUs.jpg" />
     <Content Include="Images\banner.jpg" />
     <Content Include="Images\gal1.jpg" />
+    <Content Include="Images\rubbish-bin.png" />
     <Content Include="Login.aspx" />
     <Content Include="Models\Model1.Context.tt">
       <Generator>TextTemplatingFileGenerator</Generator>
@@ -128,11 +129,9 @@
       <LastGenOutput>Model1.cs</LastGenOutput>
     </Content>
     <Content Include="packages.config" />
-    <Content Include="ApplicationInsights.config">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </Content>
     <Content Include="MasterPage.Master" />
     <Content Include="RegistrationWizard.aspx" />
+    <Content Include="Wishlistaspx.aspx" />
     <Content Include="XMLFile1.xml">
       <SubType>Designer</SubType>
     </Content>
@@ -312,6 +311,13 @@
     </Compile>
     <Compile Include="ViewGallery.aspx.designer.cs">
       <DependentUpon>ViewGallery.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Wishlistaspx.aspx.cs">
+      <DependentUpon>Wishlistaspx.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Wishlistaspx.aspx.designer.cs">
+      <DependentUpon>Wishlistaspx.aspx</DependentUpon>
     </Compile>
   </ItemGroup>
   <ItemGroup />

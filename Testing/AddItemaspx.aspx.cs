@@ -6,6 +6,8 @@ using System.Web;
 using System.Web.UI;
 using System.Web.UI.WebControls;
 using Testing.Models;
+using System.Drawing.Imaging;
+using System.Drawing;
 
 namespace Testing
 {
@@ -33,8 +35,7 @@ namespace Testing
                 fileExtension.ToLower() == ".gif" || fileExtension.ToLower() == ".png")
             {
                 Stream stream = postedFile.InputStream;
-                BinaryReader binaryReader = new BinaryReader(stream);
-                byte[] bytes = binaryReader.ReadBytes((int)stream.Length);
+                byte[] bytes = ResizeUploadedImage(stream);
                 item.Image = bytes;
             }
 
@@ -46,6 +47,29 @@ namespace Testing
                 _db.SaveChanges();
                 Response.Redirect("~/ViewGallery.aspx");
             }
+        }
+
+        private byte[] ResizeUploadedImage(Stream streamToResize)
+        {
+            byte[] resizedImage;
+            using (System.Drawing.Image orginalImage = System.Drawing.Image.FromStream(streamToResize))
+            {
+                ImageFormat orginalImageFormat = orginalImage.RawFormat;
+                int orginalImageWidth = orginalImage.Width;
+                int orginalImageHeight = orginalImage.Height;
+                int resizedImageWidth = 500; // Type here the width you want
+                int resizedImageHeight = Convert.ToInt32(resizedImageWidth * orginalImageHeight / orginalImageWidth);
+                using (Bitmap bitmapResized = new Bitmap(orginalImage, resizedImageWidth, resizedImageHeight))
+                {
+                    using (MemoryStream streamResized = new MemoryStream())
+                    {
+                        bitmapResized.Save(streamResized, orginalImageFormat);
+                        resizedImage = streamResized.ToArray();
+                    }
+                }
+            }
+
+            return resizedImage;
         }
     }
 }

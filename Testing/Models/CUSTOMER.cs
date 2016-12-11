@@ -19,6 +19,7 @@ namespace Testing.Models
         {
             this.CARTs = new HashSet<CART>();
             this.ORDERs = new HashSet<ORDER>();
+            this.WISHLISTs = new HashSet<WISHLIST>();
         }
     
         public int CustomerId { get; set; }
@@ -33,5 +34,7 @@ namespace Testing.Models
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<ORDER> ORDERs { get; set; }
         public virtual USER USER { get; set; }
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<WISHLIST> WISHLISTs { get; set; }
     }
 }
