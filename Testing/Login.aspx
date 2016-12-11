@@ -1,81 +1,23 @@
-﻿
+﻿<%@ Page Language="C#" MasterPageFile="~/MasterPage.Master" AutoEventWireup="true" CodeBehind="Login.aspx.cs" Inherits="Testing.LoginPage" %>
+ 
 
-
-<!DOCTYPE html>
-
-<html xmlns="http://www.w3.org/1999/xhtml">
-<head runat="server">
-    <title></title>
+<asp:Content id="Content2" runat="server" ContentPlaceHolderID="ContentPlaceHolder1">  
     <style type="text/css">
-        .auto-style1 {
-            font-size: xx-large;
-            text-align: center;
+     .LoginDiv{
+    text-align:center
         }
-        .auto-style2 {
-            width: 100%;
-        }
-        .auto-style3 {
-            width: 424px;
-            text-align: right;
-        }
-        .auto-style4 {
-            text-align: left;
-            width: 179px;
-        }
-        .auto-style5 {
-            text-align: left;
-        }
-    </style>
-</head>
-<body>
-    <form id="form1" runat="server">
-    <div class="auto-style1">
-    
-        <div>
-            <strong>Login Page</strong>
-        </div>
-        <div style="font-size: medium">
-
-            <table class="auto-style2">
-                <tr>
-                    <td class="auto-style3">Username</td>
-                    <td class="auto-style4">
-                        <asp:TextBox ID="tbUserName" runat="server" style="text-align: left"></asp:TextBox>
-                    </td>
-                    <td class="auto-style5">
-                        <asp:RequiredFieldValidator ID="RequiredFieldValidator1" runat="server" ControlToValidate="tbUserName" ErrorMessage="Please enter username." ForeColor="Red"></asp:RequiredFieldValidator>
-                    </td>
-                </tr>
-                <tr>
-                    <td class="auto-style3">Password</td>
-                    <td class="auto-style4">
-                        <asp:TextBox ID="tbPassword" runat="server"></asp:TextBox>
-                    </td>
-                    <td class="auto-style5">
-                        <asp:RequiredFieldValidator ID="RequiredFieldValidator2" runat="server" ControlToValidate="tbPassword" ErrorMessage="Please enter password." ForeColor="Red"></asp:RequiredFieldValidator>
-                    </td>
-                </tr>
-                <tr>
-                    <td class="auto-style3">&nbsp;</td>
-                    <td class="auto-style4">
-                        <asp:Button ID="btnLogin" runat="server" Text="Login" Width="89px" />
-                    </td>
-                    <td class="auto-style5">&nbsp;</td>
-                </tr>
-                <tr>
-                    <td class="auto-style3">&nbsp;</td>
-                    <td class="auto-style4">
-                        <asp:SqlDataSource ID="SqlDataSourceRegistration" runat="server" ConnectionString="<%$ ConnectionStrings:ConnectionString %>" SelectCommand="SELECT * FROM [USER]"></asp:SqlDataSource>
-                    </td>
-                    <td class="auto-style5">&nbsp;</td>
-                </tr>
-            </table>
-
-        </div>
-    
+        </style>
+    <div class="LoginDiv">
+    <asp:LoginView ID="LoginView1" runat="server" >
+        <AnonymousTemplate>
+            <asp:Login ID="Login1" runat="server" BackColor="#EFF3FB" BorderColor="#B5C7DE" BorderPadding="4" BorderStyle="Solid" BorderWidth="1px" Font-Names="Verdana" Font-Size="0.8em" ForeColor="#333333" Height="257px" Width="500px" style="margin-left: 0px" DestinationPageUrl="~/ViewGallery.aspx">
+                <InstructionTextStyle Font-Italic="True" ForeColor="Black" />
+                <LoginButtonStyle BackColor="White" BorderColor="#507CD1" BorderStyle="Solid" BorderWidth="1px" Font-Names="Verdana" Font-Size="0.8em" ForeColor="#284E98" />
+                <TextBoxStyle Font-Size="0.8em" Width="210px" Height="25px"/>
+                <TitleTextStyle BackColor="#507CD1" Font-Bold="True" Font-Size="0.9em" ForeColor="White" />
+            </asp:Login>
+        </AnonymousTemplate>
+    </asp:LoginView>
     </div>
-    </form>
-</body>
-</html>
-
 </asp:Content>
+    

@@ -51,6 +51,16 @@
                         <li>
                             <asp:HyperLink ID="cartCount" runat="server" NavigateUrl="~/ProductCart.aspx"> </asp:HyperLink></li>
                     </ul>
+                    <asp:LoginView ID="LoginView1" runat="server">
+                    <AnonymousTemplate>
+                        <asp:HyperLink runat="server" NavigateUrl="~/Registration.aspx">Register</asp:HyperLink> or
+                        <asp:Login ID="Login1" runat="server" DisplayRememberMe="False" Orientation="Horizontal" RememberMeSet="True" TitleText="" VisibleWhenLoggedIn="False"></asp:Login>
+                    </AnonymousTemplate>
+                        <LoggedInTemplate>
+                            Welcome!<asp:LoginName ID="LoginName1" runat="server" />
+                            <asp:LoginStatus ID="LoginStatus1" runat="server" />
+                        </LoggedInTemplate>
+                </asp:LoginView>
                 </div>
                 <div id="sitemap" style="height:40px;background-color:#F1F1F1">
                     <asp:SiteMapPath ID="SiteMapPath1" runat="server">
