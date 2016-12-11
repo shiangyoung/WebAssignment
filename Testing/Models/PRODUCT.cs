@@ -27,8 +27,8 @@ namespace Testing.Models
         public string Model { get; set; }
         public Nullable<int> Stock { get; set; }
         public Nullable<decimal> Price { get; set; }
-        public int ArtistId { get; set; }
-        public int CategoryId { get; set; }
+        public Nullable<int> ArtistId { get; set; }
+        public Nullable<int> CategoryId { get; set; }
         public byte[] Image { get; set; }
     
         public virtual ARTIST ARTIST { get; set; }

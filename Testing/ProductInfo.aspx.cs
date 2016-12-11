@@ -5,6 +5,7 @@ using System.Web;
 using System.Web.UI;
 using System.Web.UI.WebControls;
 using Testing.Models;
+using Testing.Logic;
 
 namespace Testing
 {
@@ -18,6 +19,16 @@ namespace Testing
                 failedAdd.Style["display"] = "none";
             }
         }
+
+        }
+
+        protected void btnAddToCart_Click(object sender, EventArgs e)
+        {
+            int ProductId = int.Parse(Request.QueryString["ProductId"]);
+            using (ShoppingCart shoppingCart = new ShoppingCart())
+            {
+                shoppingCart.AddToCart(ProductId);
+            }
 
         protected void btnWishlist_Click(object sender, EventArgs e)
         {

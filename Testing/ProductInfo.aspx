@@ -57,13 +57,13 @@
                         <br />
                         Artist Contact Number :
                 <asp:Label ID="lblContactNo" runat="server" Text='<%# Eval("ContactNo")%>'></asp:Label>
-                        <br />
-                        <div>
-                            <asp:Button ID="btnBuyNow" runat="server" Text="Buy Now" Width="300px" Height="40px" />
-                            <asp:Button ID="btnAddToCart" runat="server" Text="Add To Cart" Width="300px" Height="40px" />
-                        </div>
-            </ItemTemplate>
-        </asp:FormView>
+                <br />
+                <div>
+                    <asp:Button ID="btnBuyNow" runat="server" Text="Buy Now" Width="300px" Height="40px"/>
+                    <asp:Button ID="btnAddToCart" runat="server" Text="Add To Cart" Width="300px" Height="40px" OnClick="btnAddToCart_Click"/>       
+                </div>
+         </ItemTemplate>
+    </asp:FormView>
     </div>
 
     <asp:SqlDataSource ID="SqlDataSource1" runat="server" ConnectionString="<%$ ConnectionStrings:ConnectionString %>" SelectCommand="SELECT PRODUCT.ProductId, PRODUCT.Name, PRODUCT.Model, PRODUCT.Stock, PRODUCT.Price, PRODUCT.ArtistId, PRODUCT.CategoryId, PRODUCT.Image, ARTIST.Name AS Artistname, ARTIST.ContactNo, CATEGORY.Name AS CategoryName FROM PRODUCT INNER JOIN ARTIST ON PRODUCT.ArtistId = ARTIST.ArtistId INNER JOIN CATEGORY ON PRODUCT.CategoryId = CATEGORY.CategoryId WHERE (PRODUCT.ProductId = @ProductId)">

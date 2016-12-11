@@ -11,6 +11,7 @@ using System.Configuration;
 using System.Web.Services;
 using System.Web.Script.Services;
 using Testing.Models;
+using Testing.Logic;
 
 namespace Testing
 {
@@ -57,6 +58,19 @@ namespace Testing
             {
 
             }
+        }
+
+        protected void btnAddToCart_Click(object sender, EventArgs e)
+        {
+            Button btn = (sender as Button);
+            string commandArgument = btn.CommandArgument;
+            int ProductId = int.Parse(commandArgument);
+            using (ShoppingCart shoppingCart = new ShoppingCart())
+            {
+                shoppingCart.AddToCart(ProductId);
+            }
+
+
         }
 
         [WebMethod]

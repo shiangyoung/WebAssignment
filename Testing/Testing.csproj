@@ -130,6 +130,7 @@
     </Content>
     <Content Include="packages.config" />
     <Content Include="MasterPage.Master" />
+    <Content Include="ProductCart.aspx" />
     <Content Include="RegistrationWizard.aspx" />
     <Content Include="Wishlistaspx.aspx" />
     <Content Include="XMLFile1.xml">
@@ -197,6 +198,7 @@
     <Compile Include="displayProducts.aspx.designer.cs">
       <DependentUpon>displayProducts.aspx</DependentUpon>
     </Compile>
+    <Compile Include="Logic\ShoppingCart.cs" />
     <Compile Include="Login.aspx.cs">
       <DependentUpon>Login.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -261,6 +263,13 @@
     </Compile>
     <Compile Include="Models\WISHLIST.cs">
       <DependentUpon>Model1.tt</DependentUpon>
+    </Compile>
+    <Compile Include="ProductCart.aspx.cs">
+      <DependentUpon>ProductCart.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="ProductCart.aspx.designer.cs">
+      <DependentUpon>ProductCart.aspx</DependentUpon>
     </Compile>
     <Compile Include="ProductInfo.aspx.cs">
       <DependentUpon>ProductInfo.aspx</DependentUpon>
