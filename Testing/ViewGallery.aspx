@@ -48,6 +48,7 @@
                     </div>
                     <div style="text-align:center"><asp:Label ID="lblName" runat="server" Text='<%# Eval("Name")%>'></asp:Label></div>
                     <div style="text-align:center"><asp:Label ID="lblPrice" runat="server" Text='<%# Eval("Price")%>'></asp:Label></div>
+                    <div style="text-align:center"><asp:Button ID="btnAddToCart" runat="server" Text="Add to cart" OnClick="btnAddToCart_Click" BackColor="Transparent" BorderWidth="0" CommandArgument='<%# Eval("ProductID") %>'></asp:Button></div>
                 </div>
             </div>
         </ItemTemplate>
