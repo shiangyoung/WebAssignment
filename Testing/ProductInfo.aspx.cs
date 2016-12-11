@@ -20,8 +20,6 @@ namespace Testing
             }
         }
 
-        }
-
         protected void btnAddToCart_Click(object sender, EventArgs e)
         {
             int ProductId = int.Parse(Request.QueryString["ProductId"]);
@@ -29,6 +27,7 @@ namespace Testing
             {
                 shoppingCart.AddToCart(ProductId);
             }
+        }
 
         protected void btnWishlist_Click(object sender, EventArgs e)
         {

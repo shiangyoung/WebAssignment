@@ -18,7 +18,7 @@ namespace Testing.Logic
         public void AddToCart(int ProductId)
         {
             //retrive product from the database
-            ShoppingCartId = 9002;
+            ShoppingCartId = 9001;
 
             //This is to check if the cart has the item already or not
             var cartItem = _db.CARTITEMs.SingleOrDefault(
@@ -49,7 +49,7 @@ namespace Testing.Logic
 
         public int getCartId()
         {
-            return 9002;
+            return 9001;
 
             if(HttpContext.Current.Session[CartSessionKey] == null)
             {
