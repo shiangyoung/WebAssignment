@@ -10,15 +10,24 @@
 namespace Testing {
     
     
-    public partial class AddItemaspx {
+    public partial class Wishlistaspx {
         
         /// <summary>
-        /// fvAddItem control.
+        /// gvWishlist control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.FormView fvAddItem;
+        protected global::System.Web.UI.WebControls.GridView gvWishlist;
+        
+        /// <summary>
+        /// SqlDataSource1 control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.SqlDataSource SqlDataSource1;
     }
 }

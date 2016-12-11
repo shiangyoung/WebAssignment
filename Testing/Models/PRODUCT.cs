@@ -19,6 +19,7 @@ namespace Testing.Models
         {
             this.CARTITEMs = new HashSet<CARTITEM>();
             this.ORDERDETAILs = new HashSet<ORDERDETAIL>();
+            this.WISHLISTs = new HashSet<WISHLIST>();
         }
     
         public int ProductId { get; set; }
@@ -26,8 +27,8 @@ namespace Testing.Models
         public string Model { get; set; }
         public Nullable<int> Stock { get; set; }
         public Nullable<decimal> Price { get; set; }
-        public int ArtistId { get; set; }
-        public int CategoryId { get; set; }
+        public Nullable<int> ArtistId { get; set; }
+        public Nullable<int> CategoryId { get; set; }
         public byte[] Image { get; set; }
     
         public virtual ARTIST ARTIST { get; set; }
@@ -36,5 +37,7 @@ namespace Testing.Models
         public virtual CATEGORY CATEGORY { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<ORDERDETAIL> ORDERDETAILs { get; set; }
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<WISHLIST> WISHLISTs { get; set; }
     }
 }

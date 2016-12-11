@@ -76,13 +76,13 @@ namespace Testing {
         protected global::System.Web.UI.WebControls.HyperLink HyperLink4;
         
         /// <summary>
-        /// LoginView1 control.
+        /// cartCount control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.LoginView LoginView1;
+        protected global::System.Web.UI.WebControls.HyperLink cartCount;
         
         /// <summary>
         /// ContentPlaceHolder1 control.

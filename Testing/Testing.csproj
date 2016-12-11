@@ -116,6 +116,7 @@
     <Content Include="Images\AboutUs.jpg" />
     <Content Include="Images\banner.jpg" />
     <Content Include="Images\gal1.jpg" />
+    <Content Include="Images\rubbish-bin.png" />
     <Content Include="Login.aspx" />
     <Content Include="Models\Model1.Context.tt">
       <Generator>TextTemplatingFileGenerator</Generator>
@@ -128,11 +129,10 @@
       <LastGenOutput>Model1.cs</LastGenOutput>
     </Content>
     <Content Include="packages.config" />
-    <Content Include="ApplicationInsights.config">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </Content>
     <Content Include="MasterPage.Master" />
-    <Content Include="Registration.aspx" />
+    <Content Include="ProductCart.aspx" />
+    <Content Include="RegistrationWizard.aspx" />
+    <Content Include="Wishlistaspx.aspx" />
     <Content Include="XMLFile1.xml">
       <SubType>Designer</SubType>
     </Content>
@@ -197,6 +197,7 @@
     <Compile Include="displayProducts.aspx.designer.cs">
       <DependentUpon>displayProducts.aspx</DependentUpon>
     </Compile>
+    <Compile Include="Logic\ShoppingCart.cs" />
     <Compile Include="Login.aspx.cs">
       <DependentUpon>Login.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -262,6 +263,13 @@
     <Compile Include="Models\WISHLIST.cs">
       <DependentUpon>Model1.tt</DependentUpon>
     </Compile>
+    <Compile Include="ProductCart.aspx.cs">
+      <DependentUpon>ProductCart.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="ProductCart.aspx.designer.cs">
+      <DependentUpon>ProductCart.aspx</DependentUpon>
+    </Compile>
     <Compile Include="ProductInfo.aspx.cs">
       <DependentUpon>ProductInfo.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -284,6 +292,13 @@
     <Compile Include="Registration.aspx.designer.cs">
       <DependentUpon>Registration.aspx</DependentUpon>
     </Compile>
+    <Compile Include="RegistrationWizard.aspx.cs">
+      <DependentUpon>RegistrationWizard.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="RegistrationWizard.aspx.designer.cs">
+      <DependentUpon>RegistrationWizard.aspx</DependentUpon>
+    </Compile>
     <Compile Include="UpdateGallery.aspx.cs">
       <DependentUpon>UpdateGallery.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -304,6 +319,13 @@
     </Compile>
     <Compile Include="ViewGallery.aspx.designer.cs">
       <DependentUpon>ViewGallery.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Wishlistaspx.aspx.cs">
+      <DependentUpon>Wishlistaspx.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Wishlistaspx.aspx.designer.cs">
+      <DependentUpon>Wishlistaspx.aspx</DependentUpon>
     </Compile>
   </ItemGroup>
   <ItemGroup />
