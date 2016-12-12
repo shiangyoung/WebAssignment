@@ -20,9 +20,7 @@
 }
 
 #nav{
-    display:block;
-    list-style:none;
-    text-align:center;
+
 }
 
 #nav ul{
@@ -36,7 +34,6 @@
 #nav li{
     float:left;
     display:block;
-    
     line-height: 45px;
     height: 45px;
 }
@@ -58,6 +55,24 @@
     background-color: #111;
 }
 
+#nav > li > ul {
+	text-align: left;
+	width: auto; /* change auto value with 200px if you want a bigger menu */
+	display: none;
+    width:200px;
+	background: #333;
+	position: absolute;
+	z-index: 9999999; /* if you have YouTube iframes, is good to have a bigger z-index so the video can appear above the video */
+}
+
+#nav ul li a {
+    width:200px;
+}
+
+#nav ul li a:hover {
+    background-color: #111;
+}
+
 #content{
     padding:20px;
     min-height: 400px;
@@ -74,6 +89,7 @@
     font-size:25px;
     color:#333;
 }
+
 
 
 

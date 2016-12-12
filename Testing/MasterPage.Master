@@ -8,30 +8,70 @@
     <link rel="stylesheet" href="Style/StyleSheet.css" type="text/css" />
     <asp:ContentPlaceHolder ID="head" runat="server">
     </asp:ContentPlaceHolder>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+        <script type="text/javascript">
+        $(document).ready(function () {
+            $('#navigation ul li').hover(function () {
+                $(this).children('ul').stop(true, false, true).fadeToggle(300);
+            });
+        });
+    </script>
 </head>
 <body>
-    <form id="form1" runat="server">
-        <div>
+<form id="form1" runat="server">
             <div id="wrapper">
                 <div id="banner">
                     <asp:Image ID="Image1" runat="server" ImageUrl="~/Images/banner.jpg" Width="100%" />
                 </div>
                 <div id="navigation">
                     <ul id="nav">
-                        <li><asp:HyperLink ID="HyperLink1" runat="server" NavigateUrl="~/ViewGallery.aspx">Webshop</asp:HyperLink></li>
-                        <li><asp:HyperLink ID="HyperLink2" runat="server" NavigateUrl="~/AboutUs.aspx">About Us</asp:HyperLink></li>
-                        <li><asp:HyperLink ID="HyperLink3" runat="server">Report</asp:HyperLink></li>
-                        <li><asp:HyperLink ID="HyperLink4" runat="server">Management</asp:HyperLink></li>
-                        <li><asp:HyperLink ID="cartCount" runat="server" NavigateUrl="~/ProductCart.aspx"> </asp:HyperLink></li>
+                        <li>
+                            <asp:HyperLink ID="HyperLink1" runat="server" NavigateUrl="~/ViewGallery.aspx">Webshop</asp:HyperLink>
+                            <ul style="width:87.1%;margin-left:-40px;background-color:#666;height:300px;display:none;opacity:0.95">
+                                <li>
+                                    <div>
+                                        <!--Category image-->
+                                    </div>
+                                </li>
+                            </ul>
+                        </li>
+                        <li>
+                            <asp:HyperLink ID="HyperLink2" runat="server" NavigateUrl="~/AboutUs.aspx">About Us</asp:HyperLink></li>
+                        <li>
+                            <asp:HyperLink ID="HyperLink3" runat="server">Report</asp:HyperLink></li>
+                        <li>
+                            <asp:HyperLink ID="HyperLink4" runat="server">My Account</asp:HyperLink>
+                            <ul class="sub-menu">
+                                <li>
+                                    <asp:HyperLink ID="HyperLink5" runat="server" NavigateUrl="~/Wishlistaspx.aspx">My Wishlist</asp:HyperLink></li>
+                                <li>
+                                    <asp:HyperLink ID="HyperLink6" runat="server" NavigateUrl="~/ProductCart.aspx">My Cart</asp:HyperLink></li>
+                            </ul>
+                        </li>
+                        <li>
+                            <asp:HyperLink ID="cartCount" runat="server" NavigateUrl="~/ProductCart.aspx"> </asp:HyperLink></li>
                     </ul>
+                    <asp:LoginView ID="LoginView1" runat="server">
+                    <AnonymousTemplate>
+                        <asp:HyperLink runat="server" NavigateUrl="~/Registration.aspx">Register</asp:HyperLink> or
+                        <asp:Login ID="Login1" runat="server" DisplayRememberMe="False" Orientation="Horizontal" RememberMeSet="True" TitleText="" VisibleWhenLoggedIn="False"></asp:Login>
+                    </AnonymousTemplate>
+                        <LoggedInTemplate>
+                            Welcome!<asp:LoginName ID="LoginName1" runat="server" />
+                            <asp:LoginStatus ID="LoginStatus1" runat="server" />
+                        </LoggedInTemplate>
+                </asp:LoginView>
+                </div>
+                <div id="sitemap" style="height:40px;background-color:#F1F1F1">
+                    <asp:SiteMapPath ID="SiteMapPath1" runat="server">
+                    </asp:SiteMapPath>
                 </div>
                 <div id="content">
                     <asp:ContentPlaceHolder ID="ContentPlaceHolder1" runat="server">
-                    
                     </asp:ContentPlaceHolder>
                 </div>
             </div>
-        </div>
+
     </form>
 </body>
 </html>
