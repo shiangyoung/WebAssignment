@@ -38,10 +38,11 @@
     <table> 
     <tr>
       <td>
-        <asp:Button ID="UpdateBtn" runat="server" Text="Update" OnClick="UpdateBtn_Click" />
+        <asp:Button ID="btnUpdate" runat="server" Text="Update" OnClick="btnUpdate_Click" />
       </td>
       <td>
         <!--Checkout Placeholder -->
+        <asp:Button ID="btnPayment" runat="server"" Text="Payment" OnClick="btnPayment_Click" />
       </td>
     </tr>
     </table>

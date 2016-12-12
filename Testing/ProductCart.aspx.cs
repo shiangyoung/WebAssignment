@@ -28,7 +28,7 @@ namespace Testing
                     LabelTotalText.Text = "";
                     lblTotal.Text = "";
                     ShoppingCartTitle.InnerText = "Shopping Cart is Empty";
-                    UpdateBtn.Visible = false;
+                    btnUpdate.Visible = false;
 
                 }
             }
@@ -83,9 +83,14 @@ namespace Testing
             return values;
         }
 
-        protected void UpdateBtn_Click(object sender, EventArgs e)
+        protected void btnUpdate_Click(object sender, EventArgs e)
         {
             UpdateCartItems();
+        }
+
+        protected void btnPayment_Click(object sender, EventArgs e)
+        {
+
         }
 
     }
