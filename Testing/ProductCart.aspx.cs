@@ -88,10 +88,7 @@ namespace Testing
             UpdateCartItems();
         }
 
-        protected void btnPayment_Click(object sender, EventArgs e)
-        {
 
-        }
 
     }
 }
