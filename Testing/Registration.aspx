@@ -1,7 +1,8 @@
 ﻿<%@ Page Language="C#" MasterPageFile="~/MasterPage.Master" AutoEventWireup="true" CodeBehind="Registration.aspx.cs" Inherits="Testing.Registration" %>
 
-<asp:Content ContentPlaceHolderID="ContentPlaceHolder1" runat="server"
->
+<asp:Content ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
+    <asp:ScriptManager ID="ScriptManager1" runat="server">
+</asp:ScriptManager>
     <asp:CreateUserWizard ID="CreateUserWizard1" runat="server" OnCreatedUser="CreateUserWizard1_CreatedUser">
         <WizardSteps>
             <asp:CreateUserWizardStep ID="CreateUserWizardStep1" runat="server" >
@@ -69,8 +70,9 @@
                                 <asp:Label ID="Label2" runat="server" >DOB:</asp:Label>
                             </td>
                             <td>
-                                
-                                <asp:DropDownList runat="server" ID="Month" AutoPostBack="True">
+                                <asp:UpdatePanel ID="UpdatePanel1" runat="server">
+                                    <ContentTemplate>
+                                <asp:DropDownList runat="server" OnSelectedIndexChanged="updateDropDownList" ID="Month" AutoPostBack="True">
                                     <asp:ListItem Value="1">Jan</asp:ListItem>
                                     <asp:ListItem Value="2">Feb</asp:ListItem>
                                     <asp:ListItem Value="3">Mar</asp:ListItem>
@@ -84,10 +86,13 @@
                                     <asp:ListItem Value="11">Nov</asp:ListItem>
                                     <asp:ListItem Value="12">Dec</asp:ListItem>
                                 </asp:DropDownList>
-                                <asp:DropDownList runat="server" ID="Day" >
+                                  
+                                 <asp:DropDownList runat="server" ID="Day" >
                                     </asp:DropDownList>
                                <asp:DropDownList runat="server" ID="Year" >
                                     </asp:DropDownList>
+                                        </ContentTemplate>
+                                    </asp:UpdatePanel>
                             </td>
                         </tr>
 

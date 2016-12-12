@@ -25,31 +25,8 @@ namespace Testing
             }
             if (IsPostBack)
             {
-                DropDownList Month =(DropDownList) CreateUserWizardStep1.ContentTemplateContainer.FindControl("Month");
-                DropDownList Day = (DropDownList)CreateUserWizardStep1.ContentTemplateContainer.FindControl("Day");
-                Day.Items.Clear();
-                int value = Convert.ToInt32(Month.SelectedValue);
-                if (value == 2)
-                {
-                    for (int i = 1; i <= 29; i++)
-                    {
-                        ListItem item = new ListItem(i + "", i + "");
-                        Day.Items.Add(item);
-                    }
-                } else if (value == 1 || value == 3 || value == 5 || value == 7 || value == 8 || value == 10 || value == 12) 
-                {
-                    for (int i = 1; i <= 31; i++)
-                    {
-                        ListItem item = new ListItem(i + "", i + "");
-                        Day.Items.Add(item);
-                    }
-                }else{
-                    for (int i = 1; i <= 30; i++)
-                    {
-                        ListItem item = new ListItem(i + "", i + "");
-                        Day.Items.Add(item);
-                    }
-                }
+                
+                
             }
         }
         protected void CreateUserWizard1_CreatedUser(Object sender, EventArgs e)
@@ -81,5 +58,37 @@ namespace Testing
                 
             }
         }
+        protected void updateDropDownList(Object sender,EventArgs e)
+        {
+            DropDownList Month = (DropDownList)CreateUserWizardStep1.ContentTemplateContainer.FindControl("Month");
+            DropDownList Day = (DropDownList)CreateUserWizardStep1.ContentTemplateContainer.FindControl("Day");
+            Day.Items.Clear();
+            int value = Convert.ToInt32(Month.SelectedValue);
+            if (value == 2)
+            {
+                for (int i = 1; i <= 29; i++)
+                {
+                    ListItem item = new ListItem(i + "", i + "");
+                    Day.Items.Add(item);
+                }
+            }
+            else if (value == 1 || value == 3 || value == 5 || value == 7 || value == 8 || value == 10 || value == 12)
+            {
+                for (int i = 1; i <= 31; i++)
+                {
+                    ListItem item = new ListItem(i + "", i + "");
+                    Day.Items.Add(item);
+                }
+            }
+            else
+            {
+                for (int i = 1; i <= 30; i++)
+                {
+                    ListItem item = new ListItem(i + "", i + "");
+                    Day.Items.Add(item);
+                }
+            }
+        }
+
     }
 }
