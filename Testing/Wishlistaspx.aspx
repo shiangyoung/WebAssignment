@@ -19,7 +19,7 @@
             <asp:BoundField DataField="CategoryName" HeaderText="CategoryName" SortExpression="CategoryName" />
             <asp:TemplateField>
                 <ItemTemplate>
-                    <asp:Button ID="btnAddToCart" runat="server" Text="Add To Cart" />
+                    <asp:Button ID="btnAddToCart" runat="server" Text="Add To Cart"  CommandName="AddToCart" CommandArgument='<%#Eval("WishlistId") + ";" +Eval("ProductId")%>' OnClick="btnAddToCart_Click"/>
                 </ItemTemplate>
             </asp:TemplateField>
             <asp:TemplateField HeaderText="Delete">

@@ -20,16 +20,15 @@ namespace Testing
             }
         }
 
+        protected void btnAddToCart_Click(object sender, EventArgs e)
+        {
+            int ProductId = int.Parse(Request.QueryString["ProductId"]);
+            using (ShoppingCart shoppingCart = new ShoppingCart())
+            {
+                shoppingCart.AddToCart(ProductId);
+            }
         }
 
-    protected void btnAddToCart_Click(object sender, EventArgs e)
-    {
-        int ProductId = int.Parse(Request.QueryString["ProductId"]);
-        using (ShoppingCart shoppingCart = new ShoppingCart())
-        {
-            shoppingCart.AddToCart(ProductId);
-        }
-    }
         protected void btnWishlist_Click(object sender, EventArgs e)
         {
             GalleryEntities1 _db = new GalleryEntities1();
@@ -62,8 +61,12 @@ namespace Testing
                     successAdd.Style["display"] = "block";
                     failedAdd.Style["display"] = "none";
                 }
-                System.Diagnostics.Debug.WriteLine("not exist");            
+                System.Diagnostics.Debug.WriteLine("not exist");
+                
             }
+
+
         }
 
     }
+}
