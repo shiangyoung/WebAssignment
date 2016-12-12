@@ -4,50 +4,26 @@
   <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
     <!-- Diagram content (shape and connector positions) -->
     <edmx:Diagrams>
-      <Diagram DiagramId="31f57ed4343942c198de04c4f1828fa9" Name="Diagram1">
-        <EntityTypeShape EntityType="GalleryModel.ARTIST" Width="1.5" PointX="10.5" PointY="3.25" IsExpanded="true" />
-        <EntityTypeShape EntityType="GalleryModel.aspnet_Applications" Width="1.5" PointX="0.75" PointY="14.125" IsExpanded="true" />
-        <EntityTypeShape EntityType="GalleryModel.aspnet_Membership" Width="1.5" PointX="6" PointY="15.625" IsExpanded="true" />
-        <EntityTypeShape EntityType="GalleryModel.aspnet_Paths" Width="1.5" PointX="3" PointY="12.625" IsExpanded="true" />
-        <EntityTypeShape EntityType="GalleryModel.aspnet_PersonalizationAllUsers" Width="1.5" PointX="5.25" PointY="12.875" IsExpanded="true" />
-        <EntityTypeShape EntityType="GalleryModel.aspnet_PersonalizationPerUser" Width="1.5" PointX="5.25" PointY="9.625" IsExpanded="true" />
-        <EntityTypeShape EntityType="GalleryModel.aspnet_Profile" Width="1.5" PointX="10.5" PointY="13.25" IsExpanded="true" />
-        <EntityTypeShape EntityType="GalleryModel.aspnet_Roles" Width="1.5" PointX="3" PointY="22" IsExpanded="true" />
-        <EntityTypeShape EntityType="GalleryModel.aspnet_SchemaVersions" Width="1.5" PointX="0.75" PointY="0.75" IsExpanded="true" />
-        <EntityTypeShape EntityType="GalleryModel.aspnet_Users" Width="1.5" PointX="8.25" PointY="17.25" IsExpanded="true" />
-        <EntityTypeShape EntityType="GalleryModel.aspnet_WebEvent_Events" Width="1.5" PointX="2.75" PointY="0.75" IsExpanded="true" />
-        <EntityTypeShape EntityType="GalleryModel.CART" Width="1.5" PointX="12.75" PointY="16.625" IsExpanded="true" />
-        <EntityTypeShape EntityType="GalleryModel.CARTITEM" Width="1.5" PointX="15" PointY="16.625" IsExpanded="true" />
-        <EntityTypeShape EntityType="GalleryModel.CATEGORY" Width="1.5" PointX="10.5" PointY="6.375" IsExpanded="true" />
-        <EntityTypeShape EntityType="GalleryModel.CUSTOMER" Width="1.5" PointX="10.5" PointY="16.125" IsExpanded="true" />
-        <EntityTypeShape EntityType="GalleryModel.ORDER" Width="1.5" PointX="12.75" PointY="12.25" IsExpanded="true" />
-        <EntityTypeShape EntityType="GalleryModel.ORDERDETAIL" Width="1.5" PointX="15" PointY="12.625" IsExpanded="true" />
-        <EntityTypeShape EntityType="GalleryModel.PAYMENT" Width="1.5" PointX="10.5" PointY="9.625" IsExpanded="true" />
-        <EntityTypeShape EntityType="GalleryModel.PRODUCT" Width="1.5" PointX="12.75" PointY="3.875" IsExpanded="true" />
-        <EntityTypeShape EntityType="GalleryModel.Table" Width="1.5" PointX="10.5" PointY="19.875" IsExpanded="true" />
-        <EntityTypeShape EntityType="GalleryModel.WISHLIST" Width="1.5" PointX="10.5" PointY="23.375" IsExpanded="true" />
-        <AssociationConnector Association="GalleryModel.FK_PRODUCT_ToTable" ManuallyRouted="false" />
-        <AssociationConnector Association="GalleryModel.FK__aspnet_Me__Appli__2CF2ADDF" ManuallyRouted="false" />
-        <AssociationConnector Association="GalleryModel.FK__aspnet_Pa__Appli__5E8A0973" ManuallyRouted="false" />
-        <AssociationConnector Association="GalleryModel.FK__aspnet_Ro__Appli__4B7734FF" ManuallyRouted="false" />
-        <AssociationConnector Association="GalleryModel.FK__aspnet_Us__Appli__1CBC4616" ManuallyRouted="false" />
-        <AssociationConnector Association="GalleryModel.FK__aspnet_Me__UserI__2DE6D218" ManuallyRouted="false" />
-        <AssociationConnector Association="GalleryModel.FK__aspnet_Pe__PathI__6442E2C9" ManuallyRouted="false" />
-        <AssociationConnector Association="GalleryModel.FK__aspnet_Pe__PathI__681373AD" ManuallyRouted="false" />
-        <AssociationConnector Association="GalleryModel.FK__aspnet_Pe__UserI__690797E6" ManuallyRouted="false" />
-        <AssociationConnector Association="GalleryModel.FK__aspnet_Pr__UserI__41EDCAC5" ManuallyRouted="false" />
-        <AssociationConnector Association="GalleryModel.FK_CUSTOMER_ToTable" ManuallyRouted="false" />
-        <AssociationConnector Association="GalleryModel.FK_Table_ToTable" ManuallyRouted="false" />
-        <AssociationConnector Association="GalleryModel.FK_WISHLIST_ToTable" ManuallyRouted="false" />
-        <AssociationConnector Association="GalleryModel.FK_CART_ToTable" ManuallyRouted="false" />
-        <AssociationConnector Association="GalleryModel.FK_CARTITEM_CART" ManuallyRouted="false" />
-        <AssociationConnector Association="GalleryModel.FK_CARTITEM_PRODUCT" ManuallyRouted="false" />
-        <AssociationConnector Association="GalleryModel.FK_PRODUCT_ToTable_1" ManuallyRouted="false" />
-        <AssociationConnector Association="GalleryModel.FK_ORDER_ToTable" ManuallyRouted="false" />
-        <AssociationConnector Association="GalleryModel.FK_ORDER_PAYMENT" ManuallyRouted="false" />
-        <AssociationConnector Association="GalleryModel.FK_ORDERDETAIL_ORDER" ManuallyRouted="false" />
-        <AssociationConnector Association="GalleryModel.FK_ORDERDETAIL_PRODUCT" ManuallyRouted="false" />
-        <AssociationConnector Association="GalleryModel.aspnet_UsersInRoles" ManuallyRouted="false" />
+      <Diagram DiagramId="27c6c55e9a5d444690be70a04515d9b2" Name="Diagram1">
+        <EntityTypeShape EntityType="GalleryModel1.ARTIST" Width="1.5" PointX="0.75" PointY="3.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="GalleryModel1.CART" Width="1.5" PointX="3" PointY="13.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="GalleryModel1.CARTITEM" Width="1.5" PointX="5.25" PointY="3.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="GalleryModel1.CATEGORY" Width="1.5" PointX="0.75" PointY="1" IsExpanded="true" />
+        <EntityTypeShape EntityType="GalleryModel1.CUSTOMER" Width="1.5" PointX="0.75" PointY="8.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="GalleryModel1.ORDER" Width="1.5" PointX="3" PointY="9.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="GalleryModel1.ORDERDETAIL" Width="1.5" PointX="5.25" PointY="0.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="GalleryModel1.PAYMENT" Width="1.5" PointX="0.75" PointY="11.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="GalleryModel1.PRODUCT" Width="1.5" PointX="3" PointY="3.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="GalleryModel1.WISHLIST" Width="1.5" PointX="5.75" PointY="7" IsExpanded="true" />
+        <AssociationConnector Association="GalleryModel1.FK_PRODUCT_ToTable" ManuallyRouted="false" />
+        <AssociationConnector Association="GalleryModel1.FK_CART_ToTable" ManuallyRouted="false" />
+        <AssociationConnector Association="GalleryModel1.FK_CARTITEM_CART" ManuallyRouted="false" />
+        <AssociationConnector Association="GalleryModel1.FK_CARTITEM_PRODUCT" ManuallyRouted="false" />
+        <AssociationConnector Association="GalleryModel1.FK_PRODUCT_ToTable_1" ManuallyRouted="false" />
+        <AssociationConnector Association="GalleryModel1.FK_ORDER_ToTable" ManuallyRouted="false" />
+        <AssociationConnector Association="GalleryModel1.FK_ORDER_PAYMENT" ManuallyRouted="false" />
+        <AssociationConnector Association="GalleryModel1.FK_ORDERDETAIL_ORDER" ManuallyRouted="false" />
+        <AssociationConnector Association="GalleryModel1.FK_ORDERDETAIL_PRODUCT" ManuallyRouted="false" />
       </Diagram>
     </edmx:Diagrams>
   </edmx:Designer>

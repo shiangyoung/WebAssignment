@@ -7,31 +7,27 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace Testing.Models
+namespace Testing.App_Data
 {
     using System;
     using System.Collections.Generic;
     
-    public partial class CUSTOMER
+    public partial class aspnet_Paths
     {
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
-        public CUSTOMER()
+        public aspnet_Paths()
         {
-            this.CARTs = new HashSet<CART>();
-            this.ORDERs = new HashSet<ORDER>();
+            this.aspnet_PersonalizationPerUser = new HashSet<aspnet_PersonalizationPerUser>();
         }
     
-        public System.Guid UserId { get; set; }
-        public int Number { get; set; }
-        public string Name { get; set; }
-        public Nullable<System.DateTime> DateOfBirth { get; set; }
-        public string Address { get; set; }
-        public string ContactNo { get; set; }
-        public string Email { get; set; }
+        public System.Guid ApplicationId { get; set; }
+        public System.Guid PathId { get; set; }
+        public string Path { get; set; }
+        public string LoweredPath { get; set; }
     
+        public virtual aspnet_Applications aspnet_Applications { get; set; }
+        public virtual aspnet_PersonalizationAllUsers aspnet_PersonalizationAllUsers { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<CART> CARTs { get; set; }
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<ORDER> ORDERs { get; set; }
+        public virtual ICollection<aspnet_PersonalizationPerUser> aspnet_PersonalizationPerUser { get; set; }
     }
 }

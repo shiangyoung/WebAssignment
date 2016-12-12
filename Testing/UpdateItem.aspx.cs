@@ -22,7 +22,7 @@ namespace Testing
         {
             Testing.Models.PRODUCT item = null;
 
-            GalleryEntities _db = new GalleryEntities();
+            GalleryEntities1 _db = new GalleryEntities1();
             item = _db.PRODUCTs.Find(ProductId);
             // Load the item here, e.g. item = MyDataLayer.Find(id);
             if (item == null)
@@ -64,7 +64,7 @@ namespace Testing
         
         public Testing.Models.PRODUCT fvAddItem_GetItem([QueryString] int ProductId)
         {
-            Testing.Models.GalleryEntities _db = new Testing.Models.GalleryEntities();
+            Testing.Models.GalleryEntities1 _db = new Testing.Models.GalleryEntities1();
             return _db.PRODUCTs.Find(ProductId);
             
         }

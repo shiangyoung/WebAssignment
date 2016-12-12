@@ -7,15 +7,15 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace Testing.Models
+namespace Testing.App_Data
 {
     using System;
     using System.Collections.Generic;
     
-    public partial class WISHLIST
+    public partial class aspnet_SchemaVersions
     {
-        public int WishlistId { get; set; }
-        public int ProductId { get; set; }
-        public System.Guid UserId { get; set; }
+        public string Feature { get; set; }
+        public string CompatibleSchemaVersion { get; set; }
+        public bool IsCurrentVersion { get; set; }
     }
 }

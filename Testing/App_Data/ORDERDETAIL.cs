@@ -7,15 +7,19 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace Testing.Models
+namespace Testing.App_Data
 {
     using System;
     using System.Collections.Generic;
     
-    public partial class WISHLIST
+    public partial class ORDERDETAIL
     {
-        public int WishlistId { get; set; }
         public int ProductId { get; set; }
-        public System.Guid UserId { get; set; }
+        public int OrderId { get; set; }
+        public Nullable<int> Quantity { get; set; }
+        public Nullable<decimal> TotalPrice { get; set; }
+    
+        public virtual ORDER ORDER { get; set; }
+        public virtual PRODUCT PRODUCT { get; set; }
     }
 }

@@ -12,7 +12,7 @@ namespace Testing.Logic
         public int ShoppingCartId { get; set; }
 
         //Database context, need to change it to proper name
-        private GalleryEntities _db = new GalleryEntities();
+        private GalleryEntities1 _db = new GalleryEntities1();
         //Get the username for the currently logged in user
 
 
@@ -53,8 +53,15 @@ namespace Testing.Logic
 
         public int getCartId()
         {
+            
             MembershipUser membershipUser = Membership.GetUser("Username");
-            Guid userId = (Guid)membershipUser.ProviderUserKey;
+            Guid userId = new Guid();
+            
+            if(membershipUser != null)
+            {
+                
+                userId = (Guid)membershipUser.ProviderUserKey;
+            }
 
             if (HttpContext.Current.Session[CartSessionKey] == null)
             {
@@ -132,7 +139,7 @@ namespace Testing.Logic
         //Update the shopping cart database
         public void UpdateShoppingCartDatabase(int cartId, ShoppingCartUpdates[] CartItemUpdates)
         {
-            using (var db = new GalleryEntities())
+            using (var db = new GalleryEntities1())
             {
                 try
                 {
@@ -170,7 +177,7 @@ namespace Testing.Logic
         //Remove the item from the database
         public void RemoveItem(int removeCartID, int removeProductID)
         {
-            using (var _db = new GalleryEntities())
+            using (var _db = new GalleryEntities1())
             {
                 try
                 {
@@ -192,7 +199,7 @@ namespace Testing.Logic
         //Update the item in the database
         public void UpdateItem(int updateCartID, int updateProductID, int quantity)
         {
-            using (var _db = new GalleryEntities())
+            using (var _db = new GalleryEntities1())
             {
                 try
                 {

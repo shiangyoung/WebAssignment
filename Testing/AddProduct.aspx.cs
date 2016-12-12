@@ -71,7 +71,7 @@ namespace Testing
             if (ModelState.IsValid)
             {
                 // Save changes here
-                GalleryEntities _db = new GalleryEntities();
+                GalleryEntities1 _db = new GalleryEntities1();
                 _db.PRODUCTs.Add(item);
                 _db.SaveChanges();
                 Response.Redirect("~/ViewGallery.aspx");

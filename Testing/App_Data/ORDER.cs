@@ -7,31 +7,29 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace Testing.Models
+namespace Testing.App_Data
 {
     using System;
     using System.Collections.Generic;
     
-    public partial class CUSTOMER
+    public partial class ORDER
     {
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
-        public CUSTOMER()
+        public ORDER()
         {
-            this.CARTs = new HashSet<CART>();
-            this.ORDERs = new HashSet<ORDER>();
+            this.ORDERDETAILs = new HashSet<ORDERDETAIL>();
         }
     
-        public System.Guid UserId { get; set; }
-        public int Number { get; set; }
-        public string Name { get; set; }
-        public Nullable<System.DateTime> DateOfBirth { get; set; }
-        public string Address { get; set; }
-        public string ContactNo { get; set; }
-        public string Email { get; set; }
+        public int OrderId { get; set; }
+        public Nullable<System.DateTime> date { get; set; }
+        public Nullable<decimal> discount { get; set; }
+        public Nullable<System.Guid> UserId { get; set; }
+        public Nullable<int> PaymentId { get; set; }
+        public string status { get; set; }
     
+        public virtual CUSTOMER CUSTOMER { get; set; }
+        public virtual PAYMENT PAYMENT { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<CART> CARTs { get; set; }
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<ORDER> ORDERs { get; set; }
+        public virtual ICollection<ORDERDETAIL> ORDERDETAILs { get; set; }
     }
 }

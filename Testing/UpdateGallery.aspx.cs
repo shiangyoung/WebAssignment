@@ -58,7 +58,7 @@ namespace Testing
         public static List<String> GetProductName(string pre)
         {
             List<string> allProductName = new List<string>();
-            using (GalleryEntities db = new GalleryEntities())
+            using (GalleryEntities1 db = new GalleryEntities1())
             {
                 allProductName = (from a in db.PRODUCTs
                                   where a.Name.Contains(pre)

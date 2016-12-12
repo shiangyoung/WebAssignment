@@ -7,27 +7,27 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace Testing.Models
+namespace Testing.App_Data
 {
     using System;
     using System.Collections.Generic;
     
-    public partial class aspnet_Paths
+    public partial class ARTIST
     {
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
-        public aspnet_Paths()
+        public ARTIST()
         {
-            this.aspnet_PersonalizationPerUser = new HashSet<aspnet_PersonalizationPerUser>();
+            this.PRODUCTs = new HashSet<PRODUCT>();
         }
     
-        public System.Guid ApplicationId { get; set; }
-        public System.Guid PathId { get; set; }
-        public string Path { get; set; }
-        public string LoweredPath { get; set; }
+        public System.Guid ArtistId { get; set; }
+        public int Number { get; set; }
+        public string Name { get; set; }
+        public Nullable<int> Age { get; set; }
+        public string ContactNo { get; set; }
+        public string BankDetails { get; set; }
     
-        public virtual aspnet_Applications aspnet_Applications { get; set; }
-        public virtual aspnet_PersonalizationAllUsers aspnet_PersonalizationAllUsers { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<aspnet_PersonalizationPerUser> aspnet_PersonalizationPerUser { get; set; }
+        public virtual ICollection<PRODUCT> PRODUCTs { get; set; }
     }
 }

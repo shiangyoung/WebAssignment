@@ -7,16 +7,16 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace Testing.Models
+namespace Testing.App_Data
 {
     using System;
     using System.Data.Entity;
     using System.Data.Entity.Infrastructure;
     
-    public partial class GalleryEntities1 : DbContext
+    public partial class GalleryEntities : DbContext
     {
-        public GalleryEntities1()
-            : base("name=GalleryEntities1")
+        public GalleryEntities()
+            : base("name=GalleryEntities")
         {
         }
     
@@ -26,6 +26,16 @@ namespace Testing.Models
         }
     
         public virtual DbSet<ARTIST> ARTISTs { get; set; }
+        public virtual DbSet<aspnet_Applications> aspnet_Applications { get; set; }
+        public virtual DbSet<aspnet_Membership> aspnet_Membership { get; set; }
+        public virtual DbSet<aspnet_Paths> aspnet_Paths { get; set; }
+        public virtual DbSet<aspnet_PersonalizationAllUsers> aspnet_PersonalizationAllUsers { get; set; }
+        public virtual DbSet<aspnet_PersonalizationPerUser> aspnet_PersonalizationPerUser { get; set; }
+        public virtual DbSet<aspnet_Profile> aspnet_Profile { get; set; }
+        public virtual DbSet<aspnet_Roles> aspnet_Roles { get; set; }
+        public virtual DbSet<aspnet_SchemaVersions> aspnet_SchemaVersions { get; set; }
+        public virtual DbSet<aspnet_Users> aspnet_Users { get; set; }
+        public virtual DbSet<aspnet_WebEvent_Events> aspnet_WebEvent_Events { get; set; }
         public virtual DbSet<CART> CARTs { get; set; }
         public virtual DbSet<CARTITEM> CARTITEMs { get; set; }
         public virtual DbSet<CATEGORY> CATEGORies { get; set; }
@@ -34,6 +44,7 @@ namespace Testing.Models
         public virtual DbSet<ORDERDETAIL> ORDERDETAILs { get; set; }
         public virtual DbSet<PAYMENT> PAYMENTs { get; set; }
         public virtual DbSet<PRODUCT> PRODUCTs { get; set; }
+        public virtual DbSet<Table> Tables { get; set; }
         public virtual DbSet<WISHLIST> WISHLISTs { get; set; }
     }
 }

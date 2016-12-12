@@ -7,19 +7,19 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace Testing.Models
+namespace Testing.App_Data
 {
     using System;
     using System.Collections.Generic;
     
-    public partial class aspnet_Profile
+    public partial class CARTITEM
     {
-        public System.Guid UserId { get; set; }
-        public string PropertyNames { get; set; }
-        public string PropertyValuesString { get; set; }
-        public byte[] PropertyValuesBinary { get; set; }
-        public System.DateTime LastUpdatedDate { get; set; }
+        public int ProductId { get; set; }
+        public int CartId { get; set; }
+        public Nullable<int> Quantity { get; set; }
+        public Nullable<decimal> TotalPrice { get; set; }
     
-        public virtual aspnet_Users aspnet_Users { get; set; }
+        public virtual CART CART { get; set; }
+        public virtual PRODUCT PRODUCT { get; set; }
     }
 }

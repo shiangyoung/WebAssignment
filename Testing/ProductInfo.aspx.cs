@@ -6,6 +6,7 @@ using System.Web.UI;
 using System.Web.UI.WebControls;
 using Testing.Models;
 using Testing.Logic;
+using System.Web.Security;
 
 namespace Testing
 {
@@ -33,10 +34,13 @@ namespace Testing
         {
             GalleryEntities1 _db = new GalleryEntities1();
             int productID = Convert.ToInt32(Request.QueryString["ProductID"]);
-            int customerID = 4001;
+
+            MembershipUser membershipUser = Membership.GetUser("Username");
+            Guid userId = (Guid)membershipUser.ProviderUserKey;
+            
 
             var existingItem = from w in _db.WISHLISTs
-                               where w.ProductId == productID && w.CustomerId == customerID
+                               where w.ProductId == productID && w.UserId == userId
                                select w;
 
             if (existingItem.Any())
@@ -49,7 +53,7 @@ namespace Testing
             {
                 WISHLIST item = new WISHLIST();
                 item.ProductId = productID;
-                item.CustomerId = customerID;
+                item.UserId = userId;
 
                 if (ModelState.IsValid)
                 {

@@ -7,31 +7,26 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace Testing.Models
+namespace Testing.App_Data
 {
     using System;
     using System.Collections.Generic;
     
-    public partial class CUSTOMER
+    public partial class CART
     {
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
-        public CUSTOMER()
+        public CART()
         {
-            this.CARTs = new HashSet<CART>();
-            this.ORDERs = new HashSet<ORDER>();
+            this.CARTITEMs = new HashSet<CARTITEM>();
         }
     
-        public System.Guid UserId { get; set; }
-        public int Number { get; set; }
-        public string Name { get; set; }
-        public Nullable<System.DateTime> DateOfBirth { get; set; }
-        public string Address { get; set; }
-        public string ContactNo { get; set; }
-        public string Email { get; set; }
+        public int CartId { get; set; }
+        public Nullable<System.DateTime> Date { get; set; }
+        public Nullable<decimal> Discount { get; set; }
+        public Nullable<System.Guid> UserId { get; set; }
     
+        public virtual CUSTOMER CUSTOMER { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<CART> CARTs { get; set; }
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<ORDER> ORDERs { get; set; }
+        public virtual ICollection<CARTITEM> CARTITEMs { get; set; }
     }
 }
