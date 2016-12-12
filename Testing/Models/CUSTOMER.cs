@@ -19,22 +19,20 @@ namespace Testing.Models
         {
             this.CARTs = new HashSet<CART>();
             this.ORDERs = new HashSet<ORDER>();
-            this.WISHLISTs = new HashSet<WISHLIST>();
         }
     
-        public int CustomerId { get; set; }
+        public System.Guid UserId { get; set; }
+        public int Number { get; set; }
         public string Name { get; set; }
         public Nullable<System.DateTime> DateOfBirth { get; set; }
         public string Address { get; set; }
         public string ContactNo { get; set; }
         public string Email { get; set; }
     
+        public virtual aspnet_Users aspnet_Users { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<CART> CARTs { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<ORDER> ORDERs { get; set; }
-        public virtual USER USER { get; set; }
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<WISHLIST> WISHLISTs { get; set; }
     }
 }

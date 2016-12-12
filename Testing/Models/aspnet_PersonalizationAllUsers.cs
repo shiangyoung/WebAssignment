@@ -12,12 +12,12 @@ namespace Testing.Models
     using System;
     using System.Collections.Generic;
     
-    public partial class WISHLIST
+    public partial class aspnet_PersonalizationAllUsers
     {
-        public int WishlistId { get; set; }
-        public int ProductId { get; set; }
-        public System.Guid UserId { get; set; }
+        public System.Guid PathId { get; set; }
+        public byte[] PageSettings { get; set; }
+        public System.DateTime LastUpdatedDate { get; set; }
     
-        public virtual aspnet_Users aspnet_Users { get; set; }
+        public virtual aspnet_Paths aspnet_Paths { get; set; }
     }
 }

@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
+using System.Web.Security;
 using System.Web.UI;
 using System.Web.UI.WebControls;
 using Testing.Models;
@@ -58,14 +59,19 @@ namespace Testing
         {
             PRODUCT item = new PRODUCT();
             TryUpdateModel(item);
-            item.ArtistId = 1001;
+
+            //Get the username for the currently logged in user
+            MembershipUser membershipUser = Membership.GetUser("Username");
+            Guid userId = (Guid)membershipUser.ProviderUserKey;
+            
+            item.ArtistId = userId;
             Image productImage = (Image)fvAddProduct.FindControl("productImage");
             byte[] imgData = System.IO.File.ReadAllBytes(Server.MapPath(productImage.ImageUrl));
             item.Image = imgData;
             if (ModelState.IsValid)
             {
                 // Save changes here
-                GalleryEntities1 _db = new GalleryEntities1();
+                GalleryEntities _db = new GalleryEntities();
                 _db.PRODUCTs.Add(item);
                 _db.SaveChanges();
                 Response.Redirect("~/ViewGallery.aspx");

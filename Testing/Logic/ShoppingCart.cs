@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
+using System.Web.Security;
 using Testing.Models;
 
 namespace Testing.Logic
@@ -11,7 +12,10 @@ namespace Testing.Logic
         public int ShoppingCartId { get; set; }
 
         //Database context, need to change it to proper name
-        private GalleryEntities1 _db = new GalleryEntities1();
+        private GalleryEntities _db = new GalleryEntities();
+        //Get the username for the currently logged in user
+
+
 
         public const string CartSessionKey = "CartId";
 
@@ -49,9 +53,10 @@ namespace Testing.Logic
 
         public int getCartId()
         {
-            return 9001;
+            MembershipUser membershipUser = Membership.GetUser("Username");
+            Guid userId = (Guid)membershipUser.ProviderUserKey;
 
-            if(HttpContext.Current.Session[CartSessionKey] == null)
+            if (HttpContext.Current.Session[CartSessionKey] == null)
             {
                 //create the new cart id
                 CART cart = new CART
@@ -59,7 +64,7 @@ namespace Testing.Logic
                     CartId = 9001,
                     Date = DateTime.Today,
                     Discount = 0,
-                    CustomerId = 4001
+                    UserId = userId
                 };
 
                 HttpContext.Current.Session[CartSessionKey] = cart.CartId;
@@ -127,7 +132,7 @@ namespace Testing.Logic
         //Update the shopping cart database
         public void UpdateShoppingCartDatabase(int cartId, ShoppingCartUpdates[] CartItemUpdates)
         {
-            using (var db = new GalleryEntities1())
+            using (var db = new GalleryEntities())
             {
                 try
                 {
@@ -165,7 +170,7 @@ namespace Testing.Logic
         //Remove the item from the database
         public void RemoveItem(int removeCartID, int removeProductID)
         {
-            using (var _db = new GalleryEntities1())
+            using (var _db = new GalleryEntities())
             {
                 try
                 {
@@ -187,7 +192,7 @@ namespace Testing.Logic
         //Update the item in the database
         public void UpdateItem(int updateCartID, int updateProductID, int quantity)
         {
-            using (var _db = new GalleryEntities1())
+            using (var _db = new GalleryEntities())
             {
                 try
                 {

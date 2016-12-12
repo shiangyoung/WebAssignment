@@ -12,12 +12,10 @@ namespace Testing.Models
     using System;
     using System.Collections.Generic;
     
-    public partial class WISHLIST
+    public partial class aspnet_SchemaVersions
     {
-        public int WishlistId { get; set; }
-        public int ProductId { get; set; }
-        public System.Guid UserId { get; set; }
-    
-        public virtual aspnet_Users aspnet_Users { get; set; }
+        public string Feature { get; set; }
+        public string CompatibleSchemaVersion { get; set; }
+        public bool IsCurrentVersion { get; set; }
     }
 }

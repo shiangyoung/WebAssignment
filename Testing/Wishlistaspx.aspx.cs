@@ -41,7 +41,7 @@ namespace Testing
 
             int wishlistid = int.Parse(commandArgument);
 
-            GalleryEntities1 db = new GalleryEntities1();
+            GalleryEntities db = new GalleryEntities();
             var item = new WISHLIST { WishlistId = wishlistid };
             db.Entry(item).State = EntityState.Deleted;
             try
@@ -71,7 +71,7 @@ namespace Testing
             ShoppingCart sc = new ShoppingCart();
             sc.AddToCart(productId);
 
-            GalleryEntities1 db = new GalleryEntities1();
+            GalleryEntities db = new GalleryEntities();
             var item = new WISHLIST { WishlistId = wishlistId };
             db.Entry(item).State = EntityState.Deleted;
             try

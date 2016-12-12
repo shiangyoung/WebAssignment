@@ -23,7 +23,7 @@ namespace Testing.Models
         public int CartId { get; set; }
         public Nullable<System.DateTime> Date { get; set; }
         public Nullable<decimal> Discount { get; set; }
-        public Nullable<int> CustomerId { get; set; }
+        public Nullable<System.Guid> UserId { get; set; }
     
         public virtual CUSTOMER CUSTOMER { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]

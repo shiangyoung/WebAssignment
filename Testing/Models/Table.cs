@@ -14,7 +14,7 @@ namespace Testing.Models
     
     public partial class Table
     {
-        public int CustomerId { get; set; }
+        public System.Guid UserId { get; set; }
         public string Username { get; set; }
         public string Password { get; set; }
         public string Name { get; set; }
@@ -22,5 +22,7 @@ namespace Testing.Models
         public string Address { get; set; }
         public string ContactNo { get; set; }
         public string Email { get; set; }
+    
+        public virtual aspnet_Users aspnet_Users { get; set; }
     }
 }

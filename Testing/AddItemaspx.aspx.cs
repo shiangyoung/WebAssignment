@@ -8,6 +8,7 @@ using System.Web.UI.WebControls;
 using Testing.Models;
 using System.Drawing.Imaging;
 using System.Drawing;
+using System.Web.Security;
 
 namespace Testing
 {
@@ -22,7 +23,13 @@ namespace Testing
         {
             var item = new PRODUCT();
             TryUpdateModel(item);
-            item.ArtistId = 1001;
+
+            //Get the username for the currently logged in user
+            MembershipUser membershipUser = Membership.GetUser("Username");
+            Guid userId = (Guid) membershipUser.ProviderUserKey;
+
+
+            item.ArtistId = userId;
 
             //To convert the image to binary
             FileUpload imageUpload = (FileUpload)fvAddItem.FindControl("imageUpload");
@@ -42,7 +49,7 @@ namespace Testing
             if (ModelState.IsValid)
             {
                 // Save changes here
-                GalleryEntities1 _db = new GalleryEntities1();
+                GalleryEntities _db = new GalleryEntities();
                 _db.PRODUCTs.Add(item);
                 _db.SaveChanges();
                 Response.Redirect("~/ViewGallery.aspx");

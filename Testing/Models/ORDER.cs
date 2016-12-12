@@ -23,7 +23,7 @@ namespace Testing.Models
         public int OrderId { get; set; }
         public Nullable<System.DateTime> date { get; set; }
         public Nullable<decimal> discount { get; set; }
-        public Nullable<int> CustomerId { get; set; }
+        public Nullable<System.Guid> UserId { get; set; }
         public Nullable<int> PaymentId { get; set; }
         public string status { get; set; }
     
