@@ -31,6 +31,24 @@ namespace Testing {
         protected global::System.Web.UI.HtmlControls.HtmlForm form1;
         
         /// <summary>
+        /// asm control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.ScriptManager asm;
+        
+        /// <summary>
+        /// Panel1 control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Panel Panel1;
+        
+        /// <summary>
         /// Image1 control.
         /// </summary>
         /// <remarks>
@@ -103,6 +121,33 @@ namespace Testing {
         protected global::System.Web.UI.WebControls.HyperLink cartCount;
         
         /// <summary>
+        /// btnLogin control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Button btnLogin;
+        
+        /// <summary>
+        /// btnLogout control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Button btnLogout;
+        
+        /// <summary>
+        /// btnRegister control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Button btnRegister;
+        
+        /// <summary>
         /// SiteMapPath1 control.
         /// </summary>
         /// <remarks>
@@ -119,5 +164,50 @@ namespace Testing {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.ContentPlaceHolder ContentPlaceHolder1;
+        
+        /// <summary>
+        /// PanelLogin control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Panel PanelLogin;
+        
+        /// <summary>
+        /// Login1 control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Login Login1;
+        
+        /// <summary>
+        /// PanelRegister control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Panel PanelRegister;
+        
+        /// <summary>
+        /// CreateUserWizard1 control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.CreateUserWizard CreateUserWizard1;
+        
+        /// <summary>
+        /// CreateUserWizardStep1 control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.CreateUserWizardStep CreateUserWizardStep1;
     }
 }

@@ -236,9 +236,10 @@ namespace Testing.Logic
             ShoppingCartId = getCartId();
 
             // Get the count of each item in the cart and sum them up          
-            int? count = (from cartItems in _db.CARTITEMs
-                          where cartItems.CartId == ShoppingCartId
-                          select (int?)cartItems.Quantity).Sum();
+            
+            int? count = (from CARTITEM in _db.CARTITEMs
+                          where CARTITEM.CartId == ShoppingCartId
+                          select (int?)CARTITEM.Quantity).Sum();
             // Return 0 if all entries are null         
             return count ?? 0;
         }
