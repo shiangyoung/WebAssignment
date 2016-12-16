@@ -34,10 +34,7 @@ namespace Testing
         {
             GalleryEntities1 _db = new GalleryEntities1();
             int productID = Convert.ToInt32(Request.QueryString["ProductID"]);
-
-            MembershipUser membershipUser = Membership.GetUser("Username");
-            Guid userId = (Guid)membershipUser.ProviderUserKey;
-            
+            Guid userId = (Guid)Membership.GetUser().ProviderUserKey;
 
             var existingItem = from w in _db.WISHLISTs
                                where w.ProductId == productID && w.UserId == userId

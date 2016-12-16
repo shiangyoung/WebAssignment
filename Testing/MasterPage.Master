@@ -132,10 +132,9 @@
                     <li>
                         <asp:HyperLink ID="HyperLink4" runat="server">My Account</asp:HyperLink>
                         <ul class="sub-menu">
-                            <li>
-                                <asp:HyperLink ID="HyperLink5" runat="server" NavigateUrl="~/Wishlistaspx.aspx">My Wishlist</asp:HyperLink></li>
-                            <li>
-                                <asp:HyperLink ID="HyperLink6" runat="server" NavigateUrl="~/ProductCart.aspx">My Cart</asp:HyperLink></li>
+                            <li><asp:HyperLink ID="HyperLink5" runat="server" NavigateUrl="~/Wishlistaspx.aspx">My Wishlist</asp:HyperLink></li>
+                            <li><asp:HyperLink ID="HyperLink6" runat="server" NavigateUrl="~/ProductCart.aspx">My Cart</asp:HyperLink></li>
+                            <li id="li_sales" runat="server" style="display:none"><asp:HyperLink ID="HyperLink7" runat="server">My Sales</asp:HyperLink></li>
                         </ul>
                     </li>
                     <li>
@@ -157,10 +156,10 @@
             </div>
         </div>
 
-        <asp:Panel ID="PanelLogin" runat="server"  Style="display: none">
-                <div style="text-align:right;width:500px">
-                <asp:Button ID="btnClose" runat="server" Text="Close"  BorderColor="#507CD1" BorderStyle="Solid" BorderWidth="1px" Font-Names="Verdana" Font-Size="0.8em" ForeColor="#284E98" Style="text-align:right"/>
-                    </div>
+        <asp:Panel ID="PanelLogin" runat="server" Style="display: none">
+            <div style="text-align: right; width: 500px">
+                <asp:Button ID="btnClose" runat="server" Text="Close" BorderColor="#507CD1" BorderStyle="Solid" BorderWidth="1px" Font-Names="Verdana" Font-Size="0.8em" ForeColor="#284E98" Style="text-align: right" />
+            </div>
             <asp:Login ID="Login1" runat="server" BackColor="#EFF3FB" BorderColor="#B5C7DE" BorderPadding="4" BorderStyle="Solid" BorderWidth="1px" Font-Names="Verdana" Font-Size="0.8em" ForeColor="#333333" Height="257px" Width="500px" Style="margin-left: 0px" DestinationPageUrl="~/ViewGallery.aspx">
                 <InstructionTextStyle Font-Italic="True" ForeColor="Black" />
                 <LoginButtonStyle BackColor="White" BorderColor="#507CD1" BorderStyle="Solid" BorderWidth="1px" Font-Names="Verdana" Font-Size="0.8em" ForeColor="#284E98" />

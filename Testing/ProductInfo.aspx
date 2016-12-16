@@ -64,12 +64,11 @@
                 </div>
          </ItemTemplate>
     </asp:FormView>
+        <asp:SqlDataSource ID="SqlDataSource1" runat="server" ConnectionString="<%$ ConnectionStrings:ConnectionString %>" SelectCommand="SELECT PRODUCT.ProductId, PRODUCT.Name, PRODUCT.Model, PRODUCT.Description, PRODUCT.Stock, PRODUCT.Price, PRODUCT.Image, CATEGORY.Name AS CategoryName, ARTIST.ContactNo, aspnet_Users.UserName AS ArtistName, PRODUCT.CategoryId FROM CATEGORY INNER JOIN PRODUCT ON CATEGORY.CategoryId = PRODUCT.CategoryId INNER JOIN ARTIST ON PRODUCT.ArtistId = ARTIST.ArtistId INNER JOIN aspnet_Users ON ARTIST.ArtistId = aspnet_Users.UserId WHERE (PRODUCT.ProductId = @ProductId)">
+            <SelectParameters>
+                <asp:QueryStringParameter Name="ProductId" QueryStringField="ProductId" />
+            </SelectParameters>
+        </asp:SqlDataSource>
     </div>
 
-    <asp:SqlDataSource ID="SqlDataSource1" runat="server" ConnectionString="<%$ ConnectionStrings:ConnectionString %>" SelectCommand="SELECT PRODUCT.ProductId, PRODUCT.Name, PRODUCT.Model, PRODUCT.Stock, PRODUCT.Price, PRODUCT.ArtistId, PRODUCT.CategoryId, PRODUCT.Image, ARTIST.Name AS Artistname, ARTIST.ContactNo, CATEGORY.Name AS CategoryName FROM PRODUCT INNER JOIN ARTIST ON PRODUCT.ArtistId = ARTIST.ArtistId INNER JOIN CATEGORY ON PRODUCT.CategoryId = CATEGORY.CategoryId WHERE (PRODUCT.ProductId = @ProductId)">
-        <SelectParameters>
-            <asp:QueryStringParameter Name="ProductId" QueryStringField="ProductId" Type="Int32" />
-        </SelectParameters>
-    </asp:SqlDataSource>
-
-</asp:Content>
+    </asp:Content>

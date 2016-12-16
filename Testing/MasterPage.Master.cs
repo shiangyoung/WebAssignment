@@ -30,6 +30,15 @@ namespace Testing
                 ListItem item = new ListItem(i + "", i + "");
                 Year.Items.Add(item);
             }
+
+            if (!Page.User.IsInRole("Members"))
+            {
+                li_sales.Style["display"] = "none";
+            }
+            else
+            {
+                li_sales.Style["display"] = "block";
+            }
         }
 
         protected void Page_PreRender(object sender, EventArgs e)

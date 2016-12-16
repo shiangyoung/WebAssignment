@@ -25,10 +25,7 @@ namespace Testing
             TryUpdateModel(item);
 
             //Get the username for the currently logged in user
-            MembershipUser membershipUser = Membership.GetUser("Username");
-            Guid userId = (Guid) membershipUser.ProviderUserKey;
-
-
+            Guid userId = (Guid) Membership.GetUser().ProviderUserKey;
             item.ArtistId = userId;
 
             //To convert the image to binary
