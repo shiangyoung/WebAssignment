@@ -7,6 +7,7 @@ using System.Web.UI.WebControls;
 using Testing.Models;
 using Testing.Logic;
 using System.Web.Security;
+using AjaxControlToolkit;
 
 namespace Testing
 {
@@ -32,6 +33,9 @@ namespace Testing
 
         protected void btnWishlist_Click(object sender, EventArgs e)
         {
+            bool loginStatus = (System.Web.HttpContext.Current.User != null) && System.Web.HttpContext.Current.User.Identity.IsAuthenticated;
+
+            if (loginStatus) { 
             GalleryEntities1 _db = new GalleryEntities1();
             int productID = Convert.ToInt32(Request.QueryString["ProductID"]);
             Guid userId = (Guid)Membership.GetUser().ProviderUserKey;
@@ -64,6 +68,13 @@ namespace Testing
                 }
                 System.Diagnostics.Debug.WriteLine("not exist");
                 
+            }
+            }
+            else
+            {
+                MasterPage masterPage = this.Master as MasterPage;
+                ModalPopupExtender ModalPopupExtender1 = (ModalPopupExtender)masterPage.FindControl("ModalPopupExtender1");
+                ModalPopupExtender1.Show();
             }
 
 

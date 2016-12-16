@@ -43,6 +43,8 @@ namespace Testing
                 item.Image = bytes;
             }
 
+            item.Description = item.Description.Replace(Environment.NewLine, "<br />");
+
             if (ModelState.IsValid)
             {
                 // Save changes here
@@ -74,6 +76,11 @@ namespace Testing
             }
 
             return resizedImage;
+        }
+
+        protected string Replace(object Description)
+        {
+            return Convert.ToString(Description).Replace(Environment.NewLine, "<br>");
         }
     }
 }

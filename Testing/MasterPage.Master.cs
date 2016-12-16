@@ -39,6 +39,18 @@ namespace Testing
             {
                 li_sales.Style["display"] = "block";
             }
+
+            bool loginStatus = (System.Web.HttpContext.Current.User != null) && System.Web.HttpContext.Current.User.Identity.IsAuthenticated;
+
+            if (loginStatus)
+            {
+                li_myaccount.Style["display"] = "block";
+            }
+            else
+            {
+                li_myaccount.Style["display"] = "none";
+            }
+
         }
 
         protected void Page_PreRender(object sender, EventArgs e)

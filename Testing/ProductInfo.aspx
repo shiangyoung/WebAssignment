@@ -52,6 +52,9 @@
                         Cateory :
                 <asp:Label ID="lblCategory" runat="server" Text='<%# Eval("CategoryName")%>'></asp:Label>
                         <br />
+                        Description :
+               <asp:Label ID="lblDescription" runat="server" Text='<%# Eval("Description")%>'></asp:Label>
+                        <br />
                         Artist
                 <asp:Label ID="lblArtistName" runat="server" Text='<%# Eval("ArtistName")%>'></asp:Label>
                         <br />

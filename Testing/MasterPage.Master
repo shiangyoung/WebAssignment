@@ -89,6 +89,7 @@
             PopupDragHandleControlID="PopupHeader" Drag="true"
             BackgroundCssClass="modalBackround">
         </cc1:ModalPopupExtender>
+
         <cc1:ModalPopupExtender ID="ModalPopupExtender1" runat="server"
             CancelControlID="btnClose" OkControlID="btnOkay"
             TargetControlID="btnLogin" PopupControlID="PanelLogin"
@@ -109,6 +110,7 @@
                 </div>
             </div>
         </asp:Panel>
+
         <div id="wrapper">
             <div id="banner">
                 <asp:Image ID="Image1" runat="server" ImageUrl="~/Images/banner.jpg" Width="100%" />
@@ -117,7 +119,7 @@
                 <ul id="nav">
                     <li>
                         <asp:HyperLink ID="HyperLink1" runat="server" NavigateUrl="~/ViewGallery.aspx">Webshop</asp:HyperLink>
-                        <ul style="width: 87.1%; margin-left: -40px; background-color: #666; height: 300px; display: none; opacity: 0.95">
+                        <ul style="width:calc(100% - 163px);margin-left: -40px; background-color: #666; height: 300px; display: none; opacity: 0.95">
                             <li>
                                 <div>
                                     <!--Category image-->
@@ -130,7 +132,7 @@
                     <li>
                         <asp:HyperLink ID="HyperLink3" runat="server">Report</asp:HyperLink></li>
                     <li>
-                        <asp:HyperLink ID="HyperLink4" runat="server">My Account</asp:HyperLink>
+                        <asp:HyperLink ID="li_myaccount" runat="server">My Account</asp:HyperLink>
                         <ul class="sub-menu">
                             <li><asp:HyperLink ID="HyperLink5" runat="server" NavigateUrl="~/Wishlistaspx.aspx">My Wishlist</asp:HyperLink></li>
                             <li><asp:HyperLink ID="HyperLink6" runat="server" NavigateUrl="~/ProductCart.aspx">My Cart</asp:HyperLink></li>
@@ -146,10 +148,12 @@
                 <asp:Button ID="btnRegister" Text="Register" runat="server" />
 
             </div>
+            
             <div id="sitemap" style="height: 40px; background-color: #F1F1F1">
                 <asp:SiteMapPath ID="SiteMapPath1" runat="server">
                 </asp:SiteMapPath>
             </div>
+            
             <div id="content">
                 <asp:ContentPlaceHolder ID="ContentPlaceHolder1" runat="server">
                 </asp:ContentPlaceHolder>
@@ -167,6 +171,7 @@
                 <TitleTextStyle BackColor="#507CD1" Font-Bold="True" Font-Size="0.9em" ForeColor="White" />
             </asp:Login>
         </asp:Panel>
+        
         <asp:Panel ID="PanelRegister" runat="server" CssClass="ShowPoppup" BackColor="white" Height="270px" Width="400px" align="Center" Style="display: none">
             <asp:CreateUserWizard ID="CreateUserWizard1" runat="server" OnCreatedUser="CreateUserWizard1_CreatedUser">
                 <WizardSteps>

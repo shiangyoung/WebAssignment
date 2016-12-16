@@ -24,6 +24,8 @@
                 </asp:DropDownList>
                 <asp:SqlDataSource ID="SqlDataSource1" runat="server" ConnectionString="<%$ ConnectionStrings:ConnectionString %>" SelectCommand="SELECT * FROM [CATEGORY]"></asp:SqlDataSource>
                 <br />
+                Description : 
+                <asp:TextBox ID="txtDescription" runat="server" TextMode="multiline" Columns="50" Rows="5" Text='<%# Bind("Description") %>'></asp:TextBox>
                 <asp:Button ID="btnInsert" runat="server" Text="Insert" CommandName="Insert" />
             </InsertItemTemplate>
             </asp:FormView>
