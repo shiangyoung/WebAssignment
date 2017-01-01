@@ -28,7 +28,7 @@
         <br />
 
         <div style="text-align:center">
-            <asp:Button ID="btnPreview" runat="server" Text="Preview" OnClick="btnUpload_Click" Width="80%" Height="30px" />
+            <asp:Button ID="btnPreview" runat="server" Text="Preview" OnClick=" " Width="80%" Height="30px" />
         </div>
     </div>
     <div style="width:48.5%;margin:0 auto;float:left;margin-left:25px">

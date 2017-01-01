@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Collections.Specialized;
 using System.Linq;
 using System.Web;
+using System.Web.Security;
 using System.Web.UI;
 using System.Web.UI.WebControls;
 using Testing.Logic;
@@ -30,6 +31,7 @@ namespace Testing
                     ShoppingCartTitle.InnerText = "Shopping Cart is Empty";
                     btnUpdate.Visible = false;
                     btnPayment.Visible = false;
+                   
 
                 }
             }
@@ -91,7 +93,37 @@ namespace Testing
 
         protected void btnPayment_Click(object sender, EventArgs e)
         {
+            
+            GalleryEntities1 _db = new GalleryEntities1();
+            ShoppingCart cs = new ShoppingCart();
+            List<CARTITEM> orderItem = cs.GetCartItems();
 
+            ORDER order = new ORDER
+            {
+                date = DateTime.Now,
+                discount = 0,
+                UserId = null,
+                PaymentId = null,
+                status = "pending"
+            };
+            _db.ORDERs.Add(order);
+            _db.SaveChanges();
+
+            
+                for (int i = 0; i < orderItem.Count(); i++)
+                {
+                    ORDERDETAIL orderDetail = new ORDERDETAIL();
+                    orderDetail.ProductId = orderItem[i].ProductId;
+                    orderDetail.OrderId = order.OrderId;
+                    orderDetail.Quantity = orderItem[i].Quantity;
+                    orderDetail.TotalPrice = orderItem[i].TotalPrice;
+
+                    _db.ORDERDETAILs.Add(orderDetail);
+                    _db.SaveChanges();
+                }
+            Session["total"] = cs.GetTotal().ToString();
+            Session["orderid"] = order.OrderId.ToString();
+            Response.Redirect("~/Payment.aspx");
         }
 
     }

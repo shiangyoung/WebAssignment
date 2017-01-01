@@ -2,7 +2,7 @@
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
-     <div id="ShoppingCartTitle" runat="server" class="ContentHead"><h1>Shopping Cart</h1></div>
+     <div id="ShoppingCartTitle" runat="server" class="ContentHead"><h1>Shoppinpg Cart</h1></div>
     <asp:GridView ID="CartList" runat="server" AutoGenerateColumns="False" ShowFooter="True" GridLines="Vertical" CellPadding="4"
         ItemType="Testing.Models.CARTITEM" SelectMethod="GetShoppingCartItems" 
         CssClass="table table-striped table-bordered" >   
@@ -29,8 +29,8 @@
     </asp:GridView>
     <div>
         <p></p>
-        <strong>
-            <asp:Label ID="LabelTotalText" runat="server" Text="Order Total: "></asp:Label>
+            <strong>
+                <asp:Label ID="LabelTotalText" runat="server" Text="Order Total: "></asp:Label>
             <asp:Label ID="lblTotal" runat="server" EnableViewState="false"></asp:Label>
         </strong> 
     </div>
@@ -43,6 +43,9 @@
       <td>
           <asp:Button ID="btnPayment" runat="server" Text="Payment" OnClick="btnPayment_Click" />
       </td>
+        <%--<td>
+            <asp:ImageButton ID="CheckoutImageBtn" runat="server" ImageUrl="https://www.paypal.com/en_US/i/btn/btn_xpressCheckout.gif" Width="75" AlternateText="Check out with PayPal" Height="50" OnClick="CheckoutBtn_Click" BackColor="Transparent" BorderWidth="0" />
+        </td>--%>
     </tr>
     </table>
 </asp:Content>
