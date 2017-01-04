@@ -8,15 +8,15 @@
                 <ContentTemplate>
                     <table>
                         <tr>
-                            <td align="center" colspan="2">Sign Up for Your New Account</td>
+                            <td align="center" colspan="2"><h1>Sign Up for Your New Account</h1></td>
                         </tr>
                         <tr>
                             <td align="right">
                                 <asp:Label ID="Label1" runat="server" >Register As:</asp:Label>
                             </td>
-                            <td>
-                                <asp:DropDownList runat="server" ID="registerAs">
-                                    <asp:ListItem Text="Member" Value="Members"></asp:ListItem>
+                            <td style="background-color:white">
+                                <asp:DropDownList runat="server" ID="registerAs" BackColor="White" style="background-color:white">
+                                    <asp:ListItem Text="Member" Value="Members" ></asp:ListItem>
                                     <asp:ListItem Text="Artist" Value="Artists"></asp:ListItem>
                                 </asp:DropDownList>
                             </td>
