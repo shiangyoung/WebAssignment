@@ -27,7 +27,7 @@ namespace Testing
             }
 
 
-            if (!Page.User.IsInRole("Members"))
+            if (!Page.User.IsInRole("Artists"))
             {
                 li_sales.Style["display"] = "none";
             }

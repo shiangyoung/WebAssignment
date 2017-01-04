@@ -11,7 +11,7 @@ namespace Testing
     {
         protected void Page_Load(object sender, EventArgs e)
         {
-
+            ClientScript.RegisterStartupScript(GetType(), "Javascript", "javascript:startPage(); ", true);
         }
 
         protected void imgbtnGallery_Click(object sender, ImageClickEventArgs e)
