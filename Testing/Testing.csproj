@@ -43,8 +43,8 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
-    <Reference Include="AjaxControlToolkit, Version=16.1.1.0, Culture=neutral, PublicKeyToken=28f01b0e84b6d53e, processorArchitecture=MSIL">
-      <HintPath>..\packages\AjaxControlToolkit.16.1.1.0\lib\net40\AjaxControlToolkit.dll</HintPath>
+    <Reference Include="AjaxControlToolkit, Version=16.1.0.0, Culture=neutral, PublicKeyToken=28f01b0e84b6d53e, processorArchitecture=MSIL">
+      <HintPath>..\packages\AjaxControlToolkit.16.1.0.0\lib\net40\AjaxControlToolkit.dll</HintPath>
       <Private>True</Private>
     </Reference>
     <Reference Include="EntityFramework, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
@@ -113,7 +113,7 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="AboutUs.aspx" />
-    <Content Include="AddItemaspx.aspx" />
+    <Content Include="Artists\AddItemaspx.aspx" />
     <Content Include="AddProduct.aspx" />
     <Content Include="App_Data\Gallery.mdf" />
     <Content Include="App_Data\Gallery_log.ldf">
@@ -166,8 +166,8 @@
   <ItemGroup>
     <Content Include="ProductInfo.aspx" />
     <Content Include="Style\StyleSheet.css" />
-    <Content Include="UpdateGallery.aspx" />
-    <Content Include="UpdateItem.aspx" />
+    <Content Include="Artists\UpdateGallery.aspx" />
+    <Content Include="Artists\UpdateItem.aspx" />
     <Content Include="ViewGallery.aspx" />
     <Content Include="Web.config">
       <SubType>Designer</SubType>
@@ -181,11 +181,11 @@
     <Compile Include="AboutUs.aspx.designer.cs">
       <DependentUpon>AboutUs.aspx</DependentUpon>
     </Compile>
-    <Compile Include="AddItemaspx.aspx.cs">
+    <Compile Include="Artists\AddItemaspx.aspx.cs">
       <DependentUpon>AddItemaspx.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
-    <Compile Include="AddItemaspx.aspx.designer.cs">
+    <Compile Include="Artists\AddItemaspx.aspx.designer.cs">
       <DependentUpon>AddItemaspx.aspx</DependentUpon>
     </Compile>
     <Compile Include="AddProduct.aspx.cs">
@@ -319,18 +319,18 @@
     <Compile Include="RegistrationWizard.aspx.designer.cs">
       <DependentUpon>RegistrationWizard.aspx</DependentUpon>
     </Compile>
-    <Compile Include="UpdateGallery.aspx.cs">
+    <Compile Include="Artists\UpdateGallery.aspx.cs">
       <DependentUpon>UpdateGallery.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
-    <Compile Include="UpdateGallery.aspx.designer.cs">
+    <Compile Include="Artists\UpdateGallery.aspx.designer.cs">
       <DependentUpon>UpdateGallery.aspx</DependentUpon>
     </Compile>
-    <Compile Include="UpdateItem.aspx.cs">
+    <Compile Include="Artists\UpdateItem.aspx.cs">
       <DependentUpon>UpdateItem.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
-    <Compile Include="UpdateItem.aspx.designer.cs">
+    <Compile Include="Artists\UpdateItem.aspx.designer.cs">
       <DependentUpon>UpdateItem.aspx</DependentUpon>
     </Compile>
     <Compile Include="ViewGallery.aspx.cs">
