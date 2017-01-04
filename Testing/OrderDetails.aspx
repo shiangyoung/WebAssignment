@@ -102,6 +102,9 @@
             </SelectParameters>
         </asp:SqlDataSource>
     </asp:Panel>
-    <asp:Label ID="lblNoRecord" runat="server" Text="You do not have any purchase history"></asp:Label>
+
+    <div style="text-align:center;padding-top:30px">
+        <asp:Label ID="lblNoRecord" runat="server" Text="You do not have any purchase history"></asp:Label>
+    </div>
 </asp:Content>
 

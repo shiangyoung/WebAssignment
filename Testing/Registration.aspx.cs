@@ -17,6 +17,8 @@ namespace Testing
         public string connectionString = ConfigurationManager.ConnectionStrings["ConnectionString"].ConnectionString;
         protected void Page_Load(object sender, EventArgs e)
         {
+            CreateUserWizard1.MoveTo(CreateUserWizardStep1);
+
             DropDownList Year = (DropDownList)CreateUserWizardStep1.ContentTemplateContainer.FindControl("Year");
             for (int i = 2003; i >= 1950; i--)
             {
