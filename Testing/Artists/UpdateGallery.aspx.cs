@@ -41,7 +41,7 @@ namespace Testing
             //Get the repeater item index
             //int index = item.ItemIndex;
 
-            Response.Redirect("~/UpdateItem.aspx?ProductId=" + commandArgument);
+            Response.Redirect("~/Artists/UpdateItem.aspx?ProductId=" + commandArgument);
             //System.Diagnostics.Debug.WriteLine(button.ToString() + commandArgument + item.ToString() + index.ToString());
         }
 

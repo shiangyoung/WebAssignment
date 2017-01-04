@@ -9,6 +9,7 @@ using System.Web.Security;
 using System.Web.UI;
 using System.Web.UI.WebControls;
 using Testing.Logic;
+using Testing.Models;
 
 namespace Testing
 {
@@ -17,8 +18,19 @@ namespace Testing
         public string connectionString = ConfigurationManager.ConnectionStrings["ConnectionString"].ConnectionString;
         protected void Page_Load(object sender, EventArgs e)
         {
+           
             if (HttpContext.Current.User != null && HttpContext.Current.User.Identity.IsAuthenticated)
             {
+                MembershipUser u = Membership.GetUser(HttpContext.Current.User.Identity.Name);
+                String name = u.UserName;
+                Guid id = (Guid)u.ProviderUserKey;
+                int cartId = 123;
+                using (GalleryEntities1 db = new GalleryEntities1())
+                {
+                    cartId = (from c in db.CARTs where c.UserId == id select c.CartId).First();
+                }
+
+                HttpContext.Current.Session["cartId"] = cartId;
                 PanelLogin.Style.Add("display", "none");
                 btnLogin.Visible = false;
                 btnRegister.Visible = false;
@@ -113,6 +125,9 @@ namespace Testing
         protected void btnLogout_Click(object sender, EventArgs e)
         {
             FormsAuthentication.SignOut();
+            HttpContext.Current.Session.Clear();
+
+
             Response.Redirect("~/ViewGallery.aspx");
         }
         //    private void CreateNewMember()

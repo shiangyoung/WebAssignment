@@ -54,14 +54,6 @@ namespace Testing
             //System.Diagnostics.Debug.WriteLine(button.ToString() + commandArgument + item.ToString() + index.ToString());
         }
 
-        protected void rptProduct_ItemCommand(object source, RepeaterCommandEventArgs e)
-        {
-            if (e.CommandName == "product")
-            {
-
-            }
-        }
-
         protected void btnAddToCart_Click(object sender, EventArgs e)
         {
             Button btn = (sender as Button);
@@ -103,7 +95,10 @@ namespace Testing
             if (e.AffectedRows < 1)
             {
                 System.Diagnostics.Debug.WriteLine("product not exist");
+                lblNoRecord.Visible = true;
             }
+            else
+                lblNoRecord.Visible = false;
 
         }
 
@@ -130,6 +125,24 @@ namespace Testing
                     rptProduct.DataBind();
                 }
             
+        }
+
+        protected void rptProduct_ItemDataBound(object sender, RepeaterItemEventArgs e)
+        {
+            System.Diagnostics.Debug.WriteLine(rptProduct.Items.Count);
+            if (rptProduct.Items.Count < 1)
+            {
+                if (e.Item.ItemType == ListItemType.Header)
+                {
+                    lblNoRecord.Visible = true;
+                    rptProduct.Visible = false;
+                }
+                else
+                {
+                    lblNoRecord.Visible = false;
+                }
+
+            }
         }
     }
 }
