@@ -59,6 +59,11 @@ namespace Testing
                 cartCount.Text = cartStr;
             }
         }
+        protected void btnRegister_Click(object sender,EventArgs e)
+        {
+            FormsAuthentication.SignOut();
+            Response.Redirect("~/Registration.aspx");
+        }
 
         //    protected void CreateUserWizard1_CreatedUser(Object sender, EventArgs e)
         //    {
