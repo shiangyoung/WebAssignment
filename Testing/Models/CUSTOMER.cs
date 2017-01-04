@@ -14,24 +14,12 @@ namespace Testing.Models
     
     public partial class CUSTOMER
     {
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
-        public CUSTOMER()
-        {
-            this.CARTs = new HashSet<CART>();
-            this.ORDERs = new HashSet<ORDER>();
-        }
-    
         public System.Guid UserId { get; set; }
         public int Number { get; set; }
         public string Name { get; set; }
         public Nullable<System.DateTime> DateOfBirth { get; set; }
+        public Nullable<int> Age { get; set; }
         public string Address { get; set; }
         public string ContactNo { get; set; }
-        public string Email { get; set; }
-    
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<CART> CARTs { get; set; }
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<ORDER> ORDERs { get; set; }
     }
 }

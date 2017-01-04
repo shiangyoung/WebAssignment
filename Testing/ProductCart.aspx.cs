@@ -103,7 +103,6 @@ namespace Testing
                 date = DateTime.Now,
                 discount = 0,
                 UserId = null,
-                PaymentId = null,
                 status = "pending"
             };
             _db.ORDERs.Add(order);

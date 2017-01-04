@@ -24,11 +24,8 @@ namespace Testing.Models
         public Nullable<System.DateTime> date { get; set; }
         public Nullable<decimal> discount { get; set; }
         public Nullable<System.Guid> UserId { get; set; }
-        public Nullable<int> PaymentId { get; set; }
         public string status { get; set; }
     
-        public virtual CUSTOMER CUSTOMER { get; set; }
-        public virtual PAYMENT PAYMENT { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<ORDERDETAIL> ORDERDETAILs { get; set; }
     }

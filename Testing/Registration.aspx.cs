@@ -36,45 +36,43 @@ namespace Testing
             Guid newUserId = (Guid)newUser.ProviderUserKey;
             string Name = ((TextBox)CreateUserWizardStep1.ContentTemplateContainer.FindControl("Name")).Text;
             string Address = ((TextBox)CreateUserWizardStep1.ContentTemplateContainer.FindControl("Address")).Text;
+            string Contact = ((TextBox)CreateUserWizardStep1.ContentTemplateContainer.FindControl("Contact")).Text;
             DropDownList ddlYear = (DropDownList)CreateUserWizardStep1.ContentTemplateContainer.FindControl("Year");
             DropDownList ddlMonth = (DropDownList)CreateUserWizardStep1.ContentTemplateContainer.FindControl("Month");
             DropDownList ddlDay = (DropDownList)CreateUserWizardStep1.ContentTemplateContainer.FindControl("Day");
             Int32 day = Int32.Parse(ddlDay.SelectedValue);
             Int32 month = Int32.Parse(ddlMonth.SelectedValue);
             Int32 year = Int32.Parse(ddlYear.SelectedValue);
+            Int32 Age = DateTime.Now.Year - year;
             DateTime DOB = new DateTime(year, month, day);
             DropDownList registerAs = (DropDownList)(CreateUserWizardStep1.ContentTemplateContainer.FindControl("registerAs"));
             String value = registerAs.SelectedValue;
-            Roles.AddUserToRole(CreateUserWizard1.UserName, value);
-            if (value.Equals("Members")) {
-                using (SqlConnection myConnection = new SqlConnection(connectionString))
-                {
-                    SqlCommand mycommand = new SqlCommand("new_user", myConnection);
-                    mycommand.CommandType = System.Data.CommandType.StoredProcedure;
-                    mycommand.Parameters.Add("Name", SqlDbType.VarChar).Value = Name;
-                    mycommand.Parameters.Add("Address", SqlDbType.VarChar).Value = Address;
-                    mycommand.Parameters.Add("DateOfBirth", SqlDbType.Date).Value = DOB.Date;
-                    mycommand.Parameters.Add("userId", SqlDbType.UniqueIdentifier).Value = newUserId;
-                    myConnection.Open();
-                    mycommand.ExecuteNonQuery();
-                    myConnection.Close();
+           
 
-                }
-            } else if (value.Equals("Artists"))
+            using (SqlConnection myConnection = new SqlConnection(connectionString))
             {
-                using (SqlConnection myConnection = new SqlConnection(connectionString))
+                SqlCommand mycommand = null;
+                if (value.Equals("Members"))
                 {
-                    SqlCommand mycommand = new SqlCommand("new_artist", myConnection);
-                    mycommand.CommandType = System.Data.CommandType.StoredProcedure;
-                    mycommand.Parameters.Add("Name", SqlDbType.VarChar).Value = Name;
-                    mycommand.Parameters.Add("userid", SqlDbType.UniqueIdentifier).Value = newUserId;
-                    myConnection.Open();
-                    mycommand.ExecuteNonQuery();
-                    myConnection.Close();
-
+                    mycommand = new SqlCommand("new_user", myConnection);
+                } else
+                {
+                    mycommand = new SqlCommand("new_artist", myConnection);
                 }
+                mycommand.CommandType = System.Data.CommandType.StoredProcedure;
+                mycommand.Parameters.Add("Name", SqlDbType.VarChar).Value = Name;
+                mycommand.Parameters.Add("Address", SqlDbType.VarChar).Value = Address;
+                mycommand.Parameters.Add("DateOfBirth", SqlDbType.Date).Value = DOB.Date;
+                mycommand.Parameters.Add("UserId", SqlDbType.UniqueIdentifier).Value = newUserId;
+                mycommand.Parameters.Add("Age", SqlDbType.Int).Value = Age;
+                mycommand.Parameters.Add("Contact", SqlDbType.Int).Value = Contact;
+                myConnection.Open();
+                mycommand.ExecuteNonQuery();
+                myConnection.Close();
+                Roles.AddUserToRole(CreateUserWizard1.UserName, value);
             }
         }
+ 
     protected void updateDropDownList(Object sender, EventArgs e)
     {
         DropDownList Month = (DropDownList)CreateUserWizardStep1.ContentTemplateContainer.FindControl("Month");
