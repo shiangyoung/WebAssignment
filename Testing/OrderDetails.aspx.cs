@@ -11,7 +11,7 @@ namespace Testing
     {
         protected void Page_Load(object sender, EventArgs e)
         {
-
+            ClientScript.RegisterStartupScript(GetType(), "Javascript", "javascript:startPage(); ", true);
         }
 
         protected void imgbtnGallery_Click(object sender, ImageClickEventArgs e)
@@ -31,5 +31,19 @@ namespace Testing
             Response.Redirect("~/ProductInfo.aspx?ProductId=" + commandArgument);
             //System.Diagnostics.Debug.WriteLine(button.ToString() + commandArgument + item.ToString() + index.ToString());
         }
+
+        protected void Repeater1_ItemDataBound(object sender, RepeaterItemEventArgs e)
+        {
+            if (Repeater1.Items.Count < 1)
+            {
+                lblNoRecord.Visible = true;
+                Repeater1.Visible = false;
+            }
+            else
+            {
+                lblNoRecord.Visible = false;
+            }
+        }
     }
+    
 }
