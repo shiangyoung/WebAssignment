@@ -144,6 +144,7 @@
     <Content Include="ProductCart.aspx" />
     <Content Include="Registration.aspx" />
     <Content Include="RegistrationWizard.aspx" />
+    <Content Include="UpdateProfile.aspx" />
     <Content Include="Wishlistaspx.aspx" />
     <Content Include="XMLFile1.xml">
       <SubType>Designer</SubType>
@@ -332,6 +333,13 @@
     </Compile>
     <Compile Include="Artists\UpdateItem.aspx.designer.cs">
       <DependentUpon>UpdateItem.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="UpdateProfile.aspx.cs">
+      <DependentUpon>UpdateProfile.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="UpdateProfile.aspx.designer.cs">
+      <DependentUpon>UpdateProfile.aspx</DependentUpon>
     </Compile>
     <Compile Include="ViewGallery.aspx.cs">
       <DependentUpon>ViewGallery.aspx</DependentUpon>

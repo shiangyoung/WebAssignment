@@ -100,11 +100,16 @@ namespace Testing
         else
         {
             for (int i = 1; i <= 30; i++)
-            {
+            {   
                 ListItem item = new ListItem(i + "", i + "");
                 Day.Items.Add(item);
             }
         }
     }
-}
+
+        protected void ContinueButton_Click(object sender, EventArgs e)
+        {
+            Response.Redirect("~/ViewGallery.aspx");
+        }
+    }
 }

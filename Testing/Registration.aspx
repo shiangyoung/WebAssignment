@@ -2,14 +2,11 @@
 
 <asp:Content ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
 
-    <asp:CreateUserWizard ID="CreateUserWizard1" runat="server" OnCreatedUser="CreateUserWizard1_CreatedUser">
+    <asp:CreateUserWizard ID="CreateUserWizard1" runat="server" OnCreatedUser="CreateUserWizard1_CreatedUser" ActiveStepIndex="1">
         <WizardSteps>
             <asp:CreateUserWizardStep ID="CreateUserWizardStep1" runat="server">
                 <ContentTemplate>
                     <table>
-                        <tr>
-                            
-                        </tr>
                         <tr>
                             <td align="center" colspan="2">Sign Up for Your New Account</td>
                         </tr>
@@ -123,7 +120,23 @@
                     </table>
                 </ContentTemplate>
             </asp:CreateUserWizardStep>
-            <asp:CompleteWizardStep runat="server" />
+            <asp:CompleteWizardStep runat="server" >
+                <ContentTemplate>
+                    <table>
+                        <tr>
+                            <td align="center" colspan="2">Complete</td>
+                        </tr>
+                        <tr>
+                            <td>Your account has been successfully created.</td>
+                        </tr>
+                        <tr>
+                            <td align="right" colspan="2">
+                                <asp:Button ID="ContinueButton" runat="server" CausesValidation="False" CommandName="Continue" Text="Continue" ValidationGroup="CreateUserWizard1" OnClick="ContinueButton_Click" />
+                            </td>
+                        </tr>
+                    </table>
+                </ContentTemplate>
+            </asp:CompleteWizardStep>
         </WizardSteps>
     </asp:CreateUserWizard>
 </asp:Content>
