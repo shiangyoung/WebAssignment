@@ -4,23 +4,26 @@
   <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
     <!-- Diagram content (shape and connector positions) -->
     <edmx:Diagrams>
-      <Diagram DiagramId="834ff1b84e41460097bc7493e6e86489" Name="Diagram1">
-        <EntityTypeShape EntityType="GalleryModel.ARTIST" Width="1.5" PointX="0.75" PointY="3.625" IsExpanded="true" />
-        <EntityTypeShape EntityType="GalleryModel.CART" Width="1.5" PointX="3" PointY="10.875" IsExpanded="true" />
-        <EntityTypeShape EntityType="GalleryModel.CARTITEM" Width="1.5" PointX="5.25" PointY="3.75" IsExpanded="true" />
-        <EntityTypeShape EntityType="GalleryModel.CATEGORY" Width="1.5" PointX="0.75" PointY="1" IsExpanded="true" />
-        <EntityTypeShape EntityType="GalleryModel.CUSTOMER" Width="1.5" PointX="5.75" PointY="7" IsExpanded="true" />
-        <EntityTypeShape EntityType="GalleryModel.ORDER" Width="1.5" PointX="3" PointY="7.75" IsExpanded="true" />
-        <EntityTypeShape EntityType="GalleryModel.ORDERDETAIL" Width="1.5" PointX="5.25" PointY="0.75" IsExpanded="true" />
-        <EntityTypeShape EntityType="GalleryModel.PAYMENT" Width="1.5" PointX="7.75" PointY="2" IsExpanded="true" />
-        <EntityTypeShape EntityType="GalleryModel.PRODUCT" Width="1.5" PointX="3" PointY="3.125" IsExpanded="true" />
-        <EntityTypeShape EntityType="GalleryModel.WISHLIST" Width="1.5" PointX="7.75" PointY="5" IsExpanded="true" />
-        <AssociationConnector Association="GalleryModel.FK_PRODUCT_ToTable" ManuallyRouted="false" />
-        <AssociationConnector Association="GalleryModel.FK_CARTITEM_CART" ManuallyRouted="false" />
-        <AssociationConnector Association="GalleryModel.FK_CARTITEM_PRODUCT" ManuallyRouted="false" />
-        <AssociationConnector Association="GalleryModel.FK_PRODUCT_ToTable_1" ManuallyRouted="false" />
-        <AssociationConnector Association="GalleryModel.FK_ORDERDETAIL_ORDER" ManuallyRouted="false" />
-        <AssociationConnector Association="GalleryModel.FK_ORDERDETAIL_PRODUCT" ManuallyRouted="false" />
+      <Diagram DiagramId="6e6016dec75d491584ce93f308fa8a28" Name="Diagram1">
+        <EntityTypeShape EntityType="GalleryModel1.ARTIST" Width="1.5" PointX="0.75" PointY="3.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="GalleryModel1.CART" Width="1.5" PointX="3" PointY="13.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="GalleryModel1.CARTITEM" Width="1.5" PointX="5.25" PointY="3.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="GalleryModel1.CATEGORY" Width="1.5" PointX="0.75" PointY="1" IsExpanded="true" />
+        <EntityTypeShape EntityType="GalleryModel1.CUSTOMER" Width="1.5" PointX="0.75" PointY="8.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="GalleryModel1.ORDER" Width="1.5" PointX="3" PointY="9.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="GalleryModel1.ORDERDETAIL" Width="1.5" PointX="5.25" PointY="0.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="GalleryModel1.PAYMENT" Width="1.5" PointX="0.75" PointY="11.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="GalleryModel1.PRODUCT" Width="1.5" PointX="3" PointY="3.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="GalleryModel1.WISHLIST" Width="1.5" PointX="5.75" PointY="7" IsExpanded="true" />
+        <AssociationConnector Association="GalleryModel1.FK_PRODUCT_ToTable" ManuallyRouted="false" />
+        <AssociationConnector Association="GalleryModel1.FK_CART_ToTable" ManuallyRouted="false" />
+        <AssociationConnector Association="GalleryModel1.FK_CARTITEM_CART" ManuallyRouted="false" />
+        <AssociationConnector Association="GalleryModel1.FK_CARTITEM_PRODUCT" ManuallyRouted="false" />
+        <AssociationConnector Association="GalleryModel1.FK_PRODUCT_ToTable_1" ManuallyRouted="false" />
+        <AssociationConnector Association="GalleryModel1.FK_ORDER_ToTable" ManuallyRouted="false" />
+        <AssociationConnector Association="GalleryModel1.FK_ORDER_PAYMENT" ManuallyRouted="false" />
+        <AssociationConnector Association="GalleryModel1.FK_ORDERDETAIL_ORDER" ManuallyRouted="false" />
+        <AssociationConnector Association="GalleryModel1.FK_ORDERDETAIL_PRODUCT" ManuallyRouted="false" />
       </Diagram>
     </edmx:Diagrams>
   </edmx:Designer>

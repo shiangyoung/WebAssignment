@@ -14,9 +14,18 @@ namespace Testing.Models
     
     public partial class PAYMENT
     {
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
+        public PAYMENT()
+        {
+            this.ORDERs = new HashSet<ORDER>();
+        }
+    
         public int PaymentId { get; set; }
         public Nullable<System.DateTime> Date { get; set; }
         public string TotalPaid { get; set; }
         public string OrderId { get; set; }
+    
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<ORDER> ORDERs { get; set; }
     }
 }
