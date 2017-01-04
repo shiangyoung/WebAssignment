@@ -77,6 +77,7 @@ namespace Testing
             try
             {
                 db.SaveChanges();
+                Response.Redirect("~/Wishlistaspx.aspx");
 
             }
             catch (DbUpdateConcurrencyException)
@@ -84,7 +85,7 @@ namespace Testing
                 ModelState.AddModelError("",
                   String.Format("Item with id {0} no longer exists in the database.", wishlistId));
             }
-
+            
         }
     }
 }

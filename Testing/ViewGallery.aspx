@@ -28,26 +28,39 @@
         })
     </script>
 
-    <asp:Label ID="lblSort" runat="server" Text="Sort"></asp:Label>
-    <asp:DropDownList ID="ddlSort" runat="server" OnSelectedIndexChanged="ddlSort_SelectedIndexChanged" AutoPostBack="true">
-        <asp:ListItem>Relevance</asp:ListItem>
-        <asp:ListItem>Price : High to Low</asp:ListItem>
-        <asp:ListItem>Price : Low to High</asp:ListItem>
-    </asp:DropDownList>
+    <div style="margin-bottom:35px">
+        <div style="margin-right: 20px; float: left">
+            <asp:Label ID="lblSort" runat="server" Text="Sort : "></asp:Label>
+            <asp:DropDownList ID="ddlSort" runat="server" OnSelectedIndexChanged="ddlSort_SelectedIndexChanged" AutoPostBack="true">
+                <asp:ListItem>Relevance</asp:ListItem>
+                <asp:ListItem>Price : High to Low</asp:ListItem>
+                <asp:ListItem>Price : Low to High</asp:ListItem>
+            </asp:DropDownList>
+        </div>
 
-    <asp:SqlDataSource ID="SqlDataSource1" runat="server" ConnectionString="<%$ ConnectionStrings:ConnectionString %>"
-        SelectCommand="SELECT *  FROM [PRODUCT]" OnSelected="SqlDataSource1_Selected"></asp:SqlDataSource>
+        <asp:SqlDataSource ID="SqlDataSource1" runat="server" ConnectionString="<%$ ConnectionStrings:ConnectionString %>"
+            SelectCommand="SELECT *  FROM [PRODUCT]" OnSelected="SqlDataSource1_Selected"></asp:SqlDataSource>
 
-    <asp:Label ID="lblCategory" runat="server" Text="Category"></asp:Label>
-    <asp:DropDownList ID="ddlCategory" runat="server" DataSourceID="SqlDataSource2" DataTextField="Name" DataValueField="CategoryId" OnSelectedIndexChanged="ddlCategory_SelectedIndexChanged" AutoPostBack="true">
-        <asp:ListItem>None</asp:ListItem>
-    </asp:DropDownList>
-    <asp:SqlDataSource ID="SqlDataSource2" runat="server" ConnectionString="<%$ ConnectionStrings:ConnectionString %>" SelectCommand="SELECT [Name], [CategoryId] FROM [CATEGORY]"></asp:SqlDataSource>
+        <div style="float: left">
+            <asp:Label ID="lblCategory" runat="server" Text="Category"></asp:Label>
+            <asp:DropDownList ID="ddlCategory" runat="server" DataSourceID="SqlDataSource2" DataTextField="Name" DataValueField="CategoryId" OnSelectedIndexChanged="ddlCategory_SelectedIndexChanged" AutoPostBack="true">
+                <asp:ListItem>None</asp:ListItem>
+            </asp:DropDownList>
+            <asp:SqlDataSource ID="SqlDataSource2" runat="server" ConnectionString="<%$ ConnectionStrings:ConnectionString %>" SelectCommand="SELECT [Name], [CategoryId] FROM [CATEGORY]"></asp:SqlDataSource>
+        </div>
 
-    <asp:TextBox ID="txtSearch" runat="server" CssClass="textboxAuto"></asp:TextBox>&nbsp;<asp:Button ID="btnSearch" runat="server" Text="Search" OnClick="btnSearch_Click" />
-    <div style="width: 100%;text-align:center">
+
+        <div style="float: right">
+            <asp:TextBox ID="txtSearch" runat="server" CssClass="textboxAuto" Width="200px"></asp:TextBox>&nbsp;
+        <div style="margin-left: 10px; float: right">
+            <asp:Button ID="btnSearch" runat="server" Text="Search" OnClick="btnSearch_Click" />
+        </div>
+        </div>
+    </div>
+
+    <div style="width: 100%; text-align: center; clear: both;">
         <asp:Panel ID="Panel1" runat="server" HorizontalAlign="Left">
-            <asp:Repeater ID="rptProduct" runat="server" DataSourceID="SqlDataSource1" OnItemCommand="rptProduct_ItemCommand">
+            <asp:Repeater ID="rptProduct" runat="server" DataSourceID="SqlDataSource1" OnItemDataBound="rptProduct_ItemDataBound">
                 <ItemTemplate>
                     <div style="display: inline-block" runat="server">
                         <div class="galleries" style="margin-top: 10px; margin-left: 20px">
@@ -55,11 +68,14 @@
                                 <asp:ImageButton ID="imgbtnGallery" runat="server" Height="230px" Width="230px" ImageUrl='<%# "data:Image/png;;base64," + Convert.ToBase64String((byte[])Eval("Image")) %>' OnClick="imgbtnGallery_Click" CommandName="product" CommandArgument='<%# Eval("ProductID") %>' /><br />
                             </div>
                             <div style="text-align: center">
-                                <asp:Label ID="lblName" runat="server" Text='<%# Eval("Name")%>'></asp:Label></div>
+                                <asp:Label ID="lblName" runat="server" Text='<%# Eval("Name")%>' Font-Size="18px"></asp:Label>
+                            </div>
                             <div style="text-align: center">
-                                <asp:Label ID="lblPrice" runat="server" Text='<%# Eval("Price")%>'></asp:Label></div>
-                            <div style="text-align: center">
-                                <asp:Button ID="btnAddToCart" runat="server" Text="Add to cart" OnClick="btnAddToCart_Click" BackColor="Transparent" BorderWidth="0" CommandArgument='<%# Eval("ProductID") %>'></asp:Button></div>
+                                <asp:Label ID="lblPrice" runat="server" Text='<%# "RM " + String.Format("{0:f2}",Eval("Price"))%>' ForeColor="ForestGreen" Font-Size="16px"></asp:Label>
+                            </div>
+                            <div style="text-align: center; margin-top: 5px">
+                                <asp:Button ID="btnAddToCart" runat="server" Text="Add to cart" OnClick="btnAddToCart_Click" Width="130px" CommandArgument='<%# Eval("ProductID") %>' BackColor="#f37021" ForeColor="White" BorderWidth="0" Height="20px"></asp:Button>
+                            </div>
                         </div>
                     </div>
                 </ItemTemplate>
@@ -67,4 +83,7 @@
         </asp:Panel>
     </div>
 
+    <div style="text-align:center;padding-top:30px">
+     <asp:Label ID="lblNoRecord" runat="server" Text="No gallery can be found"></asp:Label>
+</div>
 </asp:Content>

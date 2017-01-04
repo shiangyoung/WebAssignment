@@ -31,6 +31,7 @@
                 </ItemTemplate>
             </asp:TemplateField>
         </Columns>
+        <EmptyDataTemplate>The wishlist is empty</EmptyDataTemplate>
     </asp:GridView>
     <asp:SqlDataSource ID="SqlDataSource1" runat="server" ConnectionString="<%$ ConnectionStrings:ConnectionString %>" SelectCommand="SELECT PRODUCT.Name, PRODUCT.Model, PRODUCT.Stock, PRODUCT.Price, PRODUCT.ArtistId, PRODUCT.Image, CATEGORY.Name AS CategoryName, PRODUCT.ProductId, ARTIST.Name AS ArtistName, WISHLIST.WishlistId FROM PRODUCT INNER JOIN WISHLIST ON PRODUCT.ProductId = WISHLIST.ProductId INNER JOIN CATEGORY ON PRODUCT.CategoryId = CATEGORY.CategoryId INNER JOIN ARTIST ON PRODUCT.ArtistId = ARTIST.ArtistId"
         DeleteCommand="DELETE FROM [WISHLIST] WHERE [WishlistId] = @WishlistId">

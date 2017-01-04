@@ -44,26 +44,26 @@
                     <asp:Label ID="lblName" runat="server" Font-Size="50px" Text='<%# Eval("Name")%>'></asp:Label>
                     <div style="clear: both">
                         Price : 
-                <asp:Label ID="lblPrice" runat="server" Text='<%# Eval("Price")%>' Font-Size="20px" ForeColor="ForestGreen"></asp:Label>
+                <asp:Label ID="lblPrice" runat="server" Text='<%# "RM" + String.Format("{0:f2}",Eval("Price"))%>' Font-Size="20px" ForeColor="ForestGreen"></asp:Label>
                         <br />
                         Model :
                 <asp:Label ID="lblModel" runat="server" Text='<%# Eval("Model")%>'></asp:Label>
                         <br />
-                        Cateory :
+                        Category :
                 <asp:Label ID="lblCategory" runat="server" Text='<%# Eval("CategoryName")%>'></asp:Label>
                         <br />
                         Description :
                <asp:Label ID="lblDescription" runat="server" Text='<%# Eval("Description")%>'></asp:Label>
                         <br />
-                        Artist
+                        Artist : 
                 <asp:Label ID="lblArtistName" runat="server" Text='<%# Eval("ArtistName")%>'></asp:Label>
                         <br />
                         Artist Contact Number :
                 <asp:Label ID="lblContactNo" runat="server" Text='<%# Eval("ContactNo")%>'></asp:Label>
                 <br />
-                <div>
-                    <asp:Button ID="btnBuyNow" runat="server" Text="Buy Now" Width="300px" Height="40px"/>
-                    <asp:Button ID="btnAddToCart" runat="server" Text="Add To Cart" Width="300px" Height="40px" OnClick="btnAddToCart_Click"/>       
+                <div style="margin-top:40px">
+                    <asp:Button ID="btnBuyNow" runat="server" Text="Buy Now" Width="300px" Height="40px" BackColor="#f22a2b" ForeColor="White" Font-Size="15px" BorderWidth="0"/>
+                    <asp:Button ID="btnAddToCart" runat="server" Text="Add To Cart" Width="300px" Height="40px" OnClick="btnAddToCart_Click" Font-Size="15px" BackColor="#f37021" ForeColor="White" BorderWidth="0"/>       
                 </div>
          </ItemTemplate>
     </asp:FormView>

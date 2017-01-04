@@ -1,7 +1,16 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
 <siteMap xmlns="http://schemas.microsoft.com/AspNet/SiteMap-File-1.0" >
     <siteMapNode url="~/ViewGallery.aspx" title="Homepage"  description="Homepage">
-        <siteMapNode url="~/AboutUs.aspx" title="AbotUs"  description="About Us" />
-        <siteMapNode url="" title=""  description="" />
+        <siteMapNode url="~/AboutUs.aspx" title="Abot Us"  description="About Us" />
+        <siteMapNode url="" title="My Account" description="My Account">
+          <siteMapNode url="~/Wishlistaspx.aspx" title="My Wishlist"  description="" />
+          <siteMapNode url="~/ProductCart.aspx" title="My Cart"  description="" />
+          <siteMapNode url="~/OrderDetails.aspx" title="Purchase History"  description="" />
+          <siteMapNode url="~/ViewSales.aspx" title="My Sales"  description="" />  
+      </siteMapNode>
+        <siteMapNode url="" title="Manage Artwork" description="">
+         <siteMapNode url="~/Artists/AddItemaspx.aspx" title="Add Artwork"  description="" />
+        <siteMapNode url="~/Artists/UpdateGallery.aspx" title="Update Artwork"  description="" />
+        </siteMapNode>
     </siteMapNode>
 </siteMap>
