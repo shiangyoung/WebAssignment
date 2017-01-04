@@ -14,7 +14,6 @@ namespace Testing
 {
     public partial class MasterPage : System.Web.UI.MasterPage
     {
-        SqlCommand mycommand;
         public string connectionString = ConfigurationManager.ConnectionStrings["ConnectionString"].ConnectionString;
         protected void Page_Load(object sender, EventArgs e)
         {
@@ -24,17 +23,6 @@ namespace Testing
                 btnLogin.Visible = false;
                 btnRegister.Visible = false;
                 btnLogout.Visible = true;
-            }
-
-
-            if (!Page.User.IsInRole("Artists"))
-            {
-                li_sales.Style["display"] = "none";
-            }
-            else
-            {
-                li_sales.Style["display"] = "block";
-                li_myartwork.Style["display"] = "block";
             }
 
             bool loginStatus = (System.Web.HttpContext.Current.User != null) && System.Web.HttpContext.Current.User.Identity.IsAuthenticated;
@@ -49,6 +37,12 @@ namespace Testing
                 li_myartwork.Style["display"] = "none";
             }
 
+            if (!Page.User.IsInRole("Artists"))
+            {
+                li_sales.Visible = false;
+                li_myartwork.Visible = false;
+            }
+                    
         }
 
         protected void Page_PreRender(object sender, EventArgs e)
