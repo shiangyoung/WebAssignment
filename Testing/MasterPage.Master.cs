@@ -63,102 +63,12 @@ namespace Testing
             Response.Redirect("~/Registration.aspx");
         }
 
-        //    protected void CreateUserWizard1_CreatedUser(Object sender, EventArgs e)
-        //    {
-
-
-
-        //        using (SqlConnection myConnection = new SqlConnection(connectionString))
-        //        {
-
-        //            RadioButtonList rblType = (RadioButtonList)CreateUserWizardStep1.ContentTemplateContainer.FindControl("rblType");
-        //            if (rblType.SelectedValue == "Member")
-        //            {
-        //                CreateNewMember();
-        //            }
-        //            else
-        //            {
-        //                CreateNewArtist();
-        //            }
-        //        }
-        //    }
-        //    protected void updateDropDownList(Object sender, EventArgs e)
-        //    {
-        //        DropDownList Month = (DropDownList)CreateUserWizardStep1.ContentTemplateContainer.FindControl("Month");
-        //        DropDownList Day = (DropDownList)CreateUserWizardStep1.ContentTemplateContainer.FindControl("Day");
-        //        Day.Items.Clear();
-        //        int value = Convert.ToInt32(Month.SelectedValue);
-        //        if (value == 2)
-        //        {
-        //            for (int i = 1; i <= 29; i++)
-        //            {
-        //                ListItem item = new ListItem(i + "", i + "");
-        //                Day.Items.Add(item);
-        //            }
-        //        }
-        //        else if (value == 1 || value == 3 || value == 5 || value == 7 || value == 8 || value == 10 || value == 12)
-        //        {
-        //            for (int i = 1; i <= 31; i++)
-        //            {
-        //                ListItem item = new ListItem(i + "", i + "");
-        //                Day.Items.Add(item);
-        //            }
-        //        }
-        //        else
-        //        {
-        //            for (int i = 1; i <= 30; i++)
-        //            {
-        //                ListItem item = new ListItem(i + "", i + "");
-        //                Day.Items.Add(item);
-        //            }
-        //        }
-        //    }
-
+      
         protected void btnLogout_Click(object sender, EventArgs e)
         {
             FormsAuthentication.SignOut();
             Response.Redirect("~/ViewGallery.aspx");
         }
-        //    private void CreateNewMember()
-        //    {
-        //        MembershipUser newUser = Membership.GetUser(CreateUserWizard1.UserName);
-        //        Guid newUserId = (Guid)newUser.ProviderUserKey;
-        //        string Name = ((TextBox)CreateUserWizardStep1.ContentTemplateContainer.FindControl("Name")).Text;
-        //        string Address = ((TextBox)CreateUserWizardStep1.ContentTemplateContainer.FindControl("Address")).Text;
-        //        DropDownList ddlYear = (DropDownList)CreateUserWizardStep1.ContentTemplateContainer.FindControl("Year");
-        //        DropDownList ddlMonth = (DropDownList)CreateUserWizardStep1.ContentTemplateContainer.FindControl("Month");
-        //        DropDownList ddlDay = (DropDownList)CreateUserWizardStep1.ContentTemplateContainer.FindControl("Day");
-        //        Int32 day = Int32.Parse(ddlDay.SelectedValue);
-        //        Int32 month = Int32.Parse(ddlMonth.SelectedValue);
-        //        Int32 year = Int32.Parse(ddlYear.SelectedValue);
-        //        DateTime DOB = new DateTime(year, month, day);
-        //        using (SqlConnection myConnection = new SqlConnection(connectionString))
-        //        {
-        //            mycommand = new SqlCommand("new_user", myConnection);
-        //            mycommand.CommandType = System.Data.CommandType.StoredProcedure;
-        //            mycommand.Parameters.Add("Name", SqlDbType.VarChar).Value = Name;
-        //            mycommand.Parameters.Add("Address", SqlDbType.VarChar).Value = Address;
-        //            mycommand.Parameters.Add("DateOfBirth", SqlDbType.Date).Value = DOB.Date;
-        //            mycommand.Parameters.Add("userId", SqlDbType.UniqueIdentifier).Value = newUserId;
-        //            myConnection.Open();
-        //            mycommand.ExecuteNonQuery();
-        //            myConnection.Close();
-        //        }
-        //    }
-        //    private void CreateNewArtist()
-        //    {
-        //        MembershipUser newUser = Membership.GetUser(CreateUserWizard1.UserName);
-        //        Guid newUserId = (Guid)newUser.ProviderUserKey;
-        //        using (SqlConnection myConnection = new SqlConnection(connectionString))
-        //        {
-        //            mycommand = new SqlCommand("new_artist", myConnection);
-        //            mycommand.CommandType = System.Data.CommandType.StoredProcedure;
-        //            mycommand.Parameters.Add("userId", SqlDbType.UniqueIdentifier).Value = newUserId;
-        //            myConnection.Open();
-        //            mycommand.ExecuteNonQuery();
-        //            myConnection.Close();
-        //        }
-        //    }
-        //}
+    
     }
 }
