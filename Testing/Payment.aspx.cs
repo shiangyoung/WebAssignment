@@ -26,7 +26,6 @@ namespace Testing
             TryUpdateModel(payment);
             payment.Date = DateTime.Now;
             payment.OrderId = orderid;
-            // Guid userId = (Guid)Membership.GetUser().ProviderUserKey;
             if (ModelState.IsValid)
             {
                 GalleryEntities1 _db = new GalleryEntities1();

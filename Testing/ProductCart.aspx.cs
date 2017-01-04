@@ -97,13 +97,14 @@ namespace Testing
             GalleryEntities1 _db = new GalleryEntities1();
             ShoppingCart cs = new ShoppingCart();
             List<CARTITEM> orderItem = cs.GetCartItems();
+            Guid currentId = (Guid)Membership.GetUser().ProviderUserKey;
 
             ORDER order = new ORDER
             {
                 date = DateTime.Now,
                 discount = 0,
-                UserId = null,
-                PaymentId = null,
+                UserId = currentId,
+               
                 status = "pending"
             };
             _db.ORDERs.Add(order);

@@ -96,7 +96,11 @@
                 <div style="margin-top: 20px"></div>
             </ItemTemplate>
         </asp:Repeater>
-        <asp:SqlDataSource ID="SqlDataSource1" runat="server" ConnectionString="<%$ ConnectionStrings:ConnectionString %>" SelectCommand="SELECT [ORDER].OrderId, [ORDER].date, [ORDER].discount, [ORDER].UserId, [ORDER].status, PAYMENT.TotalPaid FROM [ORDER] INNER JOIN PAYMENT ON [ORDER].OrderId = PAYMENT.OrderId"></asp:SqlDataSource>
+        <asp:SqlDataSource ID="SqlDataSource1" runat="server" ConnectionString="<%$ ConnectionStrings:ConnectionString %>" SelectCommand="SELECT [ORDER].OrderId, [ORDER].date, [ORDER].discount, [ORDER].UserId, [ORDER].status, PAYMENT.TotalPaid FROM [ORDER] INNER JOIN PAYMENT ON [ORDER].OrderId = PAYMENT.OrderId WHERE ([ORDER].UserId = @UserId)">
+            <SelectParameters>
+                <asp:Parameter Name="UserId" />
+            </SelectParameters>
+        </asp:SqlDataSource>
     </asp:Panel>
     <asp:Label ID="lblNoRecord" runat="server" Text="You do not have any purchase history"></asp:Label>
 </asp:Content>
