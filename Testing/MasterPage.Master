@@ -128,7 +128,7 @@
                             <li>
                                 <asp:HyperLink ID="HyperLink3" runat="server" NavigateUrl="~/OrderDetails.aspx">Purchase History</asp:HyperLink></li>
                             <li id="li_sales" runat="server">
-                                <asp:HyperLink ID="HyperLink7" runat="server" NavigateUrl="~/ViewSales.aspx">My Sales</asp:HyperLink></li>
+                                <asp:HyperLink ID="HyperLink7" runat="server" NavigateUrl="~/Artists/ViewSales.aspx">My Sales</asp:HyperLink></li>
                         </ul>
                     </li>
                     <li>

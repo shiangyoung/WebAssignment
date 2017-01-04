@@ -125,7 +125,7 @@ namespace Testing
         protected void btnLogout_Click(object sender, EventArgs e)
         {
             FormsAuthentication.SignOut();
-            HttpContext.Current.Session.Clear();
+            HttpContext.Current.Session.Clear(); 
 
 
             Response.Redirect("~/ViewGallery.aspx");
