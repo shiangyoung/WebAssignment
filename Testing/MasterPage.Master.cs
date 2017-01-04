@@ -38,6 +38,7 @@ namespace Testing
             else
             {
                 li_sales.Style["display"] = "block";
+                li_myartwork.Style["display"] = "block";
             }
 
             bool loginStatus = (System.Web.HttpContext.Current.User != null) && System.Web.HttpContext.Current.User.Identity.IsAuthenticated;
@@ -49,6 +50,7 @@ namespace Testing
             else
             {
                 li_myaccount.Style["display"] = "none";
+                li_myartwork.Style["display"] = "none";
             }
 
         }

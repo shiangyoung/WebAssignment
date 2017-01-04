@@ -148,6 +148,24 @@ namespace Testing {
         protected global::System.Web.UI.WebControls.HyperLink HyperLink7;
         
         /// <summary>
+        /// li_myartwork control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.HyperLink li_myartwork;
+        
+        /// <summary>
+        /// HyperLink8 control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.HyperLink HyperLink8;
+        
+        /// <summary>
         /// cartCount control.
         /// </summary>
         /// <remarks>

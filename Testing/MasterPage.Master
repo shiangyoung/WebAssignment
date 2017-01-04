@@ -140,6 +140,12 @@
                         </ul>
                     </li>
                     <li>
+                        <asp:HyperLink ID="li_myartwork" runat="server">Manage Artwork</asp:HyperLink>
+                        <ul class="sub-menu">
+                            <li><asp:HyperLink ID="HyperLink8" runat="server" NavigateUrl="~/AddItemaspx.aspx">Add Artwork</asp:HyperLink></li>
+                        </ul>
+                    </li>
+                    <li>
                         <asp:HyperLink ID="cartCount" runat="server" NavigateUrl="~/ProductCart.aspx"> </asp:HyperLink></li>
                 </ul>
 

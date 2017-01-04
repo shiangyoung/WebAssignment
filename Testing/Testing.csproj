@@ -136,6 +136,7 @@
       <DependentUpon>Model1.edmx</DependentUpon>
       <LastGenOutput>Model1.cs</LastGenOutput>
     </Content>
+    <Content Include="OrderDetails.aspx" />
     <Content Include="packages.config" />
     <Content Include="MasterPage.Master" />
     <Content Include="Payment.aspx" />
@@ -267,6 +268,13 @@
     </Compile>
     <Compile Include="Models\WISHLIST.cs">
       <DependentUpon>Model1.tt</DependentUpon>
+    </Compile>
+    <Compile Include="OrderDetails.aspx.cs">
+      <DependentUpon>OrderDetails.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="OrderDetails.aspx.designer.cs">
+      <DependentUpon>OrderDetails.aspx</DependentUpon>
     </Compile>
     <Compile Include="Payment.aspx.cs">
       <DependentUpon>Payment.aspx</DependentUpon>
