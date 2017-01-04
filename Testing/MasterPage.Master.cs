@@ -19,6 +19,9 @@ namespace Testing
         {
             if (HttpContext.Current.User != null && HttpContext.Current.User.Identity.IsAuthenticated)
             {
+
+               
+
                 PanelLogin.Style.Add("display", "none");
                 btnLogin.Visible = false;
                 btnRegister.Visible = false;
