@@ -125,19 +125,19 @@
                     <li>
                         <asp:HyperLink ID="HyperLink2" runat="server" NavigateUrl="~/AboutUs.aspx">About Us</asp:HyperLink></li>
                     <li>
-                        <asp:HyperLink ID="HyperLink3" runat="server">Report</asp:HyperLink></li>
-                    <li>
                         <asp:HyperLink ID="li_myaccount" runat="server">My Account</asp:HyperLink>
                         <ul class="sub-menu">
                             <li><asp:HyperLink ID="HyperLink5" runat="server" NavigateUrl="~/Wishlistaspx.aspx">My Wishlist</asp:HyperLink></li>
                             <li><asp:HyperLink ID="HyperLink6" runat="server" NavigateUrl="~/ProductCart.aspx">My Cart</asp:HyperLink></li>
-                            <li id="li_sales" runat="server" style="display:none"><asp:HyperLink ID="HyperLink7" runat="server">My Sales</asp:HyperLink></li>
+                            <li><asp:HyperLink ID="HyperLink3" runat="server" NavigateUrl="~/OrderDetails.aspx">Purchase History</asp:HyperLink></li>
+                            <li id="li_sales" runat="server"><asp:HyperLink ID="HyperLink7" runat="server">My Sales</asp:HyperLink></li>
                         </ul>
                     </li>
                     <li>
                         <asp:HyperLink ID="li_myartwork" runat="server">Manage Artwork</asp:HyperLink>
                         <ul class="sub-menu">
-                            <li><asp:HyperLink ID="HyperLink8" runat="server" NavigateUrl="~/AddItemaspx.aspx">Add Artwork</asp:HyperLink></li>
+                            <li><asp:HyperLink ID="HyperLink8" runat="server" NavigateUrl="~/Artists/AddItemaspx.aspx">Add Artwork</asp:HyperLink></li>
+                            <li><asp:HyperLink ID="HyperLink4" runat="server" NavigateUrl="~/Artists/UpdateGallery.aspx">Update Artwork</asp:HyperLink></li>
                         </ul>
                     </li>
                     <li>
