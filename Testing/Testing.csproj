@@ -114,9 +114,6 @@
   <ItemGroup>
     <Content Include="AboutUs.aspx" />
     <Content Include="App_Data\Gallery.mdf" />
-    <Content Include="App_Data\Gallery_log.ldf">
-      <DependentUpon>Gallery.mdf</DependentUpon>
-    </Content>
     <Content Include="Artists\AddItemaspx.aspx" />
     <Content Include="AddProduct.aspx" />
     <Content Include="Default.aspx" />

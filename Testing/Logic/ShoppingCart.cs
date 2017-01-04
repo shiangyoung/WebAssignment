@@ -56,7 +56,6 @@ namespace Testing.Logic
             
             MembershipUser membershipUser = Membership.GetUser("Username");
             Guid userId = new Guid();
-            
             if(membershipUser != null)
             {
                 
