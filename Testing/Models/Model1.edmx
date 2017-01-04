@@ -4,7 +4,7 @@
   <edmx:Runtime>
     <!-- SSDL content -->
     <edmx:StorageModels>
-      <Schema Namespace="GalleryModel1.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+      <Schema Namespace="GalleryModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
         <EntityType Name="ARTIST">
           <Key>
             <PropertyRef Name="ArtistId" />
@@ -63,7 +63,6 @@
           <Property Name="date" Type="date" />
           <Property Name="discount" Type="money" />
           <Property Name="UserId" Type="uniqueidentifier" />
-          <Property Name="PaymentId" Type="int" />
           <Property Name="status" Type="nchar" MaxLength="30" />
         </EntityType>
         <EntityType Name="ORDERDETAIL">
@@ -107,18 +106,6 @@
           <Property Name="ProductId" Type="int" Nullable="false" />
           <Property Name="UserId" Type="uniqueidentifier" Nullable="false" />
         </EntityType>
-        <Association Name="FK_CART_ToTable">
-          <End Role="CUSTOMER" Type="Self.CUSTOMER" Multiplicity="0..1" />
-          <End Role="CART" Type="Self.CART" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="CUSTOMER">
-              <PropertyRef Name="UserId" />
-            </Principal>
-            <Dependent Role="CART">
-              <PropertyRef Name="UserId" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
         <Association Name="FK_CARTITEM_CART">
           <End Role="CART" Type="Self.CART" Multiplicity="1" />
           <End Role="CARTITEM" Type="Self.CARTITEM" Multiplicity="*" />
@@ -140,30 +127,6 @@
             </Principal>
             <Dependent Role="CARTITEM">
               <PropertyRef Name="ProductId" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
-        <Association Name="FK_ORDER_PAYMENT">
-          <End Role="PAYMENT" Type="Self.PAYMENT" Multiplicity="0..1" />
-          <End Role="ORDER" Type="Self.ORDER" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="PAYMENT">
-              <PropertyRef Name="PaymentId" />
-            </Principal>
-            <Dependent Role="ORDER">
-              <PropertyRef Name="PaymentId" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
-        <Association Name="FK_ORDER_ToTable">
-          <End Role="CUSTOMER" Type="Self.CUSTOMER" Multiplicity="0..1" />
-          <End Role="ORDER" Type="Self.ORDER" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="CUSTOMER">
-              <PropertyRef Name="UserId" />
-            </Principal>
-            <Dependent Role="ORDER">
-              <PropertyRef Name="UserId" />
             </Dependent>
           </ReferentialConstraint>
         </Association>
@@ -215,7 +178,7 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <EntityContainer Name="GalleryModel1StoreContainer">
+        <EntityContainer Name="GalleryModelStoreContainer">
           <EntitySet Name="ARTIST" EntityType="Self.ARTIST" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="CART" EntityType="Self.CART" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="CARTITEM" EntityType="Self.CARTITEM" Schema="dbo" store:Type="Tables" />
@@ -226,10 +189,6 @@
           <EntitySet Name="PAYMENT" EntityType="Self.PAYMENT" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="PRODUCT" EntityType="Self.PRODUCT" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="WISHLIST" EntityType="Self.WISHLIST" Schema="dbo" store:Type="Tables" />
-          <AssociationSet Name="FK_CART_ToTable" Association="Self.FK_CART_ToTable">
-            <End Role="CUSTOMER" EntitySet="CUSTOMER" />
-            <End Role="CART" EntitySet="CART" />
-          </AssociationSet>
           <AssociationSet Name="FK_CARTITEM_CART" Association="Self.FK_CARTITEM_CART">
             <End Role="CART" EntitySet="CART" />
             <End Role="CARTITEM" EntitySet="CARTITEM" />
@@ -237,14 +196,6 @@
           <AssociationSet Name="FK_CARTITEM_PRODUCT" Association="Self.FK_CARTITEM_PRODUCT">
             <End Role="PRODUCT" EntitySet="PRODUCT" />
             <End Role="CARTITEM" EntitySet="CARTITEM" />
-          </AssociationSet>
-          <AssociationSet Name="FK_ORDER_PAYMENT" Association="Self.FK_ORDER_PAYMENT">
-            <End Role="PAYMENT" EntitySet="PAYMENT" />
-            <End Role="ORDER" EntitySet="ORDER" />
-          </AssociationSet>
-          <AssociationSet Name="FK_ORDER_ToTable" Association="Self.FK_ORDER_ToTable">
-            <End Role="CUSTOMER" EntitySet="CUSTOMER" />
-            <End Role="ORDER" EntitySet="ORDER" />
           </AssociationSet>
           <AssociationSet Name="FK_ORDERDETAIL_ORDER" Association="Self.FK_ORDERDETAIL_ORDER">
             <End Role="ORDER" EntitySet="ORDER" />
@@ -267,7 +218,7 @@
     </edmx:StorageModels>
     <!-- CSDL content -->
     <edmx:ConceptualModels>
-      <Schema Namespace="GalleryModel1" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+      <Schema Namespace="GalleryModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
         <EntityType Name="ARTIST">
           <Key>
             <PropertyRef Name="ArtistId" />
@@ -288,7 +239,6 @@
           <Property Name="Date" Type="DateTime" Precision="0" />
           <Property Name="Discount" Type="Decimal" Precision="19" Scale="4" />
           <Property Name="UserId" Type="Guid" />
-          <NavigationProperty Name="CUSTOMER" Relationship="Self.FK_CART_ToTable" FromRole="CART" ToRole="CUSTOMER" />
           <NavigationProperty Name="CARTITEMs" Relationship="Self.FK_CARTITEM_CART" FromRole="CART" ToRole="CARTITEM" />
         </EntityType>
         <EntityType Name="CARTITEM">
@@ -323,8 +273,6 @@
           <Property Name="Address" Type="String" MaxLength="150" FixedLength="true" Unicode="true" />
           <Property Name="ContactNo" Type="String" MaxLength="20" FixedLength="true" Unicode="true" />
           <Property Name="Email" Type="String" MaxLength="30" FixedLength="true" Unicode="true" />
-          <NavigationProperty Name="CARTs" Relationship="Self.FK_CART_ToTable" FromRole="CUSTOMER" ToRole="CART" />
-          <NavigationProperty Name="ORDERs" Relationship="Self.FK_ORDER_ToTable" FromRole="CUSTOMER" ToRole="ORDER" />
         </EntityType>
         <EntityType Name="ORDER">
           <Key>
@@ -334,10 +282,7 @@
           <Property Name="date" Type="DateTime" Precision="0" />
           <Property Name="discount" Type="Decimal" Precision="19" Scale="4" />
           <Property Name="UserId" Type="Guid" />
-          <Property Name="PaymentId" Type="Int32" />
           <Property Name="status" Type="String" MaxLength="30" FixedLength="true" Unicode="true" />
-          <NavigationProperty Name="CUSTOMER" Relationship="Self.FK_ORDER_ToTable" FromRole="ORDER" ToRole="CUSTOMER" />
-          <NavigationProperty Name="PAYMENT" Relationship="Self.FK_ORDER_PAYMENT" FromRole="ORDER" ToRole="PAYMENT" />
           <NavigationProperty Name="ORDERDETAILs" Relationship="Self.FK_ORDERDETAIL_ORDER" FromRole="ORDER" ToRole="ORDERDETAIL" />
         </EntityType>
         <EntityType Name="ORDERDETAIL">
@@ -360,7 +305,6 @@
           <Property Name="Date" Type="DateTime" Precision="0" />
           <Property Name="TotalPaid" Type="String" MaxLength="10" FixedLength="true" Unicode="true" />
           <Property Name="OrderId" Type="String" MaxLength="10" FixedLength="true" Unicode="true" />
-          <NavigationProperty Name="ORDERs" Relationship="Self.FK_ORDER_PAYMENT" FromRole="PAYMENT" ToRole="ORDER" />
         </EntityType>
         <EntityType Name="PRODUCT">
           <Key>
@@ -400,18 +344,6 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK_CART_ToTable">
-          <End Role="CUSTOMER" Type="Self.CUSTOMER" Multiplicity="0..1" />
-          <End Role="CART" Type="Self.CART" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="CUSTOMER">
-              <PropertyRef Name="UserId" />
-            </Principal>
-            <Dependent Role="CART">
-              <PropertyRef Name="UserId" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
         <Association Name="FK_CARTITEM_CART">
           <End Role="CART" Type="Self.CART" Multiplicity="1" />
           <End Role="CARTITEM" Type="Self.CARTITEM" Multiplicity="*" />
@@ -445,30 +377,6 @@
             </Principal>
             <Dependent Role="PRODUCT">
               <PropertyRef Name="CategoryId" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
-        <Association Name="FK_ORDER_ToTable">
-          <End Role="CUSTOMER" Type="Self.CUSTOMER" Multiplicity="0..1" />
-          <End Role="ORDER" Type="Self.ORDER" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="CUSTOMER">
-              <PropertyRef Name="UserId" />
-            </Principal>
-            <Dependent Role="ORDER">
-              <PropertyRef Name="UserId" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
-        <Association Name="FK_ORDER_PAYMENT">
-          <End Role="PAYMENT" Type="Self.PAYMENT" Multiplicity="0..1" />
-          <End Role="ORDER" Type="Self.ORDER" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="PAYMENT">
-              <PropertyRef Name="PaymentId" />
-            </Principal>
-            <Dependent Role="ORDER">
-              <PropertyRef Name="PaymentId" />
             </Dependent>
           </ReferentialConstraint>
         </Association>
@@ -511,10 +419,6 @@
             <End Role="ARTIST" EntitySet="ARTISTs" />
             <End Role="PRODUCT" EntitySet="PRODUCTs" />
           </AssociationSet>
-          <AssociationSet Name="FK_CART_ToTable" Association="Self.FK_CART_ToTable">
-            <End Role="CUSTOMER" EntitySet="CUSTOMERs" />
-            <End Role="CART" EntitySet="CARTs" />
-          </AssociationSet>
           <AssociationSet Name="FK_CARTITEM_CART" Association="Self.FK_CARTITEM_CART">
             <End Role="CART" EntitySet="CARTs" />
             <End Role="CARTITEM" EntitySet="CARTITEMs" />
@@ -526,14 +430,6 @@
           <AssociationSet Name="FK_PRODUCT_ToTable_1" Association="Self.FK_PRODUCT_ToTable_1">
             <End Role="CATEGORY" EntitySet="CATEGORies" />
             <End Role="PRODUCT" EntitySet="PRODUCTs" />
-          </AssociationSet>
-          <AssociationSet Name="FK_ORDER_ToTable" Association="Self.FK_ORDER_ToTable">
-            <End Role="CUSTOMER" EntitySet="CUSTOMERs" />
-            <End Role="ORDER" EntitySet="ORDERs" />
-          </AssociationSet>
-          <AssociationSet Name="FK_ORDER_PAYMENT" Association="Self.FK_ORDER_PAYMENT">
-            <End Role="PAYMENT" EntitySet="PAYMENTs" />
-            <End Role="ORDER" EntitySet="ORDERs" />
           </AssociationSet>
           <AssociationSet Name="FK_ORDERDETAIL_ORDER" Association="Self.FK_ORDERDETAIL_ORDER">
             <End Role="ORDER" EntitySet="ORDERs" />
@@ -549,9 +445,9 @@
     <!-- C-S mapping content -->
     <edmx:Mappings>
       <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
-        <EntityContainerMapping StorageEntityContainer="GalleryModel1StoreContainer" CdmEntityContainer="GalleryEntities1">
+        <EntityContainerMapping StorageEntityContainer="GalleryModelStoreContainer" CdmEntityContainer="GalleryEntities1">
           <EntitySetMapping Name="ARTISTs">
-            <EntityTypeMapping TypeName="GalleryModel1.ARTIST">
+            <EntityTypeMapping TypeName="GalleryModel.ARTIST">
               <MappingFragment StoreEntitySet="ARTIST">
                 <ScalarProperty Name="ArtistId" ColumnName="ArtistId" />
                 <ScalarProperty Name="Number" ColumnName="Number" />
@@ -563,7 +459,7 @@
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="CARTs">
-            <EntityTypeMapping TypeName="GalleryModel1.CART">
+            <EntityTypeMapping TypeName="GalleryModel.CART">
               <MappingFragment StoreEntitySet="CART">
                 <ScalarProperty Name="CartId" ColumnName="CartId" />
                 <ScalarProperty Name="Date" ColumnName="Date" />
@@ -573,7 +469,7 @@
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="CARTITEMs">
-            <EntityTypeMapping TypeName="GalleryModel1.CARTITEM">
+            <EntityTypeMapping TypeName="GalleryModel.CARTITEM">
               <MappingFragment StoreEntitySet="CARTITEM">
                 <ScalarProperty Name="ProductId" ColumnName="ProductId" />
                 <ScalarProperty Name="CartId" ColumnName="CartId" />
@@ -583,7 +479,7 @@
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="CATEGORies">
-            <EntityTypeMapping TypeName="GalleryModel1.CATEGORY">
+            <EntityTypeMapping TypeName="GalleryModel.CATEGORY">
               <MappingFragment StoreEntitySet="CATEGORY">
                 <ScalarProperty Name="CategoryId" ColumnName="CategoryId" />
                 <ScalarProperty Name="Name" ColumnName="Name" />
@@ -592,7 +488,7 @@
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="CUSTOMERs">
-            <EntityTypeMapping TypeName="GalleryModel1.CUSTOMER">
+            <EntityTypeMapping TypeName="GalleryModel.CUSTOMER">
               <MappingFragment StoreEntitySet="CUSTOMER">
                 <ScalarProperty Name="UserId" ColumnName="UserId" />
                 <ScalarProperty Name="Number" ColumnName="Number" />
@@ -605,19 +501,18 @@
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="ORDERs">
-            <EntityTypeMapping TypeName="GalleryModel1.ORDER">
+            <EntityTypeMapping TypeName="GalleryModel.ORDER">
               <MappingFragment StoreEntitySet="ORDER">
                 <ScalarProperty Name="OrderId" ColumnName="OrderId" />
                 <ScalarProperty Name="date" ColumnName="date" />
                 <ScalarProperty Name="discount" ColumnName="discount" />
                 <ScalarProperty Name="UserId" ColumnName="UserId" />
-                <ScalarProperty Name="PaymentId" ColumnName="PaymentId" />
                 <ScalarProperty Name="status" ColumnName="status" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="ORDERDETAILs">
-            <EntityTypeMapping TypeName="GalleryModel1.ORDERDETAIL">
+            <EntityTypeMapping TypeName="GalleryModel.ORDERDETAIL">
               <MappingFragment StoreEntitySet="ORDERDETAIL">
                 <ScalarProperty Name="ProductId" ColumnName="ProductId" />
                 <ScalarProperty Name="OrderId" ColumnName="OrderId" />
@@ -627,7 +522,7 @@
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="PAYMENTs">
-            <EntityTypeMapping TypeName="GalleryModel1.PAYMENT">
+            <EntityTypeMapping TypeName="GalleryModel.PAYMENT">
               <MappingFragment StoreEntitySet="PAYMENT">
                 <ScalarProperty Name="PaymentId" ColumnName="PaymentId" />
                 <ScalarProperty Name="Date" ColumnName="Date" />
@@ -637,7 +532,7 @@
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="PRODUCTs">
-            <EntityTypeMapping TypeName="GalleryModel1.PRODUCT">
+            <EntityTypeMapping TypeName="GalleryModel.PRODUCT">
               <MappingFragment StoreEntitySet="PRODUCT">
                 <ScalarProperty Name="ProductId" ColumnName="ProductId" />
                 <ScalarProperty Name="Name" ColumnName="Name" />
@@ -652,7 +547,7 @@
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="WISHLISTs">
-            <EntityTypeMapping TypeName="GalleryModel1.WISHLIST">
+            <EntityTypeMapping TypeName="GalleryModel.WISHLIST">
               <MappingFragment StoreEntitySet="WISHLIST">
                 <ScalarProperty Name="WishlistId" ColumnName="WishlistId" />
                 <ScalarProperty Name="ProductId" ColumnName="ProductId" />

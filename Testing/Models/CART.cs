@@ -25,7 +25,6 @@ namespace Testing.Models
         public Nullable<decimal> Discount { get; set; }
         public Nullable<System.Guid> UserId { get; set; }
     
-        public virtual CUSTOMER CUSTOMER { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<CARTITEM> CARTITEMs { get; set; }
     }

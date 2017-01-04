@@ -20,10 +20,12 @@
                 Stock :
                 <asp:TextBox ID="txtStock" runat="server" Text='<%# Bind("Stock") %>' ></asp:TextBox>
                 <asp:RequiredFieldValidator ID="RequiredFieldValidator4" runat="server" ErrorMessage="Stock field cannot be blank" Text="*" Display="Dynamic" EnableClientScript="false" ControlToValidate="txtStock"></asp:RequiredFieldValidator>
+                <asp:RegularExpressionValidator ID="RegularExpressionValidator2" runat="server" ControlToValidate="txtStock" ValidationExpression="^\d+$" ErrorMessage="Stock field must be an integer value" Text="*" Display="Dynamic" EnableClientScript="false"></asp:RegularExpressionValidator>
                 <br />
                 Price :
                 <asp:TextBox ID="txtPrice" runat="server" Text='<%# Bind("Price") %>' ></asp:TextBox>
                 <asp:RequiredFieldValidator ID="RequiredFieldValidator5" runat="server" ErrorMessage="Price field cannot be blank" Text="*" Display="Dynamic" EnableClientScript="false" ControlToValidate="txtPrice"></asp:RequiredFieldValidator>
+                <asp:RegularExpressionValidator ID="RegularExpressionValidator1" runat="server" ErrorMessage="RegularExpressionValidator" ControlToValidate="txtPrice" Text="*" Display="Dynamic" EnableClientScript="false" ValidationExpression="^\d+(,\d{1,2})?$"></asp:RegularExpressionValidator>
                 <br />
                 Category :  
                 <asp:DropDownList ID="DropDownList1" runat="server" DataSourceID="SqlDataSource1" DataTextField="Name" DataValueField="CategoryId" SelectedValue='<%# Bind("CategoryId") %>'>
