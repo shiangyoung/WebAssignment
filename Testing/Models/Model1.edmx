@@ -13,7 +13,9 @@
           <Property Name="Number" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
           <Property Name="Name" Type="nchar" MaxLength="60" />
           <Property Name="Age" Type="int" />
+          <Property Name="DateOfBirth" Type="date" />
           <Property Name="ContactNo" Type="nchar" MaxLength="20" />
+          <Property Name="Address" Type="nchar" MaxLength="150" />
           <Property Name="BankDetails" Type="nchar" MaxLength="20" />
         </EntityType>
         <EntityType Name="CART">
@@ -49,11 +51,11 @@
           </Key>
           <Property Name="UserId" Type="uniqueidentifier" Nullable="false" />
           <Property Name="Number" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
-          <Property Name="Name" Type="nchar" MaxLength="50" />
+          <Property Name="Name" Type="nchar" MaxLength="60" />
           <Property Name="DateOfBirth" Type="date" />
+          <Property Name="Age" Type="int" />
           <Property Name="Address" Type="nchar" MaxLength="150" />
           <Property Name="ContactNo" Type="nchar" MaxLength="20" />
-          <Property Name="Email" Type="nchar" MaxLength="30" />
         </EntityType>
         <EntityType Name="ORDER">
           <Key>
@@ -227,7 +229,9 @@
           <Property Name="Number" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
           <Property Name="Name" Type="String" MaxLength="60" FixedLength="true" Unicode="true" />
           <Property Name="Age" Type="Int32" />
+          <Property Name="DateOfBirth" Type="DateTime" Precision="0" />
           <Property Name="ContactNo" Type="String" MaxLength="20" FixedLength="true" Unicode="true" />
+          <Property Name="Address" Type="String" MaxLength="150" FixedLength="true" Unicode="true" />
           <Property Name="BankDetails" Type="String" MaxLength="20" FixedLength="true" Unicode="true" />
           <NavigationProperty Name="PRODUCTs" Relationship="Self.FK_PRODUCT_ToTable" FromRole="ARTIST" ToRole="PRODUCT" />
         </EntityType>
@@ -268,11 +272,11 @@
           </Key>
           <Property Name="UserId" Type="Guid" Nullable="false" />
           <Property Name="Number" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-          <Property Name="Name" Type="String" MaxLength="50" FixedLength="true" Unicode="true" />
+          <Property Name="Name" Type="String" MaxLength="60" FixedLength="true" Unicode="true" />
           <Property Name="DateOfBirth" Type="DateTime" Precision="0" />
+          <Property Name="Age" Type="Int32" />
           <Property Name="Address" Type="String" MaxLength="150" FixedLength="true" Unicode="true" />
           <Property Name="ContactNo" Type="String" MaxLength="20" FixedLength="true" Unicode="true" />
-          <Property Name="Email" Type="String" MaxLength="30" FixedLength="true" Unicode="true" />
         </EntityType>
         <EntityType Name="ORDER">
           <Key>
@@ -453,7 +457,9 @@
                 <ScalarProperty Name="Number" ColumnName="Number" />
                 <ScalarProperty Name="Name" ColumnName="Name" />
                 <ScalarProperty Name="Age" ColumnName="Age" />
+                <ScalarProperty Name="DateOfBirth" ColumnName="DateOfBirth" />
                 <ScalarProperty Name="ContactNo" ColumnName="ContactNo" />
+                <ScalarProperty Name="Address" ColumnName="Address" />
                 <ScalarProperty Name="BankDetails" ColumnName="BankDetails" />
               </MappingFragment>
             </EntityTypeMapping>
@@ -494,9 +500,9 @@
                 <ScalarProperty Name="Number" ColumnName="Number" />
                 <ScalarProperty Name="Name" ColumnName="Name" />
                 <ScalarProperty Name="DateOfBirth" ColumnName="DateOfBirth" />
+                <ScalarProperty Name="Age" ColumnName="Age" />
                 <ScalarProperty Name="Address" ColumnName="Address" />
                 <ScalarProperty Name="ContactNo" ColumnName="ContactNo" />
-                <ScalarProperty Name="Email" ColumnName="Email" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>

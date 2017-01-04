@@ -18,8 +18,8 @@ namespace Testing.Models
         public int Number { get; set; }
         public string Name { get; set; }
         public Nullable<System.DateTime> DateOfBirth { get; set; }
+        public Nullable<int> Age { get; set; }
         public string Address { get; set; }
         public string ContactNo { get; set; }
-        public string Email { get; set; }
     }
 }
