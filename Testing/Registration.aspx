@@ -1,15 +1,29 @@
 ﻿<%@ Page Language="C#" MasterPageFile="~/MasterPage.Master" AutoEventWireup="true" CodeBehind="Registration.aspx.cs" Inherits="Testing.Registration" %>
 
 <asp:Content ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
-    <asp:ScriptManager ID="ScriptManager1" runat="server">
-</asp:ScriptManager>
+
     <asp:CreateUserWizard ID="CreateUserWizard1" runat="server" OnCreatedUser="CreateUserWizard1_CreatedUser">
         <WizardSteps>
-            <asp:CreateUserWizardStep ID="CreateUserWizardStep1" runat="server" >
+            <asp:CreateUserWizardStep ID="CreateUserWizardStep1" runat="server">
                 <ContentTemplate>
                     <table>
                         <tr>
+                            
+                        </tr>
+                        <tr>
                             <td align="center" colspan="2">Sign Up for Your New Account</td>
+                        </tr>
+                        <tr>
+                            <td align="right">
+                                <asp:Label ID="Label1" runat="server" >Register As:</asp:Label>
+                            </td>
+                            <td>
+                                <asp:DropDownList runat="server" ID="registerAs">
+                                    <asp:ListItem Text="Member" Value="Members"></asp:ListItem>
+                                    <asp:ListItem Text="Artist" Value="Artists"></asp:ListItem>
+                                </asp:DropDownList>
+                            </td>
+                            
                         </tr>
                         <tr>
                             <td align="right">
@@ -53,7 +67,7 @@
                             </td>
                             <td>
                                 <asp:TextBox ID="Name" runat="server"></asp:TextBox>
-                               
+
                             </td>
                         </tr>
                         <tr>
@@ -62,42 +76,47 @@
                             </td>
                             <td>
                                 <asp:TextBox ID="Address" runat="server" TextMode="MultiLine"></asp:TextBox>
-                                
+
                             </td>
                         </tr>
                         <tr>
                             <td align="right">
-                                <asp:Label ID="Label2" runat="server" >DOB:</asp:Label>
+                                <asp:Label ID="Label2" runat="server">DOB:</asp:Label>
                             </td>
                             <td>
                                 <asp:UpdatePanel ID="UpdatePanel1" runat="server">
                                     <ContentTemplate>
-                                <asp:DropDownList runat="server" OnSelectedIndexChanged="updateDropDownList" ID="Month" AutoPostBack="True">
-                                    <asp:ListItem Value="1">Jan</asp:ListItem>
-                                    <asp:ListItem Value="2">Feb</asp:ListItem>
-                                    <asp:ListItem Value="3">Mar</asp:ListItem>
-                                    <asp:ListItem Value="4">Apr</asp:ListItem>
-                                    <asp:ListItem Value="5">May</asp:ListItem>
-                                    <asp:ListItem Value="6">Jun</asp:ListItem>
-                                    <asp:ListItem Value="7">Jul</asp:ListItem>
-                                    <asp:ListItem Value="8">Aug</asp:ListItem>
-                                    <asp:ListItem Value="9">Sep</asp:ListItem>
-                                    <asp:ListItem Value="10">Oct</asp:ListItem>
-                                    <asp:ListItem Value="11">Nov</asp:ListItem>
-                                    <asp:ListItem Value="12">Dec</asp:ListItem>
-                                </asp:DropDownList>
-                                  
-                                 <asp:DropDownList runat="server" ID="Day" >
-                                    </asp:DropDownList>
-                               <asp:DropDownList runat="server" ID="Year" >
-                                    </asp:DropDownList>
-                                        </ContentTemplate>
-                                    </asp:UpdatePanel>
+                                        <asp:DropDownList runat="server" OnSelectedIndexChanged="updateDropDownList" ID="Month" AutoPostBack="True">
+                                            <asp:ListItem Value=""></asp:ListItem>
+                                            <asp:ListItem Value="1">Jan</asp:ListItem>
+                                            <asp:ListItem Value="2">Feb</asp:ListItem>
+                                            <asp:ListItem Value="3">Mar</asp:ListItem>
+                                            <asp:ListItem Value="4">Apr</asp:ListItem>
+                                            <asp:ListItem Value="5">May</asp:ListItem>
+                                            <asp:ListItem Value="6">Jun</asp:ListItem>
+                                            <asp:ListItem Value="7">Jul</asp:ListItem>
+                                            <asp:ListItem Value="8">Aug</asp:ListItem>
+                                            <asp:ListItem Value="9">Sep</asp:ListItem>
+                                            <asp:ListItem Value="10">Oct</asp:ListItem>
+                                            <asp:ListItem Value="11">Nov</asp:ListItem>
+                                            <asp:ListItem Value="12">Dec</asp:ListItem>
+                                        </asp:DropDownList>
+
+                                        <asp:DropDownList runat="server" ID="Day">
+                                        </asp:DropDownList>
+                                        <asp:DropDownList runat="server" ID="Year">
+                                        </asp:DropDownList>
+                                    </ContentTemplate>
+                                </asp:UpdatePanel>
                             </td>
                         </tr>
-
                         <tr>
-                            <td align="center" colspan="2" style="color:Red;">
+                            <td align="center" colspan="2">
+                                <asp:CompareValidator ID="PasswordCompare" runat="server" ControlToCompare="Password" ControlToValidate="ConfirmPassword" Display="Dynamic" ErrorMessage="The Password and Confirmation Password must match." ValidationGroup="CreateUserWizard1"></asp:CompareValidator>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td align="center" colspan="2" style="color: Red;">
                                 <asp:Literal ID="ErrorMessage" runat="server" EnableViewState="False"></asp:Literal>
                             </td>
                         </tr>
