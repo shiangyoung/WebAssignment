@@ -9,6 +9,7 @@ using System.Web.Security;
 using System.Web.Profile;
 using System.Data.SqlClient;
 using System.Data;
+using Testing.Models;
 
 namespace Testing
 {
@@ -17,6 +18,8 @@ namespace Testing
         public string connectionString = ConfigurationManager.ConnectionStrings["ConnectionString"].ConnectionString;
         protected void Page_Load(object sender, EventArgs e)
         {
+            CreateUserWizard1.MoveTo(CreateUserWizardStep1);
+
             DropDownList Year = (DropDownList)CreateUserWizardStep1.ContentTemplateContainer.FindControl("Year");
             for (int i = 2003; i >= 1950; i--)
             {
@@ -68,9 +71,24 @@ namespace Testing
                 mycommand.Parameters.Add("Contact", SqlDbType.Int).Value = Contact;
                 myConnection.Open();
                 mycommand.ExecuteNonQuery();
+
+
                 myConnection.Close();
                 Roles.AddUserToRole(CreateUserWizard1.UserName, value);
+
+
+
             }
+
+            GalleryEntities1 _db = new GalleryEntities1();
+            CART cart = new Models.CART();
+            cart.UserId = newUserId;
+            cart.Date = DateTime.Now;
+            cart.Discount = 0;
+
+            _db.CARTs.Add(cart);
+            _db.SaveChanges();
+            HttpContext.Current.Session["CartId"] = cart.CartId;
         }
  
     protected void updateDropDownList(Object sender, EventArgs e)

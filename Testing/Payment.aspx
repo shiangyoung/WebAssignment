@@ -13,7 +13,7 @@
                     <br />
                     <br />
                      <asp:Label ID="Label2" runat="server" Text="Email :"></asp:Label>
-                    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
                     <asp:TextBox ID="txtboxEmail" runat="server"  Width="195px"></asp:TextBox>
                     <asp:RequiredFieldValidator ID="RequiredFieldValidator2" ControlToValidate="txtboxEmail" EnableClientScript="false" runat="server" ErrorMessage="Email is required!">*Email is required</asp:RequiredFieldValidator>
                     <br />
@@ -31,7 +31,7 @@
             <asp:ListItem>Visa</asp:ListItem>
             <asp:ListItem>Master</asp:ListItem>
         </asp:RadioButtonList>
-        <br />
+        <br />      
         <asp:Label ID="Label6" runat="server" Text="Credit Card Number:"></asp:Label>
         &nbsp;&nbsp;&nbsp;&nbsp;
         <asp:TextBox ID="txtboxCreditCard"  runat="server" Width="200px"></asp:TextBox>
@@ -42,8 +42,8 @@
         
         <br />
         <br />
-        <asp:Button ID="Button1" runat="server" Text="Submit" CommandName="Insert"/>
-        <asp:Button ID="Button2" runat="server" style="margin-left: 42px" Text="Clear" CommandName="Cancel" />
+        <asp:Button ID="Button1" runat="server" Text="Pay" CommandName="Insert"/>
+        <asp:Button ID="Button2" runat="server" style="margin-left: 22px" Text="Clear" CommandName="Cancel" />
 
         <%--<asp:Label ID="lblSummary" runat="server"></asp:Label>
         

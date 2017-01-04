@@ -178,6 +178,7 @@
     <Content Include="Scripts\jquery-1.9.1.js" />
     <Content Include="Scripts\jquery-1.9.1.min.js" />
     <Content Include="UpdateProfile.aspx" />
+    <Content Include="Artists\ViewSales.aspx" />
     <Content Include="Wishlistaspx.aspx" />
     <Content Include="XMLFile1.xml">
       <SubType>Designer</SubType>
@@ -374,6 +375,13 @@
     </Compile>
     <Compile Include="ViewGallery.aspx.designer.cs">
       <DependentUpon>ViewGallery.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Artists\ViewSales.aspx.cs">
+      <DependentUpon>ViewSales.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Artists\ViewSales.aspx.designer.cs">
+      <DependentUpon>ViewSales.aspx</DependentUpon>
     </Compile>
     <Compile Include="Wishlistaspx.aspx.cs">
       <DependentUpon>Wishlistaspx.aspx</DependentUpon>

@@ -22,8 +22,7 @@ namespace Testing.Logic
         public void AddToCart(int ProductId)
         {
             //retrive product from the database
-            ShoppingCartId = 9001;
-
+            ShoppingCartId = (int)HttpContext.Current.Session[CartSessionKey];
             //This is to check if the cart has the item already or not
             var cartItem = _db.CARTITEMs.SingleOrDefault(
                 c => c.CartId == ShoppingCartId &&
@@ -56,7 +55,6 @@ namespace Testing.Logic
             
             MembershipUser membershipUser = Membership.GetUser("Username");
             Guid userId = new Guid();
-            
             if(membershipUser != null)
             {
                 
@@ -68,7 +66,7 @@ namespace Testing.Logic
                 //create the new cart id
                 CART cart = new CART
                 {
-                    CartId = 9001,
+                   
                     Date = DateTime.Today,
                     Discount = 0,
                     UserId = userId

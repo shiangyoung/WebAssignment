@@ -18,9 +18,12 @@
     <br />
     <br />
     <asp:Button ID="Button1"  runat="server" Text="Print Receipt" OnClick="Button1_Click" />
-     <br />
+
     <br />
     <br />
-    <asp:HyperLink ID="HyperLink2" runat="server">Return Home</asp:HyperLink>
+    <br />
+    <asp:HyperLink ID="HyperLink2" runat="server" NavigateUrl="~/ViewGallery.aspx">Return Home</asp:HyperLink>
+ 
 
 </asp:Content>
+

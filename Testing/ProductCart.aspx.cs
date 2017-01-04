@@ -13,8 +13,14 @@ namespace Testing
 {
     public partial class ProductCart : System.Web.UI.Page
     {
+        MembershipUser u;
+
+        
+
         protected void Page_Load(object sender, EventArgs e)
         {
+            u = Membership.GetUser(User.Identity.Name);
+
             using (ShoppingCart shoppingCart = new ShoppingCart())
             {
                 decimal cartTotal = 0;
@@ -93,18 +99,17 @@ namespace Testing
 
         protected void btnPayment_Click(object sender, EventArgs e)
         {
-            
+
             GalleryEntities1 _db = new GalleryEntities1();
             ShoppingCart cs = new ShoppingCart();
             List<CARTITEM> orderItem = cs.GetCartItems();
-            Guid currentId = (Guid)Membership.GetUser().ProviderUserKey;
 
             ORDER order = new ORDER
             {
                 date = DateTime.Now,
                 discount = 0,
-                UserId = currentId,
-               
+                UserId = (Guid)u.ProviderUserKey,
+                //PaymentId = null,
                 status = "pending"
             };
             _db.ORDERs.Add(order);
@@ -114,16 +119,21 @@ namespace Testing
                 for (int i = 0; i < orderItem.Count(); i++)
                 {
                     ORDERDETAIL orderDetail = new ORDERDETAIL();
+                    
+                
                     orderDetail.ProductId = orderItem[i].ProductId;
                     orderDetail.OrderId = order.OrderId;
                     orderDetail.Quantity = orderItem[i].Quantity;
-                    orderDetail.TotalPrice = orderItem[i].TotalPrice;
+                    orderDetail.TotalPrice = (orderItem[i].Quantity * _db.PRODUCTs.Find(orderItem[i].ProductId).Price);
 
                     _db.ORDERDETAILs.Add(orderDetail);
                     _db.SaveChanges();
                 }
             Session["total"] = cs.GetTotal().ToString();
             Session["orderid"] = order.OrderId.ToString();
+
+            cs.EmptyCart();
+
             Response.Redirect("~/Payment.aspx");
         }
 
