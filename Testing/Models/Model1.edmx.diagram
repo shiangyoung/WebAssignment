@@ -4,11 +4,11 @@
   <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
     <!-- Diagram content (shape and connector positions) -->
     <edmx:Diagrams>
-      <Diagram DiagramId="768e0f9df6fc4185b516b91198a45b7f" Name="Diagram1">
-        <EntityTypeShape EntityType="GalleryModel.ARTIST" Width="1.5" PointX="0.75" PointY="3.625" IsExpanded="true" />
+      <Diagram DiagramId="4ff06db73a3047a4a2665f5d03d5892a" Name="Diagram1">
+        <EntityTypeShape EntityType="GalleryModel.ARTIST" Width="1.5" PointX="0.75" PointY="3.5" IsExpanded="true" />
         <EntityTypeShape EntityType="GalleryModel.CART" Width="1.5" PointX="3" PointY="10.875" IsExpanded="true" />
         <EntityTypeShape EntityType="GalleryModel.CARTITEM" Width="1.5" PointX="5.25" PointY="3.75" IsExpanded="true" />
-        <EntityTypeShape EntityType="GalleryModel.CATEGORY" Width="1.5" PointX="0.75" PointY="1" IsExpanded="true" />
+        <EntityTypeShape EntityType="GalleryModel.CATEGORY" Width="1.5" PointX="0.75" PointY="9" IsExpanded="true" />
         <EntityTypeShape EntityType="GalleryModel.CUSTOMER" Width="1.5" PointX="5.75" PointY="7" IsExpanded="true" />
         <EntityTypeShape EntityType="GalleryModel.ORDER" Width="1.5" PointX="3" PointY="7.75" IsExpanded="true" />
         <EntityTypeShape EntityType="GalleryModel.ORDERDETAIL" Width="1.5" PointX="5.25" PointY="0.75" IsExpanded="true" />

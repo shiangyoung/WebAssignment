@@ -24,7 +24,9 @@ namespace Testing.Models
         public int Number { get; set; }
         public string Name { get; set; }
         public Nullable<int> Age { get; set; }
+        public Nullable<System.DateTime> DateOfBirth { get; set; }
         public string ContactNo { get; set; }
+        public string Address { get; set; }
         public string BankDetails { get; set; }
     
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]

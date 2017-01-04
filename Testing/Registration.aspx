@@ -2,7 +2,7 @@
 
 <asp:Content ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
 
-    <asp:CreateUserWizard ID="CreateUserWizard1" runat="server" OnCreatedUser="CreateUserWizard1_CreatedUser" ActiveStepIndex="1">
+    <asp:CreateUserWizard ID="CreateUserWizard1" runat="server" OnCreatedUser="CreateUserWizard1_CreatedUser">
         <WizardSteps>
             <asp:CreateUserWizardStep ID="CreateUserWizardStep1" runat="server">
                 <ContentTemplate>
@@ -64,16 +64,25 @@
                             </td>
                             <td>
                                 <asp:TextBox ID="Name" runat="server"></asp:TextBox>
-
+                                <asp:RequiredFieldValidator ID="RequiredFieldValidator1" runat="server" ControlToValidate="Name" ErrorMessage="Name is required." ToolTip="Name is required." ValidationGroup="CreateUserWizard1">*</asp:RequiredFieldValidator>
                             </td>
                         </tr>
                         <tr>
                             <td align="right">
-                                <asp:Label ID="Label5" runat="server" AssociatedControlID="Address">Address:</asp:Label>
+                                <asp:Label ID="Label3" runat="server" AssociatedControlID="Address">Contact:</asp:Label>
+                            </td>
+                            <td>
+                                <asp:TextBox ID="Contact" runat="server" ></asp:TextBox>
+                                <asp:RequiredFieldValidator ID="RequiredFieldValidator3" runat="server" ControlToValidate="Contact" ErrorMessage="Contact is required." ToolTip="Contact is required." ValidationGroup="CreateUserWizard1">*</asp:RequiredFieldValidator>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td align="right">
+                                <asp:Label ID="AddressLabel" runat="server" AssociatedControlID="Address">Address:</asp:Label>
                             </td>
                             <td>
                                 <asp:TextBox ID="Address" runat="server" TextMode="MultiLine"></asp:TextBox>
-
+                                <asp:RequiredFieldValidator ID="RequiredFieldValidator2" runat="server" ControlToValidate="Address" ErrorMessage="Address is required." ToolTip="Address is required." ValidationGroup="CreateUserWizard1">*</asp:RequiredFieldValidator>
                             </td>
                         </tr>
                         <tr>

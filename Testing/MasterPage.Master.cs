@@ -17,11 +17,12 @@ namespace Testing
         public string connectionString = ConfigurationManager.ConnectionStrings["ConnectionString"].ConnectionString;
         protected void Page_Load(object sender, EventArgs e)
         {
+           
             if (HttpContext.Current.User != null && HttpContext.Current.User.Identity.IsAuthenticated)
             {
-
-               
-
+                MembershipUser u = Membership.GetUser(HttpContext.Current.User.Identity.Name);
+                String name = u.UserName;
+                String id = u.ProviderUserKey.ToString();
                 PanelLogin.Style.Add("display", "none");
                 btnLogin.Visible = false;
                 btnRegister.Visible = false;
