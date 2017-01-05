@@ -128,7 +128,10 @@ namespace Testing
                 artist.Address = tbAddress.Text;
                 artist.Age = Age;
                 artist.DateOfBirth = DOB;
-                TryUpdateModel(artist);
+                _db.ARTISTs.Attach(artist);
+                _db.Entry(artist).State = System.Data.Entity.EntityState.Modified;
+                _db.SaveChanges();
+                
             }
             else
             {

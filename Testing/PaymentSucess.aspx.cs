@@ -243,8 +243,11 @@ namespace Testing
                         pdfDoc1.Close();
                         byte[] bytes = memoryStream.ToArray();
                         memoryStream.Close();
-
-                        MailMessage mm = new MailMessage("classrepteam@gmail.com", "edwinteo96@gmail.com");
+                        
+                        MembershipUser    u = Membership.GetUser(User.Identity.Name);
+                        _db = new Models.GalleryEntities1();
+                        
+                        MailMessage mm = new MailMessage("classrepteam@gmail.com", u.Email);
                         mm.Subject = "Receipt PDF";
                         mm.Body = "Receipt PDF Attachment";
                         mm.Attachments.Add(new Attachment(new MemoryStream(bytes), "ReceiptPDF.pdf"));
@@ -258,7 +261,13 @@ namespace Testing
                         smtp.UseDefaultCredentials = true;
                         smtp.Credentials = NetworkCred;
                         smtp.Port = 587;
-                        smtp.Send(mm);
+                        try {
+                            smtp.Send(mm);
+                        }catch(Exception ex)
+                        {
+                            Console.Write(ex.StackTrace);
+                        }
+                        
 
                     }
                 }

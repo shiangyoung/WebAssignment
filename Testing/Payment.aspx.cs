@@ -11,16 +11,30 @@ namespace Testing
 {
     public partial class Payment : System.Web.UI.Page
     {
+        CUSTOMER customer;
+        ARTIST artist;
         protected void Page_Load(object sender, EventArgs e)
         {
             MembershipUser u;
 
             u = Membership.GetUser(User.Identity.Name);
-            String key = u.ProviderUserKey.ToString();
-            GalleryEntities1 _db = new GalleryEntities1();
-            CUSTOMER customer = _db.CUSTOMERs.Find(key);
+            Guid key = (Guid)u.ProviderUserKey;
+            String keyString = key.ToString();
             TextBox address = (TextBox)FormViewPayment.FindControl("txtboxAddress");
-            address.Text = customer.Address;
+            GalleryEntities1 _db = new GalleryEntities1();
+            if (Roles.IsUserInRole("Artists"))
+            {
+                artist = _db.ARTISTs.Find(key);
+                address.Text = artist.Address;
+            }
+            else
+            {
+                customer = _db.CUSTOMERs.Find(key);
+                address.Text = customer.Address;
+            }
+            
+            
+            
             //address.Text = u.a
             TextBox email = (TextBox) FormViewPayment.FindControl("txtboxEmail");
             email.Text = u.Email;
