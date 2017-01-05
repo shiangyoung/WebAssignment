@@ -153,7 +153,7 @@
                         <asp:Button ID="btnLogin" Text="LOGIN" runat="server" BorderWidth="1" BorderColor="White" Height="30px" Width="120px" ForeColor="White" BackColor="Transparent" />
                     </div>
                     <div style="float:left" class="loginButtonClass">
-                        <asp:Button ID="btnLogout" Text="LOGUT" runat="server" Visible="false" OnClick="btnLogout_Click" BorderWidth="1" BorderColor="White" Height="30px" Width="120px" ForeColor="White" BackColor="Transparent"/>
+                        <asp:Button ID="btnLogout" Text="LOGOUT" runat="server" Visible="false" OnClick="btnLogout_Click" BorderWidth="1" BorderColor="White" Height="30px" Width="120px" ForeColor="White" BackColor="Transparent"/>
                     </div>
                     <div style="float:left;margin-left:10px" class="loginButtonClass">
                         <asp:Button ID="btnRegister" Text="REGISTER" runat="server" OnClick="btnRegister_Click" BorderWidth="1" BorderColor="White" Height="30px" Width="120px" ForeColor="White" BackColor="Transparent" />

@@ -25,7 +25,7 @@
                 Price <span style="margin-left:10px;margin-right:10px"> :</span> 
                 <asp:TextBox ID="txtPrice" runat="server" Text='<%# Bind("Price") %>'></asp:TextBox>
                 <asp:RequiredFieldValidator ID="RequiredFieldValidator5" runat="server" ErrorMessage="Price field cannot be blank" Text="*" Display="Dynamic" EnableClientScript="false" ControlToValidate="txtPrice"></asp:RequiredFieldValidator>
-                <asp:RegularExpressionValidator ID="RegularExpressionValidator1" runat="server" ErrorMessage="RegularExpressionValidator" ControlToValidate="txtPrice" Text="*" Display="Dynamic" EnableClientScript="false" ValidationExpression="^\d+(,\d{1,2})?$"></asp:RegularExpressionValidator>
+                <asp:RegularExpressionValidator ID="RegularExpressionValidator1" runat="server" ErrorMessage="Invalid format" ControlToValidate="txtPrice" Text="*" Display="Dynamic" EnableClientScript="false" ValidationExpression="^\$?(?=\(.*\)|[^()]*$)\(?\d{1,3}(,?\d{3})?(\.\d\d?)?\)?$"></asp:RegularExpressionValidator>
                 <br />
                 Category <span style="margin-left:10px;margin-right:10px"> :</span>   
                 <asp:DropDownList ID="DropDownList1" runat="server" DataSourceID="SqlDataSource1" DataTextField="Name" DataValueField="CategoryId" SelectedValue='<%# Bind("CategoryId") %>'>

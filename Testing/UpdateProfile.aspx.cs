@@ -147,6 +147,7 @@ namespace Testing
         protected void ContinuePushButton_Click(object sender, EventArgs e)
         {
             FormsAuthentication.SignOut();
+            HttpContext.Current.Session.Clear();
             Response.Redirect("~/Login.aspx");
         }
     }

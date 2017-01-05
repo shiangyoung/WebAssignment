@@ -250,7 +250,13 @@ namespace Testing
                         smtp.UseDefaultCredentials = true;
                         smtp.Credentials = NetworkCred;
                         smtp.Port = 587;
-                        smtp.Send(mm);
+                        try {
+                            smtp.Send(mm);
+                        }catch(Exception ex)
+                        {
+                            Console.WriteLine(ex.StackTrace);
+                        }
+                       
 
                     }
                 }

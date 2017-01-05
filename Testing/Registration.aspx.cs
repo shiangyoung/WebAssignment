@@ -68,7 +68,7 @@ namespace Testing
                 mycommand.Parameters.Add("DateOfBirth", SqlDbType.Date).Value = DOB.Date;
                 mycommand.Parameters.Add("UserId", SqlDbType.UniqueIdentifier).Value = newUserId;
                 mycommand.Parameters.Add("Age", SqlDbType.Int).Value = Age;
-                mycommand.Parameters.Add("Contact", SqlDbType.Int).Value = Contact;
+                mycommand.Parameters.Add("Contact", SqlDbType.VarChar).Value = Contact;
                 myConnection.Open();
                 mycommand.ExecuteNonQuery();
 
@@ -125,7 +125,9 @@ namespace Testing
 
         protected void ContinueButton_Click(object sender, EventArgs e)
         {
-            Response.Redirect("~/ViewGallery.aspx");
+            FormsAuthentication.SignOut();
+            HttpContext.Current.Session.Clear();
+            Response.Redirect("~/Login.aspx");
         }
     }
 }
