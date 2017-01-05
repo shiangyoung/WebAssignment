@@ -13,6 +13,8 @@ using iTextSharp.text;
 using iTextSharp.text.pdf;
 using iTextSharp.text.html.simpleparser;
 using System.Net.Mail;
+using System.Web.Security;
+using Testing.Logic;
 
 namespace Testing
 {
@@ -20,8 +22,8 @@ namespace Testing
     {  
 
         protected void GenerateInvoicePDF(object sender, EventArgs e)
-        {
-            
+        {   
+
             string companyName = "Gallery Website";
             string address = Convert.ToString(Session["address"]);
             int orderid = Convert.ToInt32(Session["orderid"]);
@@ -117,6 +119,12 @@ namespace Testing
 
         protected void Page_Load(object sender, EventArgs e)
         {
+
+            using (ShoppingCart shoppingCart = new ShoppingCart())
+            {
+                shoppingCart.EmptyCart();
+            }
+
             int orderid = Convert.ToInt32(Session["orderid"]);
             DataTable dt = new DataTable();
             dt.Columns.AddRange(new DataColumn[4] { new DataColumn("ProductId", typeof(int)),
@@ -235,8 +243,11 @@ namespace Testing
                         pdfDoc1.Close();
                         byte[] bytes = memoryStream.ToArray();
                         memoryStream.Close();
-
-                        MailMessage mm = new MailMessage("classrepteam@gmail.com", "edwinteo96@gmail.com");
+                        
+                        MembershipUser    u = Membership.GetUser(User.Identity.Name);
+                        _db = new Models.GalleryEntities1();
+                        
+                        MailMessage mm = new MailMessage("classrepteam@gmail.com", u.Email);
                         mm.Subject = "Receipt PDF";
                         mm.Body = "Receipt PDF Attachment";
                         mm.Attachments.Add(new Attachment(new MemoryStream(bytes), "ReceiptPDF.pdf"));
@@ -254,9 +265,9 @@ namespace Testing
                             smtp.Send(mm);
                         }catch(Exception ex)
                         {
-                            Console.WriteLine(ex.StackTrace);
+                            Console.Write(ex.StackTrace);
                         }
-                       
+                        
 
                     }
                 }
