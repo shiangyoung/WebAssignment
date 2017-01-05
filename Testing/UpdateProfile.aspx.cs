@@ -18,11 +18,11 @@ namespace Testing
         GalleryEntities1 _db;
         protected void Page_Load(object sender, EventArgs e)
         {
-            
-            u = Membership.GetUser(User.Identity.Name);
-             _db = new Models.GalleryEntities1();
 
-            Guid key = (Guid) u.ProviderUserKey;
+            u = Membership.GetUser(User.Identity.Name);
+            _db = new Models.GalleryEntities1();
+
+            Guid key = (Guid)u.ProviderUserKey;
             String keyString = key.ToString();
             if (Roles.IsUserInRole("Artists"))
             {
@@ -40,15 +40,16 @@ namespace Testing
             if (!IsPostBack)
             {
                 tbEmail.Text = u.Email;
-                
+
                 if (artist != null)
                 {
                     tbName.Text = artist.Name;
                     tbAddress.Text = artist.Address;
                     tbContact.Text = artist.ContactNo;
-                    date= (DateTime) artist.DateOfBirth;
-                    
-                }else
+                    date = (DateTime)artist.DateOfBirth;
+
+                }
+                else
                 {
                     tbName.Text = customer.Name;
                     tbAddress.Text = customer.Address;
@@ -59,12 +60,13 @@ namespace Testing
                 ddlMonth.SelectedValue = date.Month.ToString();
                 updateDay();
             }
+
         }
 
         protected void updateDropDownList(object sender, EventArgs e)
         {
             updateDay();
-            
+
         }
 
         private void updateDay()
@@ -86,6 +88,7 @@ namespace Testing
                     ListItem item = new ListItem(i + "", i + "");
                     ddlDay.Items.Add(item);
                 }
+
             }
             else
             {
@@ -126,7 +129,8 @@ namespace Testing
                 artist.Age = Age;
                 artist.DateOfBirth = DOB;
                 TryUpdateModel(artist);
-            }else
+            }
+            else
             {
                 customer.ContactNo = tbContact.Text;
                 customer.Name = tbName.Text;

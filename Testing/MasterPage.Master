@@ -6,6 +6,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head runat="server">
     <title></title>
+     <link href="/Content/bootstrap.css" rel="stylesheet" />
     <style type="text/css">
         .modalBackround {
             background-color: black;
@@ -70,6 +71,8 @@
             }
     </style>
     <link rel="stylesheet" href="Style/StyleSheet.css" type="text/css" />
+    <script src="Scripts/jquery-1.9.1.min.js"></script>
+    <script src="Scripts/bootstrap.min.js"></script>
     <asp:ContentPlaceHolder ID="head" runat="server">
     </asp:ContentPlaceHolder>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
@@ -111,7 +114,7 @@
             <div id="banner">
                 <asp:Image ID="Image1" runat="server" ImageUrl="~/Images/banner.jpg" Width="100%" />
             </div>
-            <div id="navigation">
+            <div id="navigation" style="margin-top:-10px">
                 <ul id="nav">
                     <li>
                         <asp:HyperLink ID="HyperLink1" runat="server" NavigateUrl="~/ViewGallery.aspx">Homepage</asp:HyperLink>
@@ -121,6 +124,8 @@
                     <li>
                         <asp:HyperLink ID="li_myaccount" runat="server">My Account</asp:HyperLink>
                         <ul class="sub-menu">
+                             <li>
+                                <asp:HyperLink ID="HyperLink9" runat="server" NavigateUrl="~/UpdateProfile.aspx">Update Profile</asp:HyperLink></li>
                             <li>
                                 <asp:HyperLink ID="HyperLink5" runat="server" NavigateUrl="~/Wishlistaspx.aspx">My Wishlist</asp:HyperLink></li>
                             <li>
@@ -128,7 +133,7 @@
                             <li>
                                 <asp:HyperLink ID="HyperLink3" runat="server" NavigateUrl="~/OrderDetails.aspx">Purchase History</asp:HyperLink></li>
                             <li id="li_sales" runat="server">
-                                <asp:HyperLink ID="HyperLink7" runat="server" NavigateUrl="~/ViewSales.aspx">My Sales</asp:HyperLink></li>
+                                <asp:HyperLink ID="HyperLink7" runat="server" NavigateUrl="~/Artists/ViewSales.aspx">My Sales</asp:HyperLink></li>
                         </ul>
                     </li>
                     <li>
