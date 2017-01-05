@@ -132,7 +132,7 @@ namespace Testing
             Session["total"] = cs.GetTotal().ToString();
             Session["orderid"] = order.OrderId.ToString();
 
-            cs.EmptyCart();
+            
 
             Response.Redirect("~/Payment.aspx");
         }

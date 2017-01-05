@@ -16,8 +16,11 @@ namespace Testing
             MembershipUser u;
 
             u = Membership.GetUser(User.Identity.Name);
-
+            String key = u.ProviderUserKey.ToString();
+            GalleryEntities1 _db = new GalleryEntities1();
+            CUSTOMER customer = _db.CUSTOMERs.Find(key);
             TextBox address = (TextBox)FormViewPayment.FindControl("txtboxAddress");
+            address.Text = customer.Address;
             //address.Text = u.a
             TextBox email = (TextBox) FormViewPayment.FindControl("txtboxEmail");
             email.Text = u.Email;
@@ -29,11 +32,13 @@ namespace Testing
         }
 
         public void FormViewPayment_InsertItem()
-        {
+        {   
             String orderid = (String)Session["orderid"];
             int orderidInt = Convert.ToInt32(Session["orderid"]);
             TextBox address = (TextBox)FormViewPayment.FindControl("txtboxAddress");
             Session["address"] = address.Text;
+
+
 
             using (var _db1 = new GalleryEntities1())
             {
@@ -75,6 +80,25 @@ namespace Testing
 
         }
 
-       
+        protected void Button1_Click(object sender, EventArgs e)
+        {   
+            RadioButtonList rbl = (RadioButtonList) FormViewPayment.FindControl("rblType");
+            RegularExpressionValidator regexValid = (RegularExpressionValidator)FormViewPayment.FindControl("RegularExpressionValidator3");
+            string x = rbl.Text.ToString();
+            if (x == "Visa")
+            {
+                regexValid.ValidationExpression = @"^4\d{13}$";
+            }
+            else if (x == "Master")
+            {
+                regexValid.ValidationExpression = @"^5\d{13}$";
+            }
+
+
+            //if (Page.IsValid)
+            //{
+            //    lblSummary.Text = Label1.Text + ":" + txtUserName.Text.ToString() + "\n" + Label2.Text + ":" + txtPassword.Text.ToString() + "\n" + Label3.Text + ":" + txtAge.Text.ToString() + "\n" + Label4.Text + ":" + txtDob.Text.ToString() + "\n" + Label6.Text + ":" + txtCreditCard.Text.ToString();
+            //}
+        }
     }
 }

@@ -39,10 +39,10 @@
         <asp:RequiredFieldValidator runat="server" ErrorMessage="Credit Card Number is required" ControlToValidate="txtboxCreditCard" EnableClientScript="false">*Credit Card Number is required</asp:RequiredFieldValidator>
         
         <asp:RegularExpressionValidator ID="RegularExpressionValidator3"  ControlToValidate="txtboxCreditCard" runat="server" ErrorMessage="Invalid Credit Card Number" EnableClientScript="false" ValidationExpression="\d{14}">*Invalid Credit Card Number</asp:RegularExpressionValidator>
-        
+                    
         <br />
         <br />
-        <asp:Button ID="Button1" runat="server" Text="Pay" CommandName="Insert"/>
+        <asp:Button ID="Button1" runat="server" Text="Pay" CommandName="Insert" OnClick="Button1_Click"/>
         <asp:Button ID="Button2" runat="server" style="margin-left: 22px" Text="Clear" CommandName="Cancel" />
 
         <%--<asp:Label ID="lblSummary" runat="server"></asp:Label>
